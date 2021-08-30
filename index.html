@@ -68,51 +68,43 @@
 
 
 
-        <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
+               <table style="width:100%;border:0px;border-spacing:0px;border-collapse:separate;margin-right:auto;margin-left:auto;"><tbody>
 
 <!--tpGAN-->
 <!--        -->
-          <tr onmouseout="tpgan_stop()" onmouseover="tpgan_start()"  bgcolor="#ffffff">
+          <tr onmouseout="dense_stop()" onmouseover="dense_start()"  bgcolor="#ffffff">
             <td style="padding:20px;width:25%;vertical-align:middle">
               <div class="one">
-                <div class="two" id='tpgan_image'>
-                <img src="images/tpgans2.gif" width="160">
+                <div class="two" id='dense_image'>
+                <img src="images/dense1.gif" width="160">
                 </div>
-                <img src='images/tpgan3.png' width="160">
+                <img src='images/dense2.png' width="160">
               </div>
               <script type="text/javascript">
-                function tpgan_start() {
-                  document.getElementById('tpgan_image').style.opacity = "1";
+                function dense_start() {
+                  document.getElementById('dense_image').style.opacity = "1";
                 }
 
-                function tpgan_stop() {
-                  document.getElementById('tpgan_image').style.opacity = "0";
+                function dense_stop() {
+                  document.getElementById('dense_image').style.opacity = "0";
                 }
-                tpgan_stop()
+                dense_stop()
               </script>
             </td>
             <td style="padding:20px;width:75%;vertical-align:middle">
-              <a href="https://arxiv.org/abs/2103.09996">
-                <papertitle>Rapid treatment planning for low-dose-rate prostate brachytherapy with TP-GAN</papertitle><font color="red"><strong> (Accepted)</strong></font>
+              <a href="https://openaccess.thecvf.com/content_CVPRW_2019/papers/Media%20Forensics/Rafi_Application_of_DenseNet_in_Camera_Model_Identification_and_Post-processing_Detection_CVPRW_2019_paper.pdf">
+                <papertitle>Application of DenseNet in Camera Model Identification and Post-processing Detection</papertitle>
               </a>
               <br>
-             <strong>Tajwar Abrar Aleef</strong>,
-              <a href="https://bmiai.ubc.ca/people/ingrid-spadinger">Ingrid T. Spadinger</a>,
-              <a href="https://surgery.med.ubc.ca/people/m-peacock//">Michael D. Peacock</a>,
-              <a href="https://scholar.google.com/citations?user=kpp_A9wAAAAJ&hl=en&oi=ao/">Septimiu E. Salcudean</a>,
-              <a href="https://scholar.google.com/citations?user=cA0ELoQAAAAJ&hl=en/">S. Sara Mahdavi</a>
+             <strong>Abdul Muntakim Rafi</strong>, Uday Kamal, Rakibul Hoque, Abid Abrar, Sowmitra Das, Robert Laganiere, Md Kamrul Hasan
               <br>
 
-              <a href="https://miccai2021.org/en/"><em>MICCAI</em></a>, 2021 &nbsp
+              <a href="https://openaccess.thecvf.com/content_CVPRW_2019/papers/Media%20Forensics/Rafi_Application_of_DenseNet_in_Camera_Model_Identification_and_Post-processing_Detection_CVPRW_2019_paper.pdf"><em>CVPR</em></a>, 2019 &nbsp
               <br>
-              [<a href="https://arxiv.org/abs/2103.09996">arXiv</a>
-              /
-              <a href="https://github.com/tajwarabraraleef/TP-GAN">Code</a>]
+              [<a href="https://github.com/muntakimrafi/Application-of-DenseNet-in-Camera-Model-Identification-and-Post-processing-Detection">Code</a>]
 
               <p></p>
-                An end-to-end framework capable of generating treatment plans for low-dose-rate prostate
-                brachytherapy within seconds as opposed to current standard of manually creating plans that takes
-                on average over 20 min. This is done using GANs and custom application specific loss function.
+                Camera model identification has earned paramount importance in the field of image forensics with an upsurge of digitally altered images which are constantly being shared through websites, media, and social applications. But, the task of identification becomes quite challenging if metadata are absent from the image and/or if the image has been postprocessed. In this paper, we present a DenseNet pipeline to solve the problem of identifying the source cameramodel of an image. Our approach is to extract patches of 256× 256 from a labeled image dataset and apply augmentations, ie, Empirical Mode Decomposition (EMD). We use this extended dataset to train a Neural Network with the DenseNet-201 architecture. We concatenate the output features for 3 different sizes (64× 64, 128× 128, 256× 256) and pass them to a secondary network to make the final prediction. This strategy proves to be very robust for identifying the source camera model, even when the original image is post-processed. Our model has been trained and tested on the Forensic Camera-Model Identification Dataset provided for the IEEE Signal Processing (SP) Cup 2018. During testing we achieved an overall accuracy of 98.37%, which is the current state-of-the-art on this dataset using a single model. We used transfer learning and tested our model on the Dresden Database for Camera Model Identification, with an overall test accuracy of over 99% for 19 models. In addition, we demonstrate that the proposed pipeline is suitable for other image-forensic classification tasks, such as, detecting the type of post-processing applied to an image with an accuracy of 96.66%–which …
             </td>
           </tr> 
 
