@@ -63,9 +63,31 @@
   unicode-range: U+0000-00FF, U+0131, U+0152-0153, U+02BB-02BC, U+02C6, U+02DA, U+02DC, U+2000-206F, U+2074, U+20AC, U+2122, U+2191, U+2193, U+2212, U+2215, U+FEFF, U+FFFD;
 }
 
+/* ============================================
+   RESET & BASE
+   ============================================ */
+*, *::before, *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 16px;
+  line-height: 1.6;
+  color: #333;
+  background-color: #f0f0f0;
+  -webkit-font-smoothing: antialiased;
+}
+
+/* ============================================
+   LINKS
+   ============================================ */
 a {
   color: #1772d0;
   text-decoration: none;
+  transition: color 0.2s ease;
 }
 
 a:focus,
@@ -74,45 +96,424 @@ a:hover {
   text-decoration: none;
 }
 
-body,
-td,
-th,
-tr,
-a {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 13px
+/* ============================================
+   LAYOUT
+   ============================================ */
+.container {
+  max-width: 860px;
+  margin: 0 auto;
+  background-color: #fff;
+  padding: 0;
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
 }
 
-
-p{
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 14px
+/* ============================================
+   HEADER / BIO
+   ============================================ */
+.bio-section {
+  display: flex;
+  align-items: center;
+  gap: 30px;
+  padding: 40px 40px 30px;
 }
 
+.bio-text {
+  flex: 1;
+}
 
-strong {
+.bio-text h1 {
   font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 34px;
+  font-weight: 900;
+  text-align: center;
+  margin-bottom: 16px;
+  color: #222;
+}
+
+.bio-text p {
+  font-size: 15px;
+  line-height: 1.7;
+  margin-bottom: 12px;
+  color: #444;
+}
+
+.bio-links {
+  text-align: center;
+  margin-top: 14px;
+  font-size: 15px;
+}
+
+.bio-links a {
+  margin: 0 4px;
+}
+
+.bio-photo {
+  flex-shrink: 0;
+  width: 200px;
+}
+
+.bio-photo img {
+  width: 100%;
+  border-radius: 50%;
+}
+
+/* ============================================
+   SECTIONS
+   ============================================ */
+section {
+  padding: 20px 40px 30px;
+}
+
+section h2 {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 26px;
+  font-weight: 900;
+  color: #222;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+  border-bottom: 2px solid #eee;
+}
+
+section h3 {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 18px;
+  font-weight: 700;
+  color: #555;
+  margin: 24px 0 12px;
+}
+
+/* ============================================
+   EDUCATION
+   ============================================ */
+.education-item {
+  display: flex;
+  align-items: flex-start;
+  gap: 12px;
+  margin-bottom: 14px;
+  padding: 10px 0;
+}
+
+.education-item .degree {
+  font-weight: 700;
+  font-size: 15px;
+  color: #333;
+}
+
+.education-item .school {
+  font-size: 14px;
+  color: #555;
+}
+
+.education-item .year {
+  font-size: 13px;
+  color: #888;
+  white-space: nowrap;
+  min-width: 100px;
+}
+
+/* ============================================
+   PUBLICATIONS (with image thumbnails)
+   ============================================ */
+.pub-item {
+  display: flex;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f5f5f5;
+}
+
+.pub-item:last-child {
+  border-bottom: none;
+}
+
+.pub-thumb {
+  flex-shrink: 0;
+  width: 160px;
+  height: 160px;
+  position: relative;
+}
+
+.pub-thumb .one {
+  width: 160px;
+  height: 160px;
+  position: relative;
+}
+
+.pub-thumb .two {
+  width: 160px;
+  height: 160px;
+  position: absolute;
+  top: 0;
+  left: 0;
+  transition: opacity 0.2s ease-in-out;
+}
+
+.pub-thumb img {
+  width: 160px;
+  display: block;
+}
+
+.pub-details {
+  flex: 1;
+  min-width: 0;
+}
+
+.pub-details .pub-title {
+  font-family: 'Lato', Verdana, Helvetica, sans-serif;
+  font-size: 15px;
+  font-weight: 700;
+  color: #1772d0;
+  display: inline;
+}
+
+.pub-details .pub-title:hover {
+  color: #f09228;
+}
+
+.pub-details .pub-authors {
+  font-size: 14px;
+  color: #555;
+  margin: 6px 0 4px;
+  line-height: 1.5;
+}
+
+.pub-details .pub-venue {
+  font-size: 14px;
+  font-style: italic;
+  margin-bottom: 4px;
+}
+
+.pub-details .pub-links {
+  font-size: 13px;
+  margin-top: 4px;
+}
+
+.pub-details .pub-links a {
+  margin-right: 8px;
+}
+
+.pub-details .pub-abstract {
+  font-size: 13px;
+  color: #666;
+  margin-top: 8px;
+  line-height: 1.5;
+}
+
+/* Publication legend */
+.pub-legend {
+  font-size: 13px;
+  color: #777;
+  margin-bottom: 4px;
+}
+
+/* Text-only publication items (no thumbnail) */
+.pub-text-item {
+  padding: 8px 0 8px 0;
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.pub-text-item:last-child {
+  border-bottom: none;
+}
+
+/* ============================================
+   WORK EXPERIENCE
+   ============================================ */
+.experience-item {
+  display: flex;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f5f5f5;
+  align-items: center;
+}
+
+.experience-item:last-child {
+  border-bottom: none;
+}
+
+.experience-logo {
+  flex-shrink: 0;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.experience-logo img {
+  max-width: 120px;
+  max-height: 80px;
+}
+
+.experience-details {
+  flex: 1;
+}
+
+.experience-details .exp-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 4px;
+}
+
+.experience-details .exp-period {
+  font-size: 13px;
+  color: #888;
+  margin-bottom: 6px;
+}
+
+.experience-details .exp-desc {
+  font-size: 14px;
+  color: #555;
+  line-height: 1.5;
+}
+
+/* ============================================
+   TEACHING
+   ============================================ */
+.teaching-block {
+  display: flex;
+  gap: 20px;
+  padding: 16px 0;
+  border-bottom: 1px solid #f5f5f5;
+  align-items: flex-start;
+}
+
+.teaching-block:last-child {
+  border-bottom: none;
+}
+
+.teaching-logo {
+  flex-shrink: 0;
+  width: 120px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.teaching-logo img {
+  max-width: 120px;
+  max-height: 80px;
+}
+
+.teaching-details {
+  flex: 1;
+}
+
+.teaching-details .teach-title {
+  font-size: 15px;
+  font-weight: 700;
+  margin-bottom: 8px;
+}
+
+.teaching-details ul {
+  list-style: none;
+  padding: 0;
+}
+
+.teaching-details ul li {
+  font-size: 14px;
+  padding: 2px 0;
+  color: #444;
+}
+
+/* ============================================
+   TALKS
+   ============================================ */
+.talk-item {
+  padding: 8px 0;
+  font-size: 14px;
+  line-height: 1.5;
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.talk-item:last-child {
+  border-bottom: none;
+}
+
+.talk-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.talk-title {
+  font-weight: 700;
+  color: #333;
+}
+
+.talk-date {
+  color: #888;
+  font-size: 13px;
+  white-space: nowrap;
+  flex-shrink: 0;
+}
+
+.talk-venues {
+  list-style: none;
+  padding: 0;
+  margin: 4px 0 0 0;
+}
+
+.talk-venues li {
+  font-size: 13px;
+  color: #555;
+  padding: 1px 0;
+}
+
+.talk-venues li::before {
+  content: "– ";
+  color: #aaa;
+}
+
+/* ============================================
+   AWARDS
+   ============================================ */
+.award-item {
+  padding: 6px 0;
+  font-size: 14px;
+  line-height: 1.6;
+  border-bottom: 1px solid #f9f9f9;
+}
+
+.award-item:last-child {
+  border-bottom: none;
+}
+
+.award-name {
+  font-weight: 700;
+  color: #333;
+}
+
+.award-details {
+  color: #555;
   font-size: 13px;
 }
 
-heading {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 26px;
-  font-weight: 900
+/* ============================================
+   FOOTER
+   ============================================ */
+footer {
+  text-align: center;
+  padding: 20px 40px 10px;
+  font-size: 13px;
+  color: #999;
 }
 
-papertitle {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 15px;
-  font-weight: 700
+footer a {
+  color: #999;
 }
 
-name {
-  font-family: 'Lato', Verdana, Helvetica, sans-serif;
-  font-size: 34px;
-font-weight: 900
+footer a:hover {
+  color: #f09228;
 }
 
+.clustrmaps {
+  text-align: center;
+  padding: 10px 0 30px;
+}
+
+/* ============================================
+   IMAGE HOVER EFFECTS (preserved from original)
+   ============================================ */
 .one {
   width: 160px;
   height: 160px;
@@ -136,4 +537,96 @@ font-weight: 900
 
 span.highlight {
   background-color: #ffffd0;
+}
+
+/* ============================================
+   RESPONSIVE
+   ============================================ */
+@media screen and (max-width: 768px) {
+  .container {
+    margin: 0;
+    box-shadow: none;
+  }
+
+  .bio-section {
+    flex-direction: column-reverse;
+    text-align: center;
+    padding: 30px 20px 20px;
+  }
+
+  .bio-photo {
+    width: 150px;
+  }
+
+  section {
+    padding: 16px 20px 24px;
+  }
+
+  .pub-item {
+    flex-direction: column;
+    align-items: center;
+  }
+
+  .pub-thumb {
+    width: 140px;
+    height: 140px;
+  }
+
+  .pub-thumb .one,
+  .pub-thumb .two {
+    width: 140px;
+    height: 140px;
+  }
+
+  .pub-thumb img {
+    width: 140px;
+  }
+
+  .experience-item {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .experience-logo {
+    width: 100px;
+  }
+
+  .experience-logo img {
+    max-width: 100px;
+  }
+
+  .teaching-block {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+
+  .teaching-logo {
+    width: 100px;
+  }
+
+  .teaching-logo img {
+    max-width: 100px;
+  }
+
+  .education-item {
+    flex-direction: column;
+  }
+
+  .education-item .year {
+    min-width: auto;
+  }
+}
+
+@media screen and (max-width: 480px) {
+  .bio-text h1 {
+    font-size: 26px;
+  }
+
+  section h2 {
+    font-size: 22px;
+  }
+
+  .bio-photo {
+    width: 120px;
+  }
 }
