@@ -44,11 +44,20 @@ ICONS = {
     "mail": '<path fill="none" stroke="currentColor" stroke-width="1.7" d="M3 6h18v12H3zM3 6l9 7 9-7"/>',
 }
 
+# The address is never rendered as text anywhere on the site; it is reachable
+# only through the envelope icon in the masthead and the footer.
 SOCIAL = [
+    ("mail", "mailto:" + EMAIL, "Email"),
     ("scholar", SCHOLAR, "Google Scholar"),
     ("github", GITHUB, "GitHub"),
     ("linkedin", LINKEDIN, "LinkedIn"),
 ]
+
+
+def external(href):
+    """mailto: links must not carry target/rel; http ones should."""
+    return '' if href.startswith("mailto:") else ' target="_blank" rel="noopener"'
+
 
 
 def icon(key, cls):
@@ -92,8 +101,8 @@ def masthead(current):
 
     social = []
     for key, href, label in SOCIAL:
-        social.append('        <a href="%s" target="_blank" rel="noopener" aria-label="%s" title="%s">%s</a>'
-                      % (href, label, label, icon(key, "masthead__icon")))
+        social.append('        <a href="%s"%s aria-label="%s" title="%s">%s</a>'
+                      % (href, external(href), label, label, icon(key, "masthead__icon")))
 
     return """
 <header class="masthead">
@@ -119,14 +128,15 @@ def masthead(current):
 def footer():
     links = "\n".join('      <a href="%s">%s</a>' % (h, l) for h, l in NAV)
     social = "\n".join(
-        '        <a class="social__link" href="%s" target="_blank" rel="noopener">%s<span>%s</span></a>'
-        % (href, icon(key, "social__icon"), label) for key, href, label in SOCIAL)
+        '        <a class="social__link" href="%s"%s>%s<span>%s</span></a>'
+        % (href, external(href), icon(key, "social__icon"), label)
+        for key, href, label in SOCIAL)
     return """
 <footer class="footer">
   <div class="wrap footer__inner">
     <div>
       <p class="footer__name">{name}</p>
-      <p><a href="mailto:{email}">{email}</a></p>
+      <p>Vancouver, Canada</p>
       <div class="social">
 {social}
         <a class="social__link" href="{rg}" target="_blank" rel="noopener"><span>ResearchGate</span></a>
@@ -142,7 +152,7 @@ def footer():
 <script src="assets/js/main.js"></script>
 </body>
 </html>
-""".format(name=NAME, email=EMAIL, social=social, rg=RESEARCHGATE, links=links, cv=CV_PDF)
+""".format(name=NAME, social=social, rg=RESEARCHGATE, links=links, cv=CV_PDF)
 
 
 def write(slug, title, description, main):
@@ -429,7 +439,7 @@ THEMES = [
     ("How do we train the best models?",
      "Architecture, objective, augmentation, and the dozens of small decisions in between. The Random Promoter DREAM Challenge turned the independent attempts of roughly 300 scientists into one controlled comparison of which of those decisions actually matter."),
     ("What have the models learned?",
-     "A model that predicts well is a hypothesis about regulatory grammar &mdash; but only if what it learned is regulation rather than the structure of its own training set. Homology between train and test makes those two indistinguishable on a benchmark."),
+     "A model that predicts well is a hypothesis about regulatory grammar &mdash; but only if it has learned causal structure rather than correlations an assay happened to leave behind. Homology between train and test makes the two indistinguishable on a benchmark."),
     ("Can we trust a single prediction?",
      "An aggregate benchmark number says nothing about the variant in front of you. I work on per-prediction reliability estimates, so that a model can say when it does not know."),
     ("Can we trust how we read them?",
@@ -465,15 +475,17 @@ def home():
     <div class="hero__grid">
       <div class="hero__thesis">
         <p class="eyebrow">{role}</p>
-        <h1>In machine learning, data is king. <em>In biology, the king does not scale.</em></h1>
-        <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the de Boer Lab. Models of gene regulation are bounded by the experiments behind them, and experiments are where biology stops scaling. I work on the technologies that move that bound: DNA sequence libraries designed so that every new sequence is informative rather than redundant, automated at a scale worth training on &mdash; and models built on that data that can say how far to trust their own predictions.</p>
+        <h1>To observe scaling laws in biology, <em>we need the right kind of data.</em></h1>
+        <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the de Boer Lab. Models of gene regulation, like any predictive model, are bounded by the experiments behind them and by the data those experiments annotate &mdash; and that is exactly where biology stops scaling.</p>
+        <p class="hero__mission">I work on the technologies that move that bound. I design experiments that build DNA libraries at scale, in which every new sequence is informative rather than redundant, and which can be automated far enough to be worth training on.</p>
+        <p class="hero__mission">Every experiment carries its own bias, so the other half of the problem is models that learn causal structure rather than the correlations an assay happened to leave behind &mdash; and knowing how to train, evaluate and deploy them so that both their predictions and our interpretations of them can be trusted.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="{cv}" target="_blank" rel="noopener">Curriculum vitae (PDF)</a>
           <a class="btn btn--ghost" href="publications.html">Publications</a>
         </div>
         <p class="status">
           <span class="status__dot" aria-hidden="true"></span>
-          <span><strong>I am always looking for students to work with.</strong> I have supervised several Co-op students in the de Boer Lab, and motivated undergraduates and high-school students are welcome to get in touch &mdash; <a href="mailto:{email}">{email}</a>.</span>
+          <span><strong>I am always looking for students to work with.</strong> I have supervised several Co-op students in the de Boer Lab, and motivated undergraduates and high-school students are welcome to <a href="mailto:{email}">get in touch</a>.</span>
         </p>
         <p class="hero__note">Vancouver, Canada<br>Previously: Genentech &middot; Lanner Electronics &middot; IFIVEO &middot; REVE Systems</p>
       </div>
@@ -559,8 +571,8 @@ RESEARCH_THEMES = [
      "Which design decisions actually matter",
      "Architecture, objective, augmentation, tokenisation, how the reverse strand is handled, what counts as a replicate &mdash; a published model bundles dozens of these together, and a single paper comparing two of them settles very little. The Random Promoter DREAM Challenge was an attempt to settle some of it in public: roughly 300 scientists building models independently against one held-out measurement, then a controlled analysis of which of their choices explained the differences."),
     ("What have the models learned?",
-     "Regulation, or the shape of the training set",
-     "A model that predicts well is only useful as a hypothesis about regulatory grammar if what it learned was regulation. Sequences that share evolutionary history end up on both sides of a train/test split, and a model that simply recognises them scores exactly like one that understands them. Separating the two is a prerequisite for every claim made from a model&rsquo;s internals, and it is why a good deal of reported progress in this field is really measurement error in the benchmark."),
+     "Causal structure, or the shape of the training set",
+     "A model that predicts well is only useful as a hypothesis about regulatory grammar if what it learned was regulation. Every assay carries its own biases, and a model will happily fit those instead &mdash; a spurious correlation and a causal mechanism look identical from the loss curve. Homology makes this worse: sequences sharing evolutionary history land on both sides of a train/test split, and a model that merely recognises them scores exactly like one that understands them. Separating the two is a prerequisite for every claim made from a model&rsquo;s internals, and it is why a good deal of reported progress in this field is really measurement error in the benchmark."),
     ("Can we trust a single prediction?",
      "Reliability per prediction, not per benchmark",
      "An aggregate correlation over a test set says nothing about the variant actually in front of you, which is the thing anyone using these models cares about. A model that is right on average and silently wrong on the cases you are asking about is worse than useless. I work on estimating reliability for individual predictions, so that a model has a way of saying when it does not know."),
@@ -869,7 +881,7 @@ def teaching():
       </div>
       <p class="status">
         <span class="status__dot" aria-hidden="true"></span>
-        <span><strong>I am always looking for students to work with.</strong> Motivated undergraduates and high-school students interested in machine learning for genomics are welcome to write to me at <a href="mailto:{email}">{email}</a>.</span>
+        <span><strong>I am always looking for students to work with.</strong> Motivated undergraduates and high-school students interested in machine learning for genomics are welcome to <a href="mailto:{email}">write to me</a>.</span>
       </p>
     </div>
   </section>
