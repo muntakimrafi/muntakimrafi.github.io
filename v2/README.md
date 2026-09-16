@@ -31,6 +31,25 @@ python3 -m http.server 8000
 # then open http://localhost:8000/
 ```
 
+### preview.html — the whole site as one file
+
+`preview.html` is a generated, self-contained copy of all seven pages: the
+stylesheet and script inlined, the portrait as a data URI, and the tabs
+switched client-side through the URL hash (`#research`, `#cv`, …).
+
+It exists because a Claude artifact injects the published page into the
+viewer's own document — the page's `<head>`, `<html>` and `<body>` are
+discarded by the parser, and a link to a sibling `.html` file leaves the
+preview frame. Flattening the site into one document sidesteps both.
+
+```sh
+cd v2
+python3 tools/build_preview.py      # rebuild after tools/build.py
+```
+
+It is a preview artefact only. The real site is the seven separate pages;
+`preview.html` does not need to ship to GitHub Pages, and nothing links to it.
+
 ## Editing content
 
 Every page shares a masthead, a footer and a `<head>`. Keeping seven hand-written
