@@ -469,7 +469,7 @@ def home():
         <p class="eyebrow">{role}</p>
         <h1>To observe scaling laws in biology, <em>we need the right kind of data.</em></h1>
         <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the de Boer Lab. Models of gene regulation, like any predictive model, are bounded by the experiments behind them and by the data those experiments annotate &mdash; and that is exactly where biology stops scaling.</p>
-        <p class="hero__mission">I work on the technologies that move that bound. I design experiments that build DNA libraries in which every new sequence is informative rather than redundant, created at a throughput high enough to train deep learning models and to observe scaling-law behaviour in biology.</p>
+        <p class="hero__mission">I work on the technologies that move that bound. I design experiments that build libraries in which every new sequence is informative rather than redundant, created at a throughput high enough to train deep learning models and to observe scaling-law behaviour in biology.</p>
         <p class="hero__mission">In biology, every experiment and the data it annotates carries its own bias, so the other half of the problem is models that learn causal structure rather than the correlations an assay happened to leave behind &mdash; and knowing how to train, evaluate and deploy them so that both their predictions and our interpretations of them can be trusted.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="{cv}" target="_blank" rel="noopener">Curriculum vitae (PDF)</a>
@@ -601,7 +601,7 @@ WORK = [
      "An open competition to predict expression from random promoter sequences: over 100 teams, roughly 300 scientists, 75+ universities and companies. I was the only graduate student on the organising committee, ran daily operations, and led the analysis that turned all of those independently built models into one controlled account of which design decisions matter.",
      [("Nature Biotechnology", "https://www.nature.com/articles/s41587-024-02414-w")]),
     ("Yorzoi", "Preprint", "pill--green", "2024 &ndash; 2025",
-     "Predicting RNA-seq coverage across the yeast genome from DNA sequence &mdash; a whole-genome readout rather than one number per construct. With Timon Schneider and the Ellis lab at Imperial College London.",
+     "Predicting RNA-seq coverage across the yeast genome from sequence alone &mdash; a whole-genome readout rather than one number per construct. With Timon Schneider and the Ellis lab at Imperial College London.",
      [("Preprint", "https://www.biorxiv.org/content/10.1101/2025.09.20.677345v1.abstract")]),
     ("Lossless preprocessing of the sequence and expression space", "Completed", "pill--muted", "2023",
      "Preprocessing routinely throws away information before a model ever sees it. This project asked how much of the sequence and expression space can be carried through to training intact. Funded by the School of Biomedical Engineering at UBC.",
@@ -675,10 +675,10 @@ def research():
       <div class="section__head">
         <p class="eyebrow">Research</p>
         <h1>Make the data scale. Then find out what the model really knows.</h1>
-        <p class="lede">Designing informative DNA sequence libraries and automating the experiments that read them &mdash; and testing, honestly, how much of what a model appears to have learned from them is real.</p>
+        <p class="lede">Designing informative sequence libraries and automating the experiments that read them &mdash; and testing, honestly, how much of what a model appears to have learned from them is real.</p>
       </div>
       <div class="prose prose--wide">
-        <p>Gene regulation is written in DNA, and a model that reads it well is useful twice over: as a predictor, and as a hypothesis about the grammar itself. Both uses are capped by the same thing. <strong>Data is the binding constraint in this field</strong>, and biology is the one place where it does not get cheaper on its own &mdash; compute scales, sequencing scales, the experiment does not.</p>
+        <p>Regulation is written into the genome, and a model that reads it well is useful twice over: as a predictor, and as a hypothesis about the grammar itself. Both uses are capped by the same thing. <strong>Data is the binding constraint in this field</strong>, and biology is the one place where it does not get cheaper on its own &mdash; compute scales, sequencing scales, the experiment does not.</p>
         <p>So the work runs in two directions. One is making data faster and making it count: libraries designed so that each new sequence disagrees with what the model already believes, rather than confirming it, and enough automation that designing them well is worth the effort. Noisy measurements at scale beat clean measurements you cannot afford.</p>
         <p>The other is refusing to take the resulting models at face value. Much of what looks like progress here is <strong>measurement error in the benchmark</strong> &mdash; sequences sharing evolutionary history on both sides of a train/test split, performance going up, nothing learned. Beyond that sits the question of whether an individual prediction can be trusted, and whether the tools we use to read a model are themselves telling us the truth.</p>
       </div>
@@ -939,7 +939,7 @@ COMMUNITY = [
     ("President, Bangladeshi Grad Alliance UBC", "University of British Columbia", "2024 &ndash; 2025",
      "Co-founded the organisation and served as its inaugural President, establishing the first executive committee and running community events for Bangladeshi graduate students."),
     ("Project co-ordinator and organiser, Random Promoter DREAM Challenge", "UBC, IBM Research and Sage Bionetworks", "2022",
-     "Co-organised an international competition with over 100 teams &mdash; roughly 300 scientists from 75+ universities and companies &mdash; to build models predicting gene expression from DNA sequence. Ran daily operations as the only graduate student on the organising committee."),
+     "Co-organised an international competition with over 100 teams &mdash; roughly 300 scientists from 75+ universities and companies &mdash; to build models predicting gene expression from sequence. Ran daily operations as the only graduate student on the organising committee."),
     ("Secretary, Biomedical Engineering Graduate Association", "University of British Columbia", "2021 &ndash; 2022",
      "Organised social and networking events across research groups in the department."),
     ("Graduate student representative, SBME Sustainability Committee", "University of British Columbia", "2021 &ndash; 2022",
@@ -1173,7 +1173,7 @@ def cv():
 
 PAGES = [
     ("index.html", NAME,
-     "Abdul Muntakim Rafi is a PhD candidate in Biomedical Engineering at the University of British Columbia, working on informative DNA sequence libraries at scale and on machine learning models of gene regulation built from them.",
+     "Abdul Muntakim Rafi is a PhD candidate in Biomedical Engineering at the University of British Columbia, working on informative sequence libraries at scale and on machine learning models of gene regulation built from them.",
      home),
     ("research.html", "Research",
      "Informative sequence library design and experimental automation, sequence-to-expression models, honest benchmarking, per-prediction reliability, and the interpretation tools themselves.",
