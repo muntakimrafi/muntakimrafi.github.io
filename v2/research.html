@@ -1,0 +1,259 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research &middot; Abdul Muntakim Rafi</title>
+<meta name="author" content="Abdul Muntakim Rafi">
+<meta name="description" content="Sequence-to-expression models, reliability and evaluation, active learning and lab-in-the-loop experiments, and community benchmarking.">
+<meta property="og:title" content="Research &middot; Abdul Muntakim Rafi">
+<meta property="og:description" content="Sequence-to-expression models, reliability and evaluation, active learning and lab-in-the-loop experiments, and community benchmarking.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__name">Abdul Muntakim Rafi</span>
+    </a>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="research.html" aria-current="page" class="is-current">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="service.html">Service</a>
+      <a href="cv.html">CV</a>
+    </nav>
+    <div class="masthead__end">
+      <div class="masthead__social">
+        <a href="https://scholar.google.com/citations?user=fyNavPkAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg class="masthead__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></a>
+        <a href="https://github.com/muntakimrafi" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="masthead__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+        <a href="https://www.linkedin.com/in/abdul-muntakim-rafi-205002154/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="masthead__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.76-2.06 4.02 0 4.76 2.65 4.76 6.09V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.91V21h-4V9z"/></svg></a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme"><svg class="theme-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="currentColor" d="M12 3a9 9 0 0 0 0 18z"/></svg><span class="theme-toggle__label">Theme</span></button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><svg class="nav-toggle__bars" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="nav-toggle__x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="section section--plain">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Research</p>
+        <h1>Decoding cis-regulatory logic, and checking the work.</h1>
+        <p class="lede">Building sequence-to-expression models, developing methods to interpret them and to evaluate them honestly, and improving them through large-scale DNA synthesis and lab-in-the-loop experiments.</p>
+      </div>
+      <div class="prose prose--wide">
+        <p>Gene regulation is written in DNA, and a model that reads it well is useful twice over: as a predictor, and as a hypothesis about the grammar itself. The second use is the one that keeps me busy, because it only holds if the model has learned regulation rather than the shape of its own training set.</p>
+        <p>Much of what looks like progress in this field is <strong>measurement error in the benchmark</strong>. Sequences that share evolutionary history end up on both sides of a train/test split; performance goes up; nothing has been learned. Separating the two &mdash; and giving a model a way to say when it does not know &mdash; runs through most of my recent work.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Themes</p>
+        <h2>What I actually spend time on.</h2>
+      </div>
+      <div class="records">
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Sequence-to-expression models</h3>
+        <p class="record__where">Predicting expression from DNA sequence</p>
+        <p class="record__note">Most of my work begins by training a model that maps a stretch of DNA to what it does, and then asking what that model has actually learned. That has meant random promoter libraries in yeast, where millions of sequences can be measured at once, and whole-genome settings where the target is RNA-seq coverage rather than a single number. The interesting part is rarely the architecture; it is what the model implies about regulatory grammar once you can query it freely.</p>
+      </div>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Reliability and evaluation</h3>
+        <p class="record__where">Knowing when a prediction holds</p>
+        <p class="record__note">A held-out test set that shares homology with the training set does not hold anything out. We showed that homology-based leakage inflates reported performance across genome-trained sequence models, and gave a practical way to detect and avoid it. The follow-on question is per-prediction rather than per-benchmark: for a given variant, can a model say how far to trust its own answer? That is what gRely is for.</p>
+      </div>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Active learning and lab-in-the-loop</h3>
+        <p class="record__where">Choosing what to synthesise next</p>
+        <p class="record__note">Synthesis is the real budget. If the next round of sequences is chosen well, a model improves far more per experiment than if they are chosen at random. We are evaluating selection strategies against each other and characterising what actually makes a sequence informative, so that the choice can be made deliberately rather than by intuition.</p>
+      </div>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Community benchmarking</h3>
+        <p class="record__where">Settling comparisons in public</p>
+        <p class="record__note">Comparisons made inside a single paper rarely settle anything. I co-organised the Random Promoter DREAM Challenge &mdash; over 100 teams, roughly 300 scientists, 75+ institutions &mdash; and the analysis that followed turned all of those independently built models into one shared account of which design decisions matter and which do not.</p>
+      </div>
+    </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Positions</p>
+        <h2>Where the work has been done.</h2>
+      </div>
+      <div class="records">
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Graduate Research Assistant, de Boer Lab</h3>
+        <p class="record__where">School of Biomedical Engineering, University of British Columbia, Vancouver, Canada</p>
+      </div>
+      <p class="record__when">May 2021 &ndash; present</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Graduate Research Assistant, Centre for Computer Vision and Deep Learning</h3>
+        <p class="record__where">Department of Electrical and Computer Engineering, University of Windsor, Windsor, Canada</p>
+      </div>
+      <p class="record__when">Aug 2019 &ndash; Mar 2021</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Research Assistant, Digital Signal Processing Research Laboratory</h3>
+        <p class="record__where">Department of Electrical and Electronic Engineering, BUET, Dhaka, Bangladesh</p>
+      </div>
+      <p class="record__when">Oct 2018 &ndash; Mar 2019</p>
+    </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Funding</p>
+        <h2>Grants and compute.</h2>
+        <p class="lede">Proposals I wrote or co-wrote, with the role I held on each.</p>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Continual improvement of gene regulatory models</h3>
+            <span class="pill pill--muted">2025 &ndash; 2026</span>
+          </div>
+          <dl class="project__meta">
+            <dt>Source</dt><dd>The Digital Research Alliance of Canada</dd>
+            <dt>PI</dt><dd>Carl de Boer</dd>
+            <dt>Funding</dt><dd>Priority access to GPUs</dd>
+            <dt>My role</dt><dd>Co-wrote the proposal</dd>
+          </dl>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Evaluation, optimization and continual improvement of sequence-based cis-regulatory models</h3>
+            <span class="pill pill--muted">Aug 2023 &ndash; Jun 2024</span>
+          </div>
+          <dl class="project__meta">
+            <dt>Source</dt><dd>Advanced Research Computing, UBC</dd>
+            <dt>PI</dt><dd>Carl de Boer</dd>
+            <dt>Funding</dt><dd>20,000 CAD in Microsoft Azure credit</dd>
+            <dt>My role</dt><dd>Co-applicant; wrote the proposal</dd>
+          </dl>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Lossless preprocessing of the sequence and expression space to improve sequence-based gene regulatory models</h3>
+            <span class="pill pill--muted">May &ndash; Aug 2023</span>
+          </div>
+          <dl class="project__meta">
+            <dt>Source</dt><dd>School of Biomedical Engineering, UBC</dd>
+            <dt>PI</dt><dd>Carl de Boer</dd>
+            <dt>Funding</dt><dd>6,000 CAD</dd>
+            <dt>My role</dt><dd>Co-applicant; wrote the proposal and hired a Co-op student through the grant</dd>
+          </dl>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Random Promoter DREAM Challenge 2022</h3>
+            <span class="pill pill--muted">May &ndash; Jul 2022</span>
+          </div>
+          <dl class="project__meta">
+            <dt>Source</dt><dd>TPU Research Cloud, Google</dd>
+            <dt>PI</dt><dd>Carl de Boer (UBC), Pablo Meyer (IBM Research), Jake Albrecht (Sage Bionetworks)</dd>
+            <dt>Funding</dt><dd>50 TPU quotas</dd>
+            <dt>My role</dt><dd>Sole graduate student on the organising committee</dd>
+          </dl>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Identifying selection on human gene expression with gene regulatory models</h3>
+            <span class="pill pill--muted">2022 &ndash; 2024</span>
+          </div>
+          <dl class="project__meta">
+            <dt>Source</dt><dd>The Digital Research Alliance of Canada</dd>
+            <dt>PI</dt><dd>Carl de Boer</dd>
+            <dt>Funding</dt><dd>Priority access to GPUs</dd>
+            <dt>My role</dt><dd>Co-wrote the proposal</dd>
+          </dl>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Efficient edge inference benchmarking for AI-driven applications</h3>
+            <span class="pill pill--muted">Nov 2020 &ndash; Mar 2021</span>
+          </div>
+          <dl class="project__meta">
+            <dt>Source</dt><dd>Mitacs Accelerate</dd>
+            <dt>PI</dt><dd>Jonathan Wu</dd>
+            <dt>Funding</dt><dd>15,000 CAD</dd>
+            <dt>My role</dt><dd>Sole co-applicant; wrote the proposal</dd>
+          </dl>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Spatio-temporal human activity recognition on manufacturing floors</h3>
+            <span class="pill pill--muted">Oct 2019 &ndash; Apr 2020</span>
+          </div>
+          <dl class="project__meta">
+            <dt>Source</dt><dd>Mitacs Accelerate</dd>
+            <dt>PI</dt><dd>Jonathan Wu</dd>
+            <dt>Funding</dt><dd>22,500 CAD</dd>
+            <dt>My role</dt><dd>Co-applicant; assisted with proposal writing</dd>
+          </dl>
+        </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div>
+      <p class="footer__name">Abdul Muntakim Rafi</p>
+      <p><a href="mailto:rafi11@student.ubc.ca">rafi11@student.ubc.ca</a></p>
+      <div class="social">
+        <a class="social__link" href="https://scholar.google.com/citations?user=fyNavPkAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg><span>Google Scholar</span></a>
+        <a class="social__link" href="https://github.com/muntakimrafi" target="_blank" rel="noopener"><svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"/></svg><span>GitHub</span></a>
+        <a class="social__link" href="https://www.linkedin.com/in/abdul-muntakim-rafi-205002154/" target="_blank" rel="noopener"><svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.76-2.06 4.02 0 4.76 2.65 4.76 6.09V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.91V21h-4V9z"/></svg><span>LinkedIn</span></a>
+        <a class="social__link" href="https://www.researchgate.net/profile/Abdul-Muntakim-Rafi/publications" target="_blank" rel="noopener"><span>ResearchGate</span></a>
+      </div>
+    </div>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="service.html">Service</a>
+      <a href="cv.html">CV</a>
+      <a href="data/CV_updated.pdf">CV (PDF)</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
