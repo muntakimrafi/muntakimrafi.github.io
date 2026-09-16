@@ -435,15 +435,15 @@ TOPICS = [
 
 THEMES = [
     ("How do we generate the data?",
-     "A model of gene regulation can only be as good as the sequences it was trained on, and in biology that is exactly where things stop scaling. I design DNA libraries in which each new sequence carries information the library does not already hold, and work on automating their synthesis and measurement so the library can keep growing."),
+     "A model can only be as good as the data behind it, and in biology the experiment is where that stops scaling. I design libraries in which each new measurement carries information the dataset does not already hold, and build them at a throughput that makes the next model worth training."),
     ("How do we train the best models?",
      "Architecture, objective, augmentation, and the dozens of small decisions in between. The Random Promoter DREAM Challenge turned the independent attempts of roughly 300 scientists into one controlled comparison of which of those decisions actually matter."),
     ("What have the models learned?",
-     "A model that predicts well is a hypothesis about regulatory grammar &mdash; but only if it has learned causal structure rather than correlations an assay happened to leave behind. Homology between train and test makes the two indistinguishable on a benchmark."),
+     "A model that predicts well is a hypothesis about the mechanism underneath &mdash; but only if it has learned causal structure rather than correlations the assay happened to leave behind. Leakage between training and test data makes the two indistinguishable on a benchmark."),
     ("Can we trust a single prediction?",
-     "An aggregate benchmark number says nothing about the variant in front of you. I work on per-prediction reliability estimates, so that a model can say when it does not know."),
+     "An aggregate benchmark number says nothing about the case in front of you, and that is the one that matters wherever a model is actually deployed. I work on per-prediction reliability estimates, so that a model can say when it does not know."),
     ("Can we trust how we read them?",
-     "Attribution methods and in-silico mutagenesis are instruments in their own right, and largely untested ones. A confident model read through a broken lens is worse than no model at all."),
+     "Attribution and perturbation methods are instruments in their own right, and largely untested ones. A confident, accurate model read through a broken lens is worse than no model at all."),
 ]
 
 TABS = [
@@ -454,9 +454,6 @@ TABS = [
     ("service.html", "Service", "Peer review, programme committees and community work."),
     ("cv.html", "CV", "Education, positions, awards and the PDF."),
 ]
-
-SELECTED = [JOURNALS[1], PREPRINTS[3], JOURNALS[2]]
-
 
 def home():
     topics = "\n".join("          <li>%s</li>" % t for t in TOPICS)
@@ -477,8 +474,8 @@ def home():
         <p class="eyebrow">{role}</p>
         <h1>To observe scaling laws in biology, <em>we need the right kind of data.</em></h1>
         <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the de Boer Lab. Models of gene regulation, like any predictive model, are bounded by the experiments behind them and by the data those experiments annotate &mdash; and that is exactly where biology stops scaling.</p>
-        <p class="hero__mission">I work on the technologies that move that bound. I design experiments that build DNA libraries at scale, in which every new sequence is informative rather than redundant, and which can be automated far enough to be worth training on.</p>
-        <p class="hero__mission">Every experiment carries its own bias, so the other half of the problem is models that learn causal structure rather than the correlations an assay happened to leave behind &mdash; and knowing how to train, evaluate and deploy them so that both their predictions and our interpretations of them can be trusted.</p>
+        <p class="hero__mission">I work on the technologies that move that bound. I design experiments that build DNA libraries in which every new sequence is informative rather than redundant, created at a throughput high enough to train deep learning models and to observe scaling-law behaviour in biology.</p>
+        <p class="hero__mission">In biology, every experiment and the data it annotates carries its own bias, so the other half of the problem is models that learn causal structure rather than the correlations an assay happened to leave behind &mdash; and knowing how to train, evaluate and deploy them so that both their predictions and our interpretations of them can be trusted.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="{cv}" target="_blank" rel="noopener">Curriculum vitae (PDF)</a>
           <a class="btn btn--ghost" href="publications.html">Publications</a>
@@ -487,7 +484,7 @@ def home():
           <span class="status__dot" aria-hidden="true"></span>
           <span><strong>I am always looking for students to work with.</strong> I have supervised several Co-op students in the de Boer Lab, and motivated undergraduates and high-school students are welcome to <a href="mailto:{email}">get in touch</a>.</span>
         </p>
-        <p class="hero__note">Vancouver, Canada<br>Previously: Genentech &middot; Lanner Electronics &middot; IFIVEO &middot; REVE Systems</p>
+        <p class="hero__note">Vancouver, Canada<br>Previously: Genentech</p>
       </div>
 
       <div class="hero__aside">
@@ -497,7 +494,6 @@ def home():
         <dl class="facts">
           <div class="fact"><dt>Position</dt><dd>PhD candidate, Biomedical Engineering</dd></div>
           <div class="fact"><dt>Lab</dt><dd>de Boer Lab, School of Biomedical Engineering, UBC</dd></div>
-          <div class="fact"><dt>Advisor</dt><dd>Carl de Boer</dd></div>
           <div class="fact"><dt>Since</dt><dd>2021</dd></div>
           <div class="fact"><dt>Before</dt><dd>MASc, University of Windsor &middot; BSc, BUET</dd></div>
         </dl>
@@ -509,8 +505,8 @@ def home():
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">Current work</p>
-        <h2>Five questions, in order.</h2>
-        <p class="lede">They stack. A model is bounded by its data, what it has learned is bounded by how honestly it was tested, and what we conclude from it is bounded by the tools we read it with.</p>
+        <h2>What I work on.</h2>
+        <p class="lede">A model is bounded by its data. Our ability to report how much it has learned is bounded by how honestly it was tested. What we can conclude from it is bounded by the tools we read it with. And clinical deployment is bounded by how far we can trust an individual prediction.</p>
       </div>
       <div class="themes">
 {themes}
@@ -531,8 +527,8 @@ def home():
   <section class="section">
     <div class="wrap">
       <div class="section__head">
-        <p class="eyebrow">Selected work</p>
-        <h2>Three papers that say what I do.</h2>
+        <p class="eyebrow">Output</p>
+        <h2>The record so far.</h2>
       </div>
       <dl class="figures">
         <div class="figure"><dt>Peer-reviewed papers</dt><dd>{npeer}</dd></div>
@@ -540,9 +536,6 @@ def home():
         <div class="figure"><dt>Invited talks</dt><dd>{ntalks}</dd></div>
         <div class="figure"><dt>Co-op students supervised</dt><dd>5</dd></div>
       </dl>
-      <div class="pubs">
-{selected}
-      </div>
       <p class="hero__actions"><a class="btn btn--ghost" href="publications.html">All publications</a></p>
     </div>
   </section>
@@ -560,7 +553,7 @@ def home():
   </section>
 """.format(role=ROLE, cv=CV_PDF, email=EMAIL, name=NAME, themes=themes, topics=topics,
            ntopics=len(TOPICS), npeer=len(JOURNALS) + len(CONFERENCES), npre=len(PREPRINTS),
-           ntalks=len(TALKS), selected=render_pubs(SELECTED), tabs=tabs)
+           ntalks=len(TALKS), tabs=tabs)
 
 
 RESEARCH_THEMES = [
