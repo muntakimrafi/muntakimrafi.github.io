@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Research &middot; Abdul Muntakim Rafi</title>
 <meta name="author" content="Abdul Muntakim Rafi">
-<meta name="description" content="Sequence-to-expression models, reliability and evaluation, active learning and lab-in-the-loop experiments, and community benchmarking.">
+<meta name="description" content="Informative sequence library design and experimental automation, sequence-to-expression models, honest benchmarking, per-prediction reliability, and the interpretation tools themselves.">
 <meta property="og:title" content="Research &middot; Abdul Muntakim Rafi">
-<meta property="og:description" content="Sequence-to-expression models, reliability and evaluation, active learning and lab-in-the-loop experiments, and community benchmarking.">
+<meta property="og:description" content="Informative sequence library design and experimental automation, sequence-to-expression models, honest benchmarking, per-prediction reliability, and the interpretation tools themselves.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png" sizes="32x32">
@@ -51,12 +51,13 @@
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">Research</p>
-        <h1>Decoding cis-regulatory logic, and checking the work.</h1>
-        <p class="lede">Building sequence-to-expression models, developing methods to interpret them and to evaluate them honestly, and improving them through large-scale DNA synthesis and lab-in-the-loop experiments.</p>
+        <h1>Make the data scale. Then find out what the model really knows.</h1>
+        <p class="lede">Designing informative DNA sequence libraries and automating the experiments that read them &mdash; and testing, honestly, how much of what a model appears to have learned from them is real.</p>
       </div>
       <div class="prose prose--wide">
-        <p>Gene regulation is written in DNA, and a model that reads it well is useful twice over: as a predictor, and as a hypothesis about the grammar itself. The second use is the one that keeps me busy, because it only holds if the model has learned regulation rather than the shape of its own training set.</p>
-        <p>Much of what looks like progress in this field is <strong>measurement error in the benchmark</strong>. Sequences that share evolutionary history end up on both sides of a train/test split; performance goes up; nothing has been learned. Separating the two &mdash; and giving a model a way to say when it does not know &mdash; runs through most of my recent work.</p>
+        <p>Gene regulation is written in DNA, and a model that reads it well is useful twice over: as a predictor, and as a hypothesis about the grammar itself. Both uses are capped by the same thing. <strong>Data is the binding constraint in this field</strong>, and biology is the one place where it does not get cheaper on its own &mdash; compute scales, sequencing scales, the experiment does not.</p>
+        <p>So the work runs in two directions. One is making data faster and making it count: libraries designed so that each new sequence disagrees with what the model already believes, rather than confirming it, and enough automation that designing them well is worth the effort. Noisy measurements at scale beat clean measurements you cannot afford.</p>
+        <p>The other is refusing to take the resulting models at face value. Much of what looks like progress here is <strong>measurement error in the benchmark</strong> &mdash; sequences sharing evolutionary history on both sides of a train/test split, performance going up, nothing learned. Beyond that sits the question of whether an individual prediction can be trusted, and whether the tools we use to read a model are themselves telling us the truth.</p>
       </div>
     </div>
   </section>
@@ -70,32 +71,118 @@
       <div class="records">
     <article class="record">
       <div class="record__main">
-        <h3 class="record__name">Sequence-to-expression models</h3>
-        <p class="record__where">Predicting expression from DNA sequence</p>
-        <p class="record__note">Most of my work begins by training a model that maps a stretch of DNA to what it does, and then asking what that model has actually learned. That has meant random promoter libraries in yeast, where millions of sequences can be measured at once, and whole-genome settings where the target is RNA-seq coverage rather than a single number. The interesting part is rarely the architecture; it is what the model implies about regulatory grammar once you can query it freely.</p>
+        <h3 class="record__name">How do we generate the data?</h3>
+        <p class="record__where">Informative sequence libraries, at a scale worth training on</p>
+        <p class="record__note">Compute scales; wet-lab experiments do not. That asymmetry, not architecture, is what caps models of gene regulation. So the question I spend most time on is how to make data faster than the field currently can &mdash; and how to make sure the extra data is worth having. A library of a million sequences that are all variations on the same theme teaches a model far less than a tenth as many chosen to disagree with it. I work on designing libraries where each new sequence carries information the library does not already hold, and on automating synthesis and measurement so that designing them well actually pays off.</p>
       </div>
     </article>
     <article class="record">
       <div class="record__main">
-        <h3 class="record__name">Reliability and evaluation</h3>
-        <p class="record__where">Knowing when a prediction holds</p>
-        <p class="record__note">A held-out test set that shares homology with the training set does not hold anything out. We showed that homology-based leakage inflates reported performance across genome-trained sequence models, and gave a practical way to detect and avoid it. The follow-on question is per-prediction rather than per-benchmark: for a given variant, can a model say how far to trust its own answer? That is what gRely is for.</p>
+        <h3 class="record__name">How do we train the best models?</h3>
+        <p class="record__where">Which design decisions actually matter</p>
+        <p class="record__note">Architecture, objective, augmentation, tokenisation, how the reverse strand is handled, what counts as a replicate &mdash; a published model bundles dozens of these together, and a single paper comparing two of them settles very little. The Random Promoter DREAM Challenge was an attempt to settle some of it in public: roughly 300 scientists building models independently against one held-out measurement, then a controlled analysis of which of their choices explained the differences.</p>
       </div>
     </article>
     <article class="record">
       <div class="record__main">
-        <h3 class="record__name">Active learning and lab-in-the-loop</h3>
-        <p class="record__where">Choosing what to synthesise next</p>
-        <p class="record__note">Synthesis is the real budget. If the next round of sequences is chosen well, a model improves far more per experiment than if they are chosen at random. We are evaluating selection strategies against each other and characterising what actually makes a sequence informative, so that the choice can be made deliberately rather than by intuition.</p>
+        <h3 class="record__name">What have the models learned?</h3>
+        <p class="record__where">Regulation, or the shape of the training set</p>
+        <p class="record__note">A model that predicts well is only useful as a hypothesis about regulatory grammar if what it learned was regulation. Sequences that share evolutionary history end up on both sides of a train/test split, and a model that simply recognises them scores exactly like one that understands them. Separating the two is a prerequisite for every claim made from a model&rsquo;s internals, and it is why a good deal of reported progress in this field is really measurement error in the benchmark.</p>
       </div>
     </article>
     <article class="record">
       <div class="record__main">
-        <h3 class="record__name">Community benchmarking</h3>
-        <p class="record__where">Settling comparisons in public</p>
-        <p class="record__note">Comparisons made inside a single paper rarely settle anything. I co-organised the Random Promoter DREAM Challenge &mdash; over 100 teams, roughly 300 scientists, 75+ institutions &mdash; and the analysis that followed turned all of those independently built models into one shared account of which design decisions matter and which do not.</p>
+        <h3 class="record__name">Can we trust a single prediction?</h3>
+        <p class="record__where">Reliability per prediction, not per benchmark</p>
+        <p class="record__note">An aggregate correlation over a test set says nothing about the variant actually in front of you, which is the thing anyone using these models cares about. A model that is right on average and silently wrong on the cases you are asking about is worse than useless. I work on estimating reliability for individual predictions, so that a model has a way of saying when it does not know.</p>
       </div>
     </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Can we trust how we read them?</h3>
+        <p class="record__where">The interpretation tools are instruments too</p>
+        <p class="record__note">Attribution methods, in-silico mutagenesis and the rest of the interpretation toolkit are themselves models, and they are much less tested than the networks they are pointed at. If the lens is distorted, a confident and accurate model still yields a wrong biological conclusion &mdash; and nothing in the usual benchmark would catch it.</p>
+      </div>
+    </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Projects</p>
+        <h2>What I have worked on.</h2>
+        <p class="lede">Including the work that has not been written up yet. Anything with a paper behind it links to one.</p>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Informative sequence libraries</h3>
+            <span class="pill pill--green">In preparation</span>
+          </div>
+          <p class="project__when">2024 &ndash; present</p>
+          <p class="project__text">Which sequences are worth making next? We put active learning selection strategies against each other on sequence-to-expression data and characterise what actually makes a sequence informative &mdash; so that a library grows in information rather than only in size. With Justin Qian, Emmanuel Cazottes and Carl de Boer.</p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Continual improvement of gene regulatory models</h3>
+            <span class="pill pill--live">Ongoing</span>
+          </div>
+          <p class="project__when">2025 &ndash; 2026</p>
+          <p class="project__text">Keeping a sequence-to-expression model improving as new measurements arrive, instead of freezing it at the dataset it happened to be trained on. Supported by priority GPU access from the Digital Research Alliance of Canada.</p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">gRely &mdash; reliability of variant effect predictions</h3>
+            <span class="pill pill--green">In preparation</span>
+          </div>
+          <p class="project__when">2025 &ndash; present</p>
+          <p class="project__text">Benchmark performance in aggregate tells you nothing about whether to trust the prediction for one particular variant. gRely estimates reliability per prediction for genome-trained sequence-to-expression models. Begun during my internship at Genentech, with G&ouml;k&ccedil;en Eraslan and Kipper Fletez-Brant.</p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Homology-based data leakage</h3>
+            <span class="pill pill--green">Preprint</span>
+          </div>
+          <p class="project__when">2024 &ndash; 2025</p>
+          <p class="project__text">Sequences that share evolutionary history end up on both sides of a train/test split, and the benchmark then rewards a model for recognising them rather than understanding them. We measured how far this inflates reported performance across genome-trained sequence models, and gave a practical way to detect and avoid it.</p>
+          <p class="project__links"><a class="pub__link" href="https://www.biorxiv.org/content/10.1101/2025.01.22.634321v1.abstract" target="_blank" rel="noopener">Preprint</a></p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Random Promoter DREAM Challenge</h3>
+            <span class="pill pill--muted">Published</span>
+          </div>
+          <p class="project__when">2022 &ndash; 2024</p>
+          <p class="project__text">An open competition to predict expression from random promoter sequences: over 100 teams, roughly 300 scientists, 75+ universities and companies. I was the only graduate student on the organising committee, ran daily operations, and led the analysis that turned all of those independently built models into one controlled account of which design decisions matter.</p>
+          <p class="project__links"><a class="pub__link" href="https://www.nature.com/articles/s41587-024-02414-w" target="_blank" rel="noopener">Nature Biotechnology</a></p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Yorzoi</h3>
+            <span class="pill pill--green">Preprint</span>
+          </div>
+          <p class="project__when">2024 &ndash; 2025</p>
+          <p class="project__text">Predicting RNA-seq coverage across the yeast genome from DNA sequence &mdash; a whole-genome readout rather than one number per construct. With Timon Schneider and the Ellis lab at Imperial College London.</p>
+          <p class="project__links"><a class="pub__link" href="https://www.biorxiv.org/content/10.1101/2025.09.20.677345v1.abstract" target="_blank" rel="noopener">Preprint</a></p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Lossless preprocessing of the sequence and expression space</h3>
+            <span class="pill pill--muted">Completed</span>
+          </div>
+          <p class="project__when">2023</p>
+          <p class="project__text">Preprocessing routinely throws away information before a model ever sees it. This project asked how much of the sequence and expression space can be carried through to training intact. Funded by the School of Biomedical Engineering at UBC.</p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Selection on human gene expression</h3>
+            <span class="pill pill--muted">Completed</span>
+          </div>
+          <p class="project__when">2022 &ndash; 2024</p>
+          <p class="project__text">Using sequence-to-expression models to ask which regulatory variation natural selection has acted on in humans. Supported by priority GPU access from the Digital Research Alliance of Canada.</p>
+        </article>
       </div>
     </div>
   </section>
@@ -139,91 +226,63 @@
         <h2>Grants and compute.</h2>
         <p class="lede">Proposals I wrote or co-wrote, with the role I held on each.</p>
       </div>
-      <div class="projects">
-        <article class="project">
-          <div class="project__head">
-            <h3 class="project__title">Continual improvement of gene regulatory models</h3>
-            <span class="pill pill--muted">2025 &ndash; 2026</span>
-          </div>
-          <dl class="project__meta">
-            <dt>Source</dt><dd>The Digital Research Alliance of Canada</dd>
-            <dt>PI</dt><dd>Carl de Boer</dd>
-            <dt>Funding</dt><dd>Priority access to GPUs</dd>
-            <dt>My role</dt><dd>Co-wrote the proposal</dd>
-          </dl>
-        </article>
-        <article class="project">
-          <div class="project__head">
-            <h3 class="project__title">Evaluation, optimization and continual improvement of sequence-based cis-regulatory models</h3>
-            <span class="pill pill--muted">Aug 2023 &ndash; Jun 2024</span>
-          </div>
-          <dl class="project__meta">
-            <dt>Source</dt><dd>Advanced Research Computing, UBC</dd>
-            <dt>PI</dt><dd>Carl de Boer</dd>
-            <dt>Funding</dt><dd>20,000 CAD in Microsoft Azure credit</dd>
-            <dt>My role</dt><dd>Co-applicant; wrote the proposal</dd>
-          </dl>
-        </article>
-        <article class="project">
-          <div class="project__head">
-            <h3 class="project__title">Lossless preprocessing of the sequence and expression space to improve sequence-based gene regulatory models</h3>
-            <span class="pill pill--muted">May &ndash; Aug 2023</span>
-          </div>
-          <dl class="project__meta">
-            <dt>Source</dt><dd>School of Biomedical Engineering, UBC</dd>
-            <dt>PI</dt><dd>Carl de Boer</dd>
-            <dt>Funding</dt><dd>6,000 CAD</dd>
-            <dt>My role</dt><dd>Co-applicant; wrote the proposal and hired a Co-op student through the grant</dd>
-          </dl>
-        </article>
-        <article class="project">
-          <div class="project__head">
-            <h3 class="project__title">Random Promoter DREAM Challenge 2022</h3>
-            <span class="pill pill--muted">May &ndash; Jul 2022</span>
-          </div>
-          <dl class="project__meta">
-            <dt>Source</dt><dd>TPU Research Cloud, Google</dd>
-            <dt>PI</dt><dd>Carl de Boer (UBC), Pablo Meyer (IBM Research), Jake Albrecht (Sage Bionetworks)</dd>
-            <dt>Funding</dt><dd>50 TPU quotas</dd>
-            <dt>My role</dt><dd>Sole graduate student on the organising committee</dd>
-          </dl>
-        </article>
-        <article class="project">
-          <div class="project__head">
-            <h3 class="project__title">Identifying selection on human gene expression with gene regulatory models</h3>
-            <span class="pill pill--muted">2022 &ndash; 2024</span>
-          </div>
-          <dl class="project__meta">
-            <dt>Source</dt><dd>The Digital Research Alliance of Canada</dd>
-            <dt>PI</dt><dd>Carl de Boer</dd>
-            <dt>Funding</dt><dd>Priority access to GPUs</dd>
-            <dt>My role</dt><dd>Co-wrote the proposal</dd>
-          </dl>
-        </article>
-        <article class="project">
-          <div class="project__head">
-            <h3 class="project__title">Efficient edge inference benchmarking for AI-driven applications</h3>
-            <span class="pill pill--muted">Nov 2020 &ndash; Mar 2021</span>
-          </div>
-          <dl class="project__meta">
-            <dt>Source</dt><dd>Mitacs Accelerate</dd>
-            <dt>PI</dt><dd>Jonathan Wu</dd>
-            <dt>Funding</dt><dd>15,000 CAD</dd>
-            <dt>My role</dt><dd>Sole co-applicant; wrote the proposal</dd>
-          </dl>
-        </article>
-        <article class="project">
-          <div class="project__head">
-            <h3 class="project__title">Spatio-temporal human activity recognition on manufacturing floors</h3>
-            <span class="pill pill--muted">Oct 2019 &ndash; Apr 2020</span>
-          </div>
-          <dl class="project__meta">
-            <dt>Source</dt><dd>Mitacs Accelerate</dd>
-            <dt>PI</dt><dd>Jonathan Wu</dd>
-            <dt>Funding</dt><dd>22,500 CAD</dd>
-            <dt>My role</dt><dd>Co-applicant; assisted with proposal writing</dd>
-          </dl>
-        </article>
+      <div class="records">
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Continual improvement of gene regulatory models</h3>
+        <p class="record__where">The Digital Research Alliance of Canada &middot; PI: Carl de Boer</p>
+        <p class="record__note">Priority access to GPUs. Co-wrote the proposal.</p>
+      </div>
+      <p class="record__when">2025 &ndash; 2026</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Evaluation, optimization and continual improvement of sequence-based cis-regulatory models</h3>
+        <p class="record__where">Advanced Research Computing, UBC &middot; PI: Carl de Boer</p>
+        <p class="record__note">20,000 CAD in Microsoft Azure credit. Co-applicant; wrote the proposal.</p>
+      </div>
+      <p class="record__when">Aug 2023 &ndash; Jun 2024</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Lossless preprocessing of the sequence and expression space to improve sequence-based gene regulatory models</h3>
+        <p class="record__where">School of Biomedical Engineering, UBC &middot; PI: Carl de Boer</p>
+        <p class="record__note">6,000 CAD. Co-applicant; wrote the proposal and hired a Co-op student through the grant.</p>
+      </div>
+      <p class="record__when">May &ndash; Aug 2023</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Random Promoter DREAM Challenge 2022</h3>
+        <p class="record__where">TPU Research Cloud, Google &middot; PI: Carl de Boer (UBC), Pablo Meyer (IBM Research), Jake Albrecht (Sage Bionetworks)</p>
+        <p class="record__note">50 TPU quotas. Sole graduate student on the organising committee.</p>
+      </div>
+      <p class="record__when">May &ndash; Jul 2022</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Identifying selection on human gene expression with gene regulatory models</h3>
+        <p class="record__where">The Digital Research Alliance of Canada &middot; PI: Carl de Boer</p>
+        <p class="record__note">Priority access to GPUs. Co-wrote the proposal.</p>
+      </div>
+      <p class="record__when">2022 &ndash; 2024</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Efficient edge inference benchmarking for AI-driven applications</h3>
+        <p class="record__where">Mitacs Accelerate &middot; PI: Jonathan Wu</p>
+        <p class="record__note">15,000 CAD. Sole co-applicant; wrote the proposal.</p>
+      </div>
+      <p class="record__when">Nov 2020 &ndash; Mar 2021</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Spatio-temporal human activity recognition on manufacturing floors</h3>
+        <p class="record__where">Mitacs Accelerate &middot; PI: Jonathan Wu</p>
+        <p class="record__note">22,500 CAD. Co-applicant; assisted with proposal writing.</p>
+      </div>
+      <p class="record__when">Oct 2019 &ndash; Apr 2020</p>
+    </article>
       </div>
     </div>
   </section>

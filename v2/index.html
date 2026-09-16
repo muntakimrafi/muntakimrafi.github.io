@@ -5,9 +5,9 @@
 <meta name="viewport" content="width=device-width, initial-scale=1">
 <title>Abdul Muntakim Rafi</title>
 <meta name="author" content="Abdul Muntakim Rafi">
-<meta name="description" content="Abdul Muntakim Rafi is a PhD candidate in Biomedical Engineering at the University of British Columbia, working on machine learning models of gene regulation and on how far their predictions can be trusted.">
+<meta name="description" content="Abdul Muntakim Rafi is a PhD candidate in Biomedical Engineering at the University of British Columbia, working on informative DNA sequence libraries at scale and on machine learning models of gene regulation built from them.">
 <meta property="og:title" content="Abdul Muntakim Rafi">
-<meta property="og:description" content="Abdul Muntakim Rafi is a PhD candidate in Biomedical Engineering at the University of British Columbia, working on machine learning models of gene regulation and on how far their predictions can be trusted.">
+<meta property="og:description" content="Abdul Muntakim Rafi is a PhD candidate in Biomedical Engineering at the University of British Columbia, working on informative DNA sequence libraries at scale and on machine learning models of gene regulation built from them.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png" sizes="32x32">
@@ -51,8 +51,8 @@
     <div class="hero__grid">
       <div class="hero__thesis">
         <p class="eyebrow">PhD Candidate, University of British Columbia</p>
-        <h1>The models can predict expression. <em>The question is whether to trust them.</em></h1>
-        <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the de Boer Lab. I build sequence-to-expression models of gene regulation, develop methods to interpret them and to test how far their predictions hold, and improve them through large-scale synthesis of informative DNA sequences and lab-in-the-loop experiments.</p>
+        <h1>In machine learning, data is king. <em>In biology, the king does not scale.</em></h1>
+        <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the de Boer Lab. Models of gene regulation are bounded by the experiments behind them, and experiments are where biology stops scaling. I work on the technologies that move that bound: DNA sequence libraries designed so that every new sequence is informative rather than redundant, automated at a scale worth training on &mdash; and models built on that data that can say how far to trust their own predictions.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="data/CV_updated.pdf" target="_blank" rel="noopener">Curriculum vitae (PDF)</a>
           <a class="btn btn--ghost" href="publications.html">Publications</a>
@@ -83,48 +83,56 @@
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">Current work</p>
-        <h2>Four questions, one problem.</h2>
-        <p class="lede">How DNA sequence encodes gene expression &mdash; and how much of what a model appears to know about it is real.</p>
+        <h2>Five questions, in order.</h2>
+        <p class="lede">They stack. A model is bounded by its data, what it has learned is bounded by how honestly it was tested, and what we conclude from it is bounded by the tools we read it with.</p>
       </div>
       <div class="themes">
         <article class="theme">
-          <h3>Sequence-to-expression models</h3>
-          <p>Models that map a stretch of DNA to what it does &mdash; from random promoter libraries in yeast to RNA-seq coverage across a genome. Most of my work starts by building one and then asking what it has actually learned.</p>
+          <h3>How do we generate the data?</h3>
+          <p>A model of gene regulation can only be as good as the sequences it was trained on, and in biology that is exactly where things stop scaling. I design DNA libraries in which each new sequence carries information the library does not already hold, and work on automating their synthesis and measurement so the library can keep growing.</p>
         </article>
         <article class="theme">
-          <h3>Reliability and evaluation</h3>
-          <p>A held-out test set that shares homology with the training set does not hold anything out. I work on detecting that leakage, correcting the benchmarks it inflates, and estimating when an individual prediction can be trusted.</p>
+          <h3>How do we train the best models?</h3>
+          <p>Architecture, objective, augmentation, and the dozens of small decisions in between. The Random Promoter DREAM Challenge turned the independent attempts of roughly 300 scientists into one controlled comparison of which of those decisions actually matter.</p>
         </article>
         <article class="theme">
-          <h3>Active learning and lab-in-the-loop</h3>
-          <p>Synthesis is the budget. Which sequences are worth making next, what makes a sequence informative, and how much a model improves per round of experiments.</p>
+          <h3>What have the models learned?</h3>
+          <p>A model that predicts well is a hypothesis about regulatory grammar &mdash; but only if what it learned is regulation rather than the structure of its own training set. Homology between train and test makes those two indistinguishable on a benchmark.</p>
         </article>
         <article class="theme">
-          <h3>Community benchmarking</h3>
-          <p>Single-paper comparisons rarely settle anything. I co-organised the Random Promoter DREAM Challenge and turned the models of roughly 300 scientists into one shared account of what works and why.</p>
+          <h3>Can we trust a single prediction?</h3>
+          <p>An aggregate benchmark number says nothing about the variant in front of you. I work on per-prediction reliability estimates, so that a model can say when it does not know.</p>
+        </article>
+        <article class="theme">
+          <h3>Can we trust how we read them?</h3>
+          <p>Attribution methods and in-silico mutagenesis are instruments in their own right, and largely untested ones. A confident model read through a broken lens is worse than no model at all.</p>
         </article>
       </div>
 
       <div class="fieldindex" style="margin-top: clamp(2.5rem, 5vw, 3.5rem);">
         <div class="fieldindex__head">
           <p class="eyebrow">Topics I have worked on</p>
-          <p class="fieldindex__count">18 entries</p>
+          <p class="fieldindex__count">22 entries</p>
         </div>
         <ul class="fieldindex__list">
-          <li>Regulatory genomics</li>
-          <li>Sequence-to-expression models</li>
-          <li>Cis-regulatory logic</li>
-          <li>Deep learning for DNA</li>
-          <li>Model reliability</li>
-          <li>Benchmark design</li>
-          <li>Homology-based data leakage</li>
-          <li>Variant effect prediction</li>
+          <li>Informative library design</li>
+          <li>Large-scale DNA synthesis</li>
+          <li>Massively parallel reporter assays</li>
           <li>Active learning</li>
           <li>Lab-in-the-loop experiments</li>
-          <li>Massively parallel reporter assays</li>
+          <li>Experimental automation</li>
+          <li>Sequence-to-expression models</li>
+          <li>Regulatory genomics</li>
+          <li>Cis-regulatory logic</li>
+          <li>Deep learning for DNA</li>
           <li>Synthetic promoter design</li>
-          <li>Model interpretation</li>
           <li>Yeast genomics</li>
+          <li>Model interpretation</li>
+          <li>Attribution methods</li>
+          <li>Model reliability</li>
+          <li>Variant effect prediction</li>
+          <li>Homology-based data leakage</li>
+          <li>Benchmark design</li>
           <li>Community benchmarking</li>
           <li>Computer vision</li>
           <li>Medical image segmentation</li>
@@ -188,7 +196,7 @@
       <div>
         <a class="cardlink" href="research.html">
           <span class="cardlink__label">Research</span>
-          <span class="cardlink__text">Themes, positions and the grants behind the work.</span>
+          <span class="cardlink__text">The five questions, the projects behind them, and the funding.</span>
           <span class="cardlink__arrow" aria-hidden="true">&rarr;</span>
         </a>
         <a class="cardlink" href="publications.html">

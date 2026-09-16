@@ -70,6 +70,21 @@ live one keeps serving.
 
 ## Still to fill in
 
+**Three project descriptions are inferred and need replacing.** In the `WORK`
+list in `tools/build.py`, these three had no paper or preprint to draw on, so
+their summaries are written from the grant title alone and are guesses:
+
+- *Continual improvement of gene regulatory models*
+- *Lossless preprocessing of the sequence and expression space*
+- *Selection on human gene expression*
+
+The other five projects are summarised from the papers and preprints behind
+them. If there is synthesis or automation work not represented here, it belongs
+in this list — the homepage now leads on scaling data generation, and the
+projects should carry that claim.
+
+Also outstanding:
+
 - The de Boer Lab and Talaria Summer Institute entries have no outbound links —
   I did not have URLs I could verify.
 - No `og:image`, so link previews fall back to plain text.

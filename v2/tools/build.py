@@ -399,20 +399,24 @@ def record(name, where=None, when=None, note=None, links=None, items=None):
 
 
 TOPICS = [
-    "Regulatory genomics",
-    "Sequence-to-expression models",
-    "Cis-regulatory logic",
-    "Deep learning for DNA",
-    "Model reliability",
-    "Benchmark design",
-    "Homology-based data leakage",
-    "Variant effect prediction",
+    "Informative library design",
+    "Large-scale DNA synthesis",
+    "Massively parallel reporter assays",
     "Active learning",
     "Lab-in-the-loop experiments",
-    "Massively parallel reporter assays",
+    "Experimental automation",
+    "Sequence-to-expression models",
+    "Regulatory genomics",
+    "Cis-regulatory logic",
+    "Deep learning for DNA",
     "Synthetic promoter design",
-    "Model interpretation",
     "Yeast genomics",
+    "Model interpretation",
+    "Attribution methods",
+    "Model reliability",
+    "Variant effect prediction",
+    "Homology-based data leakage",
+    "Benchmark design",
     "Community benchmarking",
     "Computer vision",
     "Medical image segmentation",
@@ -420,18 +424,20 @@ TOPICS = [
 ]
 
 THEMES = [
-    ("Sequence-to-expression models",
-     "Models that map a stretch of DNA to what it does &mdash; from random promoter libraries in yeast to RNA-seq coverage across a genome. Most of my work starts by building one and then asking what it has actually learned."),
-    ("Reliability and evaluation",
-     "A held-out test set that shares homology with the training set does not hold anything out. I work on detecting that leakage, correcting the benchmarks it inflates, and estimating when an individual prediction can be trusted."),
-    ("Active learning and lab-in-the-loop",
-     "Synthesis is the budget. Which sequences are worth making next, what makes a sequence informative, and how much a model improves per round of experiments."),
-    ("Community benchmarking",
-     "Single-paper comparisons rarely settle anything. I co-organised the Random Promoter DREAM Challenge and turned the models of roughly 300 scientists into one shared account of what works and why."),
+    ("How do we generate the data?",
+     "A model of gene regulation can only be as good as the sequences it was trained on, and in biology that is exactly where things stop scaling. I design DNA libraries in which each new sequence carries information the library does not already hold, and work on automating their synthesis and measurement so the library can keep growing."),
+    ("How do we train the best models?",
+     "Architecture, objective, augmentation, and the dozens of small decisions in between. The Random Promoter DREAM Challenge turned the independent attempts of roughly 300 scientists into one controlled comparison of which of those decisions actually matter."),
+    ("What have the models learned?",
+     "A model that predicts well is a hypothesis about regulatory grammar &mdash; but only if what it learned is regulation rather than the structure of its own training set. Homology between train and test makes those two indistinguishable on a benchmark."),
+    ("Can we trust a single prediction?",
+     "An aggregate benchmark number says nothing about the variant in front of you. I work on per-prediction reliability estimates, so that a model can say when it does not know."),
+    ("Can we trust how we read them?",
+     "Attribution methods and in-silico mutagenesis are instruments in their own right, and largely untested ones. A confident model read through a broken lens is worse than no model at all."),
 ]
 
 TABS = [
-    ("research.html", "Research", "Themes, positions and the grants behind the work."),
+    ("research.html", "Research", "The five questions, the projects behind them, and the funding."),
     ("publications.html", "Publications", "Journal articles, conference papers and preprints."),
     ("talks.html", "Talks", "Invited talks, posters and workshops I have run."),
     ("teaching.html", "Teaching", "Courses I have taught and the students I have supervised."),
@@ -459,8 +465,8 @@ def home():
     <div class="hero__grid">
       <div class="hero__thesis">
         <p class="eyebrow">{role}</p>
-        <h1>The models can predict expression. <em>The question is whether to trust them.</em></h1>
-        <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the de Boer Lab. I build sequence-to-expression models of gene regulation, develop methods to interpret them and to test how far their predictions hold, and improve them through large-scale synthesis of informative DNA sequences and lab-in-the-loop experiments.</p>
+        <h1>In machine learning, data is king. <em>In biology, the king does not scale.</em></h1>
+        <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the de Boer Lab. Models of gene regulation are bounded by the experiments behind them, and experiments are where biology stops scaling. I work on the technologies that move that bound: DNA sequence libraries designed so that every new sequence is informative rather than redundant, automated at a scale worth training on &mdash; and models built on that data that can say how far to trust their own predictions.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="{cv}" target="_blank" rel="noopener">Curriculum vitae (PDF)</a>
           <a class="btn btn--ghost" href="publications.html">Publications</a>
@@ -491,8 +497,8 @@ def home():
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">Current work</p>
-        <h2>Four questions, one problem.</h2>
-        <p class="lede">How DNA sequence encodes gene expression &mdash; and how much of what a model appears to know about it is real.</p>
+        <h2>Five questions, in order.</h2>
+        <p class="lede">They stack. A model is bounded by its data, what it has learned is bounded by how honestly it was tested, and what we conclude from it is bounded by the tools we read it with.</p>
       </div>
       <div class="themes">
 {themes}
@@ -546,18 +552,21 @@ def home():
 
 
 RESEARCH_THEMES = [
-    ("Sequence-to-expression models",
-     "Predicting expression from DNA sequence",
-     "Most of my work begins by training a model that maps a stretch of DNA to what it does, and then asking what that model has actually learned. That has meant random promoter libraries in yeast, where millions of sequences can be measured at once, and whole-genome settings where the target is RNA-seq coverage rather than a single number. The interesting part is rarely the architecture; it is what the model implies about regulatory grammar once you can query it freely."),
-    ("Reliability and evaluation",
-     "Knowing when a prediction holds",
-     "A held-out test set that shares homology with the training set does not hold anything out. We showed that homology-based leakage inflates reported performance across genome-trained sequence models, and gave a practical way to detect and avoid it. The follow-on question is per-prediction rather than per-benchmark: for a given variant, can a model say how far to trust its own answer? That is what gRely is for."),
-    ("Active learning and lab-in-the-loop",
-     "Choosing what to synthesise next",
-     "Synthesis is the real budget. If the next round of sequences is chosen well, a model improves far more per experiment than if they are chosen at random. We are evaluating selection strategies against each other and characterising what actually makes a sequence informative, so that the choice can be made deliberately rather than by intuition."),
-    ("Community benchmarking",
-     "Settling comparisons in public",
-     "Comparisons made inside a single paper rarely settle anything. I co-organised the Random Promoter DREAM Challenge &mdash; over 100 teams, roughly 300 scientists, 75+ institutions &mdash; and the analysis that followed turned all of those independently built models into one shared account of which design decisions matter and which do not."),
+    ("How do we generate the data?",
+     "Informative sequence libraries, at a scale worth training on",
+     "Compute scales; wet-lab experiments do not. That asymmetry, not architecture, is what caps models of gene regulation. So the question I spend most time on is how to make data faster than the field currently can &mdash; and how to make sure the extra data is worth having. A library of a million sequences that are all variations on the same theme teaches a model far less than a tenth as many chosen to disagree with it. I work on designing libraries where each new sequence carries information the library does not already hold, and on automating synthesis and measurement so that designing them well actually pays off."),
+    ("How do we train the best models?",
+     "Which design decisions actually matter",
+     "Architecture, objective, augmentation, tokenisation, how the reverse strand is handled, what counts as a replicate &mdash; a published model bundles dozens of these together, and a single paper comparing two of them settles very little. The Random Promoter DREAM Challenge was an attempt to settle some of it in public: roughly 300 scientists building models independently against one held-out measurement, then a controlled analysis of which of their choices explained the differences."),
+    ("What have the models learned?",
+     "Regulation, or the shape of the training set",
+     "A model that predicts well is only useful as a hypothesis about regulatory grammar if what it learned was regulation. Sequences that share evolutionary history end up on both sides of a train/test split, and a model that simply recognises them scores exactly like one that understands them. Separating the two is a prerequisite for every claim made from a model&rsquo;s internals, and it is why a good deal of reported progress in this field is really measurement error in the benchmark."),
+    ("Can we trust a single prediction?",
+     "Reliability per prediction, not per benchmark",
+     "An aggregate correlation over a test set says nothing about the variant actually in front of you, which is the thing anyone using these models cares about. A model that is right on average and silently wrong on the cases you are asking about is worse than useless. I work on estimating reliability for individual predictions, so that a model has a way of saying when it does not know."),
+    ("Can we trust how we read them?",
+     "The interpretation tools are instruments too",
+     "Attribution methods, in-silico mutagenesis and the rest of the interpretation toolkit are themselves models, and they are much less tested than the networks they are pointed at. If the lens is distorted, a confident and accurate model still yields a wrong biological conclusion &mdash; and nothing in the usual benchmark would catch it."),
 ]
 
 RESEARCH_POSITIONS = [
@@ -570,6 +579,36 @@ RESEARCH_POSITIONS = [
     ("Research Assistant, Digital Signal Processing Research Laboratory",
      "Department of Electrical and Electronic Engineering, BUET, Dhaka, Bangladesh",
      "Oct 2018 &ndash; Mar 2019", None),
+]
+
+# (title, status, pill class, when, description, [(label, url), ...])
+# Descriptions marked below as derived-from-title are placeholders taken from
+# the grant title alone and should be replaced with the real summary.
+WORK = [
+    ("Informative sequence libraries", "In preparation", "pill--green", "2024 &ndash; present",
+     "Which sequences are worth making next? We put active learning selection strategies against each other on sequence-to-expression data and characterise what actually makes a sequence informative &mdash; so that a library grows in information rather than only in size. With Justin Qian, Emmanuel Cazottes and Carl de Boer.",
+     []),
+    ("Continual improvement of gene regulatory models", "Ongoing", "pill--live", "2025 &ndash; 2026",
+     "Keeping a sequence-to-expression model improving as new measurements arrive, instead of freezing it at the dataset it happened to be trained on. Supported by priority GPU access from the Digital Research Alliance of Canada.",
+     []),
+    ("gRely &mdash; reliability of variant effect predictions", "In preparation", "pill--green", "2025 &ndash; present",
+     "Benchmark performance in aggregate tells you nothing about whether to trust the prediction for one particular variant. gRely estimates reliability per prediction for genome-trained sequence-to-expression models. Begun during my internship at Genentech, with G&ouml;k&ccedil;en Eraslan and Kipper Fletez-Brant.",
+     []),
+    ("Homology-based data leakage", "Preprint", "pill--green", "2024 &ndash; 2025",
+     "Sequences that share evolutionary history end up on both sides of a train/test split, and the benchmark then rewards a model for recognising them rather than understanding them. We measured how far this inflates reported performance across genome-trained sequence models, and gave a practical way to detect and avoid it.",
+     [("Preprint", "https://www.biorxiv.org/content/10.1101/2025.01.22.634321v1.abstract")]),
+    ("Random Promoter DREAM Challenge", "Published", "pill--muted", "2022 &ndash; 2024",
+     "An open competition to predict expression from random promoter sequences: over 100 teams, roughly 300 scientists, 75+ universities and companies. I was the only graduate student on the organising committee, ran daily operations, and led the analysis that turned all of those independently built models into one controlled account of which design decisions matter.",
+     [("Nature Biotechnology", "https://www.nature.com/articles/s41587-024-02414-w")]),
+    ("Yorzoi", "Preprint", "pill--green", "2024 &ndash; 2025",
+     "Predicting RNA-seq coverage across the yeast genome from DNA sequence &mdash; a whole-genome readout rather than one number per construct. With Timon Schneider and the Ellis lab at Imperial College London.",
+     [("Preprint", "https://www.biorxiv.org/content/10.1101/2025.09.20.677345v1.abstract")]),
+    ("Lossless preprocessing of the sequence and expression space", "Completed", "pill--muted", "2023",
+     "Preprocessing routinely throws away information before a model ever sees it. This project asked how much of the sequence and expression space can be carried through to training intact. Funded by the School of Biomedical Engineering at UBC.",
+     []),
+    ("Selection on human gene expression", "Completed", "pill--muted", "2022 &ndash; 2024",
+     "Using sequence-to-expression models to ask which regulatory variation natural selection has acted on in humans. Supported by priority GPU access from the Digital Research Alliance of Canada.",
+     []),
 ]
 
 # (title, when, source, PI, funding, role)
@@ -599,24 +638,35 @@ PROJECTS = [
 ]
 
 
+def render_work(items):
+    out = []
+    for title, status, pill, when, text, links in items:
+        link_html = ""
+        if links:
+            link_html = '\n          <p class="project__links">%s</p>' % "".join(
+                '<a class="pub__link" href="%s" target="_blank" rel="noopener">%s</a>' % (u, l)
+                for l, u in links)
+        out.append("""        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">{title}</h3>
+            <span class="pill {pill}">{status}</span>
+          </div>
+          <p class="project__when">{when}</p>
+          <p class="project__text">{text}</p>{links}
+        </article>""".format(title=title, pill=pill, status=status, when=when,
+                             text=text, links=link_html))
+    return "\n".join(out)
+
+
 def research():
     themes = "\n".join(
         record(title, where=sub, note=body) for title, sub, body in RESEARCH_THEMES)
     positions = "\n".join(
         record(title, where=where, when=when, note=note)
         for title, where, when, note in RESEARCH_POSITIONS)
-    projects = "\n".join("""        <article class="project">
-          <div class="project__head">
-            <h3 class="project__title">{title}</h3>
-            <span class="pill pill--muted">{when}</span>
-          </div>
-          <dl class="project__meta">
-            <dt>Source</dt><dd>{source}</dd>
-            <dt>PI</dt><dd>{pi}</dd>
-            <dt>Funding</dt><dd>{funding}</dd>
-            <dt>My role</dt><dd>{role}</dd>
-          </dl>
-        </article>""".format(title=t, when=w, source=s, pi=p, funding=f, role=r)
+    projects = "\n".join(
+        record(t, where="%s &middot; PI: %s" % (s, p),
+               when=w, note="%s. %s." % (f, r))
         for t, w, s, p, f, r in PROJECTS)
 
     return """
@@ -624,12 +674,13 @@ def research():
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">Research</p>
-        <h1>Decoding cis-regulatory logic, and checking the work.</h1>
-        <p class="lede">Building sequence-to-expression models, developing methods to interpret them and to evaluate them honestly, and improving them through large-scale DNA synthesis and lab-in-the-loop experiments.</p>
+        <h1>Make the data scale. Then find out what the model really knows.</h1>
+        <p class="lede">Designing informative DNA sequence libraries and automating the experiments that read them &mdash; and testing, honestly, how much of what a model appears to have learned from them is real.</p>
       </div>
       <div class="prose prose--wide">
-        <p>Gene regulation is written in DNA, and a model that reads it well is useful twice over: as a predictor, and as a hypothesis about the grammar itself. The second use is the one that keeps me busy, because it only holds if the model has learned regulation rather than the shape of its own training set.</p>
-        <p>Much of what looks like progress in this field is <strong>measurement error in the benchmark</strong>. Sequences that share evolutionary history end up on both sides of a train/test split; performance goes up; nothing has been learned. Separating the two &mdash; and giving a model a way to say when it does not know &mdash; runs through most of my recent work.</p>
+        <p>Gene regulation is written in DNA, and a model that reads it well is useful twice over: as a predictor, and as a hypothesis about the grammar itself. Both uses are capped by the same thing. <strong>Data is the binding constraint in this field</strong>, and biology is the one place where it does not get cheaper on its own &mdash; compute scales, sequencing scales, the experiment does not.</p>
+        <p>So the work runs in two directions. One is making data faster and making it count: libraries designed so that each new sequence disagrees with what the model already believes, rather than confirming it, and enough automation that designing them well is worth the effort. Noisy measurements at scale beat clean measurements you cannot afford.</p>
+        <p>The other is refusing to take the resulting models at face value. Much of what looks like progress here is <strong>measurement error in the benchmark</strong> &mdash; sequences sharing evolutionary history on both sides of a train/test split, performance going up, nothing learned. Beyond that sits the question of whether an individual prediction can be trusted, and whether the tools we use to read a model are themselves telling us the truth.</p>
       </div>
     </div>
   </section>
@@ -642,6 +693,19 @@ def research():
       </div>
       <div class="records">
 {themes}
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Projects</p>
+        <h2>What I have worked on.</h2>
+        <p class="lede">Including the work that has not been written up yet. Anything with a paper behind it links to one.</p>
+      </div>
+      <div class="projects">
+{work}
       </div>
     </div>
   </section>
@@ -665,12 +729,12 @@ def research():
         <h2>Grants and compute.</h2>
         <p class="lede">Proposals I wrote or co-wrote, with the role I held on each.</p>
       </div>
-      <div class="projects">
+      <div class="records">
 {projects}
       </div>
     </div>
   </section>
-""".format(themes=themes, positions=positions, projects=projects)
+""".format(themes=themes, work=render_work(WORK), positions=positions, projects=projects)
 
 
 def publications():
@@ -1109,10 +1173,10 @@ def cv():
 
 PAGES = [
     ("index.html", NAME,
-     "Abdul Muntakim Rafi is a PhD candidate in Biomedical Engineering at the University of British Columbia, working on machine learning models of gene regulation and on how far their predictions can be trusted.",
+     "Abdul Muntakim Rafi is a PhD candidate in Biomedical Engineering at the University of British Columbia, working on informative DNA sequence libraries at scale and on machine learning models of gene regulation built from them.",
      home),
     ("research.html", "Research",
-     "Sequence-to-expression models, reliability and evaluation, active learning and lab-in-the-loop experiments, and community benchmarking.",
+     "Informative sequence library design and experimental automation, sequence-to-expression models, honest benchmarking, per-prediction reliability, and the interpretation tools themselves.",
      research),
     ("publications.html", "Publications",
      "Journal articles, conference papers and preprints by Abdul Muntakim Rafi.",

@@ -749,23 +749,19 @@ a:hover { color: var(--ink); }
   margin: 0;
   flex: 1 1 14rem;
 }
-.project__meta {
-  display: grid;
-  grid-template-columns: 6.5rem minmax(0, 1fr);
-  gap: .45rem 1rem;
-  margin: 0;
-  padding-top: .9rem;
-  border-top: 1px solid var(--rule);
-}
-@media (max-width: 26rem) { .project__meta { grid-template-columns: 1fr; gap: .1rem .5rem; } }
-.project__meta dt {
+/* A project card carries prose and a link rather than a metadata table */
+.project__when {
   font-family: var(--font-mono);
-  font-size: .64rem;
+  font-size: .66rem;
   letter-spacing: .1em;
   text-transform: uppercase;
   color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+  margin-top: -.55rem;
 }
-.project__meta dd { margin: 0; font-size: .88rem; line-height: 1.5; color: var(--ink-2); }
+.project__text { font-size: .92rem; line-height: 1.65; color: var(--ink-2); }
+.project__links { display: flex; flex-wrap: wrap; gap: .9rem; margin-top: auto; padding-top: .3rem; }
+.project__links:empty { display: none; }
 
 /* --- Figures: a small count, read as a number ---------------------------- */
 .figures {
