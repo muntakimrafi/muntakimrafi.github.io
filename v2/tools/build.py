@@ -409,28 +409,23 @@ def record(name, where=None, when=None, note=None, links=None, items=None):
 
 
 TOPICS = [
-    "Informative library design",
+    "Applied machine learning",
+    "Computational biology",
+    "Sequence-to-expression models",
+    "Regulatory genomics",
     "Large-scale DNA synthesis",
     "Massively parallel reporter assays",
     "Active learning",
     "Lab-in-the-loop experiments",
     "Experimental automation",
-    "Sequence-to-expression models",
-    "Regulatory genomics",
-    "Cis-regulatory logic",
-    "Deep learning for DNA",
-    "Synthetic promoter design",
-    "Yeast genomics",
+    "Sequence design",
+    "Deep learning",
     "Model interpretation",
-    "Attribution methods",
+    "Simulation of cis-regulation",
     "Model reliability",
     "Variant effect prediction",
-    "Homology-based data leakage",
+    "Data leakage",
     "Benchmark design",
-    "Community benchmarking",
-    "Computer vision",
-    "Medical image segmentation",
-    "Image forensics",
 ]
 
 THEMES = [
