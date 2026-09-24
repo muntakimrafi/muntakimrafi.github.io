@@ -1,0 +1,283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Research &middot; Abdul Muntakim Rafi</title>
+<meta name="author" content="Abdul Muntakim Rafi">
+<meta name="description" content="Informative sequence library design and experimental automation, sequence-to-expression models, honest benchmarking, per-prediction reliability, and the interpretation tools themselves.">
+<meta property="og:title" content="Research &middot; Abdul Muntakim Rafi">
+<meta property="og:description" content="Informative sequence library design and experimental automation, sequence-to-expression models, honest benchmarking, per-prediction reliability, and the interpretation tools themselves.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
+</head>
+<body>
+<a class="skip" href="#main">Skip to content</a>
+
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__name">Abdul Muntakim Rafi</span>
+    </a>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html">Home</a>
+      <a href="research.html" aria-current="page" class="is-current">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="service.html">Service</a>
+      <a href="cv.html">CV</a>
+    </nav>
+    <div class="masthead__end">
+      <div class="masthead__social">
+        <a href="mailto:rafi11@student.ubc.ca" aria-label="Email" title="Email"><svg class="masthead__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M3 6h18v12H3zM3 6l9 7 9-7"/></svg></a>
+        <a href="https://scholar.google.com/citations?user=fyNavPkAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg class="masthead__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></a>
+        <a href="https://github.com/muntakimrafi" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="masthead__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+        <a href="https://www.linkedin.com/in/abdul-muntakim-rafi-205002154/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="masthead__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.76-2.06 4.02 0 4.76 2.65 4.76 6.09V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.91V21h-4V9z"/></svg></a>
+      </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme"><svg class="theme-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="currentColor" d="M12 3a9 9 0 0 0 0 18z"/></svg><span class="theme-toggle__label">Theme</span></button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><svg class="nav-toggle__bars" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="nav-toggle__x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg></button>
+    </div>
+  </div>
+</header>
+
+<main id="main">
+<section class="section section--plain">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Research</p>
+        <h1>Learning the cis-regulatory code from sequence.</h1>
+        <p class="lede">How do we learn the cis-regulatory code from sequence, and how do we know when to trust what a model has learned?</p>
+      </div>
+      <div class="prose prose--wide">
+        <p>Progress on cis-regulation is limited by <strong>data rather than architecture</strong>. The genome offers too few examples, they are too correlated with one another, and its homology structure makes standard evaluations dishonest. Almost all of that data was also generated for a different purpose: characterising a system and training a model on it are different objectives, and technology built deliberately to produce training data is rare.</p>
+        <p>So the work runs in two directions at once. One builds the data, using synthetic sequence to escape the genome&rsquo;s ceilings and designing it for information content rather than count. The other keeps the resulting models honest: evaluated without leakage, reported faithfully, and able to say how far an individual prediction can be trusted.</p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Themes</p>
+        <h2>The questions the work is organised around.</h2>
+      </div>
+      <div class="records">
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">How do we generate the data?</h3>
+        <p class="record__where">Experiments built for the model, not inherited from someone else&rsquo;s</p>
+        <p class="record__note">A model of regulation is bounded by the sequences it was trained on. The genome supplies too few of them and they are too correlated, and synthetic libraries that lift that ceiling saturate in turn, because most of a dataset&rsquo;s value arrives early and volume alone stops buying accuracy. I have worked on random libraries that remove the homology and sample-size limits, on chromosome-scale sequence that removes fixed context, and now on designing libraries around information content rather than count.</p>
+      </div>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">How do we train the best models?</h3>
+        <p class="record__where">Which design decisions actually matter</p>
+        <p class="record__note">A trained model is the product of dozens of choices made at once. Architecture, objective, augmentation and data handling all move the result, and a paper comparing two models cannot say which of them was responsible. Holding the data fixed and letting training vary across many independent attempts separated the factors for one setting, where it was the trainer rather than the architecture that carried the gain.</p>
+      </div>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">What have the models learned?</h3>
+        <p class="record__where">Causal structure, or the shape of the training set</p>
+        <p class="record__note">A model that predicts well is only informative if what it learned was regulation. Homologous sequences land on both sides of a standard split, so a model that recalls its neighbours scores like one that understands them, and every assay leaves biases a model will fit as readily as the biology. I built tools that detect that homology and partition data around it, and am mapping it across the genome so the correction does not have to be recomputed each time.</p>
+      </div>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Can we trust a single prediction?</h3>
+        <p class="record__where">Reliability per prediction, not per benchmark</p>
+        <p class="record__note">Anyone applying these models cares about one variant, not an average. Aggregate correlations say nothing about that case, and the usual workaround of thresholding on predicted effect size discards the low-magnitude variants where most GWAS signal is expected to act. I built a meta-model that scores how far an individual prediction can be trusted, and that says which features drive the score.</p>
+      </div>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Can we trust how we read them?</h3>
+        <p class="record__where">The interpretation tools are instruments too</p>
+        <p class="record__note">Most biological claims from these models arrive through an interpretation method rather than from the model itself. Attribution and perturbation methods are models in their own right, far less tested than the networks they are pointed at, and a distorted lens turns an accurate model into a wrong conclusion without any benchmark catching it.</p>
+      </div>
+    </article>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Projects</p>
+        <h2>Projects, published and in progress.</h2>
+      </div>
+      <div class="projects">
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">hashFrag &mdash; homology, leakage and memorization</h3>
+            <span class="pill pill--green">Preprint</span>
+          </div>
+          <p class="project__text">Neither chromosomal nor random train/test splits account for homology within a species, so standard evaluations of genome-trained models are inflated. We measured how far, showed that the dependence on training-set similarity is not monotonic, and released hashFrag, which detects homology and partitions data at roughly a hundredth of the compute of exhaustive alignment. Its recommendation is to stratify a test set rather than build a fully orthogonal one, because an orthogonal split hides the bias instead of exposing it.</p>
+          <p class="project__links"><a class="pub__link" href="https://www.biorxiv.org/content/10.1101/2025.01.22.634321v1.abstract" target="_blank" rel="noopener">Preprint</a></p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">pairFrag &mdash; genome-wide homology mapping</h3>
+            <span class="pill pill--live">In preparation</span>
+          </div>
+          <p class="project__text">Making homology-aware evaluation something any group can do without repeating the computation.</p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Random Promoter DREAM Challenge</h3>
+            <span class="pill pill--muted">Published</span>
+          </div>
+          <p class="project__text">Random sequence removes the homology and sample-size ceilings at once. I designed and ran an open challenge on 6.7 million random promoters measured in yeast, with more than 110 teams and 28 final models; nineteen beat the previous state of the art. The winner had the fewest parameters and three of the top five used no transformer, so I built a framework that recombines the entrants&rsquo; modules across architectures and trainers to find out which choice carried the gain. It was the trainer. Models tuned on random yeast sequence then transferred to other species and assays.</p>
+          <p class="project__links"><a class="pub__link" href="https://www.nature.com/articles/s41587-024-02414-w" target="_blank" rel="noopener">Nature Biotechnology</a></p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">Chromosome-scale sequence from outside the host</h3>
+            <span class="pill pill--live">Ongoing</span>
+          </div>
+          <p class="project__text">Short oligos sit in one fixed context, so they cannot report on promoter&ndash;gene distance, chromatin or real transcripts. Sequence carried on yeast artificial chromosomes behaves like an extra chromosome and has never been under selection in the organism reading it. We annotated a single YAC in Luthra et al., then increased the data tenfold to train models on it, which became Yorzoi, built with Timon Schneider and Tom Ellis at Imperial College London. We are now scaling the data tenfold again for Yakformer.</p>
+          <p class="project__links"><a class="pub__link" href="https://www.biorxiv.org/content/10.1101/2025.09.20.677345v1.abstract" target="_blank" rel="noopener">Yorzoi preprint</a></p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">High-information-content libraries</h3>
+            <span class="pill pill--live">In progress</span>
+          </div>
+          <p class="project__text">Designing sequence synthesis approaches that create high-information-content sequence libraries.</p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">nextFrag (active learning)</h3>
+            <span class="pill pill--green">Preprint</span>
+          </div>
+          <p class="project__text">If every sequence has to be paid for, each one should be chosen to be informative. We benchmarked six selection strategies across architectures, datasets and configurations, simulated on pools that had already been measured, so the benchmark itself needed no new experiment. All beat random sampling, uncertainty-based methods did best while being cheapest to compute, and most of the gain from many small acquisition rounds survives with fewer, larger ones &mdash; which is what makes lab-in-the-loop practical. Selected sequences look distinctive, but selecting directly on those properties never matched active learning: informativeness is a property of the model&rsquo;s ignorance, not of the sequence. Building on this, we are extending the work to large-scale experimental data, to report how active learning is best done in genomics.</p>
+          <p class="project__links"><a class="pub__link" href="https://doi.org/10.1101/2026.05.21.727038" target="_blank" rel="noopener">Preprint</a></p>
+        </article>
+        <article class="project">
+          <div class="project__head">
+            <h3 class="project__title">gRely &mdash; reliability of individual predictions</h3>
+            <span class="pill pill--green">Preprint</span>
+          </div>
+          <p class="project__text">A meta-model that estimates the probability an individual variant-effect prediction is correct, from features of the variant, gene, tissue and model. Its top-scoring fifth reaches 97% sign concordance against 54% in the bottom fifth, and it stays discriminative among the low-magnitude variants that effect-size filtering discards, which is where most GWAS signal is expected to act. It transfers zero-shot to other architectures, so reliability looks like a property of the locus rather than of the model. Begun during an internship at Genentech.</p>
+          <p class="project__links"><a class="pub__link" href="https://doi.org/10.1101/2026.05.23.727431" target="_blank" rel="noopener">Preprint</a></p>
+        </article>
+      </div>
+      <p class="status status--wide">
+        <span class="status__dot" aria-hidden="true"></span>
+        <span>Interested in collaborating on any of these? <a href="mailto:rafi11@student.ubc.ca" aria-label="Email me" title="Email me">Reach out <svg class="inlineicon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M3 6h18v12H3zM3 6l9 7 9-7"/></svg></a>.</span>
+      </p>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Funding</p>
+        <h2>Grants and compute.</h2>
+        <p class="lede">Fellowships, grants and compute awards, with the role I held on each.</p>
+      </div>
+      <div class="records">
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Four Year Doctoral Fellowship (4YF)</h3>
+        <p class="record__where">University of British Columbia</p>
+        <p class="record__note">96,000 CAD over four years. UBC&rsquo;s flagship doctoral fellowship, awarded with tuition to top PhD students.</p>
+      </div>
+      <p class="record__when">2021 &ndash; 2025</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Continual improvement of gene regulatory models</h3>
+        <p class="record__where">The Digital Research Alliance of Canada &middot; PI: Carl de Boer</p>
+        <p class="record__note">Priority access to GPUs. Co-wrote the proposal.</p>
+      </div>
+      <p class="record__when">2025 &ndash; 2026</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Evaluation, optimization and continual improvement of sequence-based cis-regulatory models</h3>
+        <p class="record__where">Advanced Research Computing, UBC &middot; PI: Carl de Boer</p>
+        <p class="record__note">20,000 CAD in Microsoft Azure credit. Co-applicant; wrote the proposal.</p>
+      </div>
+      <p class="record__when">Aug 2023 &ndash; Jun 2024</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Lossless preprocessing of the sequence and expression space to improve sequence-based gene regulatory models</h3>
+        <p class="record__where">School of Biomedical Engineering, UBC &middot; PI: Carl de Boer</p>
+        <p class="record__note">6,000 CAD. Co-applicant; wrote the proposal and hired a Co-op student through the grant.</p>
+      </div>
+      <p class="record__when">May &ndash; Aug 2023</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Random Promoter DREAM Challenge 2022</h3>
+        <p class="record__where">TPU Research Cloud, Google &middot; PI: Carl de Boer (UBC), Pablo Meyer (IBM Research), Jake Albrecht (Sage Bionetworks)</p>
+        <p class="record__note">50 TPU quotas. Sole graduate student on the organising committee.</p>
+      </div>
+      <p class="record__when">May &ndash; Jul 2022</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Identifying selection on human gene expression with gene regulatory models</h3>
+        <p class="record__where">The Digital Research Alliance of Canada &middot; PI: Carl de Boer</p>
+        <p class="record__note">Priority access to GPUs. Co-wrote the proposal.</p>
+      </div>
+      <p class="record__when">2022 &ndash; 2024</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Efficient edge inference benchmarking for AI-driven applications</h3>
+        <p class="record__where">Mitacs Accelerate &middot; PI: Jonathan Wu</p>
+        <p class="record__note">15,000 CAD. Sole co-applicant; wrote the proposal.</p>
+      </div>
+      <p class="record__when">Nov 2020 &ndash; Mar 2021</p>
+    </article>
+    <article class="record">
+      <div class="record__main">
+        <h3 class="record__name">Spatio-temporal human activity recognition on manufacturing floors</h3>
+        <p class="record__where">Mitacs Accelerate &middot; PI: Jonathan Wu</p>
+        <p class="record__note">22,500 CAD. Co-applicant; assisted with proposal writing.</p>
+      </div>
+      <p class="record__when">Oct 2019 &ndash; Apr 2020</p>
+    </article>
+      </div>
+    </div>
+  </section>
+</main>
+
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div>
+      <p class="footer__name">Abdul Muntakim Rafi</p>
+      <p>Vancouver, Canada</p>
+      <div class="social">
+        <a class="social__link" href="mailto:rafi11@student.ubc.ca"><svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M3 6h18v12H3zM3 6l9 7 9-7"/></svg><span>Email</span></a>
+        <a class="social__link" href="https://scholar.google.com/citations?user=fyNavPkAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg><span>Google Scholar</span></a>
+        <a class="social__link" href="https://github.com/muntakimrafi" target="_blank" rel="noopener"><svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"/></svg><span>GitHub</span></a>
+        <a class="social__link" href="https://www.linkedin.com/in/abdul-muntakim-rafi-205002154/" target="_blank" rel="noopener"><svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.76-2.06 4.02 0 4.76 2.65 4.76 6.09V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.91V21h-4V9z"/></svg><span>LinkedIn</span></a>
+      </div>
+    </div>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="service.html">Service</a>
+      <a href="cv.html">CV</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
+</body>
+</html>
