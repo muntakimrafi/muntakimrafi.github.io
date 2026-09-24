@@ -33,6 +33,7 @@ EMAIL = "rafi11@student.ubc.ca"
 SCHOLAR = "https://scholar.google.com/citations?user=fyNavPkAAAAJ&hl=en"
 GITHUB = "https://github.com/muntakimrafi"
 LINKEDIN = "https://www.linkedin.com/in/abdul-muntakim-rafi-205002154/"
+LAB = "https://deboer.bme.ubc.ca/"
 CV_PDF = "data/CV_updated.pdf"
 FAILURE_PDF = "data/CV_of_Failure.pdf"
 
@@ -176,28 +177,28 @@ def authors(text):
 PREPRINTS = [
     ("2026",
      "gRely: Reliability for genome-trained sequence-to-function model predictions",
-     "https://doi.org/10.1101/2026.05.23.727431",
+     "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1",
      "Abdul Muntakim Rafi<sup>&dagger;</sup>, G&ouml;k&ccedil;en Eraslan, Kipper Fletez-Brant<sup>&dagger;</sup>",
      "bioRxiv &middot; under review",
-     [("Preprint", "https://doi.org/10.1101/2026.05.23.727431")]),
+     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1")]),
     ("2026",
      "Evaluation of active learning selection strategies and characterization of informative sequences for sequence-to-expression models",
-     "https://doi.org/10.1101/2026.05.21.727038",
+     "https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1",
      "Justin Qian<sup>*</sup>, Abdul Muntakim Rafi<sup>*&dagger;</sup>, Emmanuel Cazottes<sup>*</sup>, Carl de Boer<sup>&dagger;</sup>",
      "bioRxiv &middot; under review",
-     [("Preprint", "https://doi.org/10.1101/2026.05.21.727038")]),
+     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1"), ("Code", "https://github.com/de-Boer-Lab/nextFrag")]),
     ("2025",
      "Yorzoi: Predicting RNA-seq coverage from DNA sequence in yeast",
      "https://www.biorxiv.org/content/10.1101/2025.09.20.677345v1.abstract",
      "Timon Schneider, Abdul Muntakim Rafi, Cassandra Jensen, Daniella Liao, Yiren Zhao, Carl de Boer, Tom Ellis",
      "bioRxiv",
-     [("bioRxiv", "https://www.biorxiv.org/content/10.1101/2025.09.20.677345v1.abstract")]),
+     [("bioRxiv", "https://www.biorxiv.org/content/10.1101/2025.09.20.677345v1.abstract"), ("Code", "https://github.com/Tom-Ellis-Lab/yorzoi")]),
     ("2025",
      "Characterizing homology-induced data leakage and memorization in genome-trained sequence models",
-     "https://www.biorxiv.org/content/10.1101/2025.01.22.634321v1.abstract",
+     "https://www.biorxiv.org/content/10.1101/2025.01.22.634321v2",
      "Abdul Muntakim Rafi<sup>&dagger;</sup>, Brett Kiyota, Nozomu Yachie, Carl de Boer<sup>&dagger;</sup>",
      "bioRxiv &middot; under review",
-     [("bioRxiv", "https://www.biorxiv.org/content/10.1101/2025.01.22.634321v1.abstract")]),
+     [("bioRxiv", "https://www.biorxiv.org/content/10.1101/2025.01.22.634321v2"), ("Code", "https://github.com/de-Boer-Lab/hashFrag")]),
 ]
 
 JOURNALS = [
@@ -212,31 +213,31 @@ JOURNALS = [
      "https://www.nature.com/articles/s41587-024-02414-w",
      "Abdul Muntakim Rafi<sup>&dagger;</sup>, Daria Nogina, Dmitry Penzar, Dohoon Lee, Danyeong Lee, Nayeon Kim, Sangyeup Kim, Dohyeon Kim, Yeojin Shin, Il-Youp Kwak, Georgy Meshcheryakov, Andrey Lando, Arsenii Zinkevich, Byeong-Chan Kim, Juhyun Lee, Taein Kang, Eeshit Dhaval Vaishnav, Payman Yadollahpour, Random Promoter DREAM Challenge Consortium, Sun Kim, Jake Albrecht, Aviv Regev, Wuming Gong, Ivan V. Kulakovskiy, Pablo Meyer, Carl de Boer<sup>&dagger;</sup>",
      "Nature Biotechnology 43(8):1373&ndash;1383",
-     [("Journal", "https://www.nature.com/articles/s41587-024-02414-w")]),
+     [("Journal", "https://www.nature.com/articles/s41587-024-02414-w"), ("Code", "https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022")]),
     ("2024",
-     "Biochemical activity is the default DNA state in eukaryotes",
+     "Regulatory activity is the default DNA state in eukaryotes",
      "https://www.nature.com/articles/s41594-024-01235-4",
      "Ishika Luthra, Xinyi E Chen, Cassandra Jensen, Asfar Lathif Salaudeen, Abdul Muntakim Rafi, Carl G de Boer",
      "Nature Structural &amp; Molecular Biology",
-     [("Journal", "https://www.nature.com/articles/s41594-024-01235-4")]),
+     [("Journal", "https://www.nature.com/articles/s41594-024-01235-4"), ("Code", "https://github.com/de-Boer-Lab/RGP")]),
     ("2023",
      "LegNet: a best-in-class deep learning model for short DNA regulatory regions",
      "https://academic.oup.com/bioinformatics/article/39/8/btad457/7230784",
      "Dmitry Penzar, Daria Nogina, Elizaveta Noskova, Arsenii Zinkevich, Georgy Meshcheryakov, Andrey Lando, Abdul Muntakim Rafi, Carl de Boer, Ivan V. Kulakovskiy",
      "Bioinformatics",
-     [("Journal", "https://academic.oup.com/bioinformatics/article/39/8/btad457/7230784")]),
+     [("Journal", "https://academic.oup.com/bioinformatics/article/39/8/btad457/7230784"), ("Code", "https://github.com/autosome-ru/LegNet")]),
     ("2023",
      "GIL: A Python package for designing custom indexing primers",
      "https://academic.oup.com/bioinformatics/article/39/6/btad328/7174142",
      "Nicholas Mateyko, Omar Tariq, Xinyi E Chen, Will Cheney, Asfar Lathif Salaudeen, Ishika Luthra, Najmeh Nikpour, Abdul Muntakim Rafi, Hadis Kamali Deghan, Cassandra Jensen, Carl de Boer",
      "Bioinformatics",
-     [("Journal", "https://academic.oup.com/bioinformatics/article/39/6/btad328/7174142")]),
+     [("Journal", "https://academic.oup.com/bioinformatics/article/39/6/btad328/7174142"), ("Code", "https://github.com/de-Boer-Lab/GIL")]),
     ("2021",
      "RemNet: remnant convolutional neural network for camera model identification",
      "https://link.springer.com/article/10.1007/s00521-020-05220-y",
      "Abdul Muntakim Rafi, Thamidul Islam Tonmoy, Uday Kamal, Jonathan Wu, Md. Kamrul Hasan",
      "Neural Computing and Applications",
-     [("Journal", "https://link.springer.com/article/10.1007/s00521-020-05220-y")]),
+     [("Journal", "https://link.springer.com/article/10.1007/s00521-020-05220-y"), ("Code", "https://github.com/muntakimrafi/RemNet-remnant-convolutional-neural-network-for-camera-model-identification")]),
 ]
 
 CONFERENCES = [
@@ -245,7 +246,7 @@ CONFERENCES = [
      "https://link.springer.com/chapter/10.1007/978-3-030-62469-9_4",
      "Uday Kamal, Abdul Muntakim Rafi, Rakibul Hoque, Jonathan Wu, Md. Kamrul Hasan",
      "Second International Workshop on Thoracic Image Analysis, MICCAI 2020",
-     [("Paper", "https://link.springer.com/chapter/10.1007/978-3-030-62469-9_4")]),
+     [("Paper", "https://link.springer.com/chapter/10.1007/978-3-030-62469-9_4"), ("Code", "https://github.com/muntakimrafi/TIA2020-Recurrent-3D-DenseUNet")]),
     ("2020",
      "Understanding global reaction to the recent outbreaks of COVID-19: insights from Instagram data analysis",
      "https://dl.acm.org/doi/10.1109/SMC42975.2020.9283376",
@@ -263,7 +264,7 @@ CONFERENCES = [
      "https://openaccess.thecvf.com/content_CVPRW_2019/papers/Media%20Forensics/Rafi_Application_of_DenseNet_in_Camera_Model_Identification_and_Post-processing_Detection_CVPRW_2019_paper.pdf",
      "Abdul Muntakim Rafi, Uday Kamal, Rakibul Hoque, Abid Abrar, Sowmitra Das, Robert Laganiere, Md. Kamrul Hasan",
      "CVPR 2019 Workshops, Long Beach, United States",
-     [("PDF", "https://openaccess.thecvf.com/content_CVPRW_2019/papers/Media%20Forensics/Rafi_Application_of_DenseNet_in_Camera_Model_Identification_and_Post-processing_Detection_CVPRW_2019_paper.pdf")]),
+     [("PDF", "https://openaccess.thecvf.com/content_CVPRW_2019/papers/Media%20Forensics/Rafi_Application_of_DenseNet_in_Camera_Model_Identification_and_Post-processing_Detection_CVPRW_2019_paper.pdf"), ("Code", "https://github.com/muntakimrafi/Application-of-DenseNet-in-Camera-Model-Identification-and-Post-processing-Detection")]),
     ("2019",
      "Image-based Bengali sign language alphabet recognition for the deaf community",
      "https://ieeexplore.ieee.org/abstract/document/9033031",
@@ -293,7 +294,8 @@ def render_pubs(items):
 
 
 # Talks, one entry per occasion rather than one per title, so the venue leads.
-# The mark is a typographic tile (venue initials) in place of a logo.
+# The mark is the venue's logo from assets/img/venues/, or its initials when
+# no logo has been added.
 # (mark, venue, place, year, topic, note)
 
 _HOMOLOGY = "Characterizing homology-induced data leakage and memorization in genome-trained sequence models"
@@ -479,7 +481,7 @@ def home():
       <div class="hero__thesis">
         <p class="eyebrow">{role}</p>
         <h1>To benefit from scaling laws in biology, <em>we need to synthesize the right data with the goal of training models.</em></h1>
-        <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the de Boer Lab. Almost every model of gene regulation is trained on data that was generated for some other reason: an atlas, a consortium characterisation, whatever happened to get measured. The field has built remarkable models on top of leftovers, and has rarely built the experiment for the model.</p>
+        <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the <a href="{lab}" target="_blank" rel="noopener">de Boer Lab</a>. Almost every model of gene regulation is trained on data that was generated for some other reason: an atlas, a consortium characterisation, whatever happened to get measured. The field has built remarkable models on top of leftovers, and has rarely built the experiment for the model.</p>
         <p class="hero__mission">I am working on addressing that gap. I design experiments whose purpose is to synthesize the most suitable data for training models, at a throughput worth training on.</p>
         <p class="hero__mission">Better data is only half of it. Every experiment and dataset carries its own bias, and a model will fit that bias as readily as the biology, so the rest of my work is on ensuring the models learn causal structure rather than the correlations an assay left behind, on a faithful reporting of the model&rsquo;s performance, and on knowing when to trust a prediction and the interpretation we draw from it. Trust is what makes them worth using.</p>
         <div class="hero__actions">
@@ -499,7 +501,7 @@ def home():
         </div>
         <dl class="facts">
           <div class="fact"><dt>Position</dt><dd>PhD candidate, Biomedical Engineering</dd></div>
-          <div class="fact"><dt>Lab</dt><dd>de Boer Lab, School of Biomedical Engineering, UBC</dd></div>
+          <div class="fact"><dt>Lab</dt><dd><a href="{lab}" target="_blank" rel="noopener">de Boer Lab</a>, School of Biomedical Engineering, UBC</dd></div>
           <div class="fact"><dt>Since</dt><dd>2021</dd></div>
           <div class="fact"><dt>Before</dt><dd>MASc, University of Windsor &middot; BSc, BUET</dd></div>
         </dl>
@@ -557,7 +559,7 @@ def home():
       </div>
     </div>
   </section>
-""".format(role=ROLE, cv=CV_PDF, email=EMAIL, name=NAME, themes=themes, topics=topics,
+""".format(role=ROLE, cv=CV_PDF, email=EMAIL, name=NAME, lab=LAB, themes=themes, topics=topics,
            ntopics=len(TOPICS), npeer=len(JOURNALS) + len(CONFERENCES), npre=len(PREPRINTS),
            ntalks=len(INVITED) + len(TALKS), tabs=tabs)
 
@@ -586,25 +588,27 @@ RESEARCH_THEMES = [
 WORK = [
     ("hashFrag &mdash; homology, leakage and memorization", "Preprint", "pill--green",
      "Neither chromosomal nor random train/test splits account for homology within a species, so standard evaluations of genome-trained models are inflated. We measured how far, showed that the dependence on training-set similarity is not monotonic, and released hashFrag, which detects homology and partitions data at roughly a hundredth of the compute of exhaustive alignment. Its recommendation is to stratify a test set rather than build a fully orthogonal one, because an orthogonal split hides the bias instead of exposing it.",
-     [("Preprint", "https://www.biorxiv.org/content/10.1101/2025.01.22.634321v1.abstract")]),
+     [("Preprint", "https://www.biorxiv.org/content/10.1101/2025.01.22.634321v2"), ("Code", "https://github.com/de-Boer-Lab/hashFrag")]),
     ("pairFrag &mdash; genome-wide homology mapping", "In preparation", "pill--live",
      "Making homology-aware evaluation something any group can do without repeating the computation.",
      []),
     ("Random Promoter DREAM Challenge", "Published", "pill--muted",
      "Random sequence removes the homology and sample-size ceilings at once. I designed and ran an open challenge on 6.7 million random promoters measured in yeast, with more than 110 teams and 28 final models; nineteen beat the previous state of the art. The winner had the fewest parameters and three of the top five used no transformer, so I built a framework that recombines the entrants&rsquo; modules across architectures and trainers to find out which choice carried the gain. It was the trainer. Models tuned on random yeast sequence then transferred to other species and assays.",
-     [("Nature Biotechnology", "https://www.nature.com/articles/s41587-024-02414-w")]),
+     [("Nature Biotechnology", "https://www.nature.com/articles/s41587-024-02414-w"),
+      ("Code", "https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022")]),
     ("Chromosome-scale sequence from outside the host", "Ongoing", "pill--live",
      "Short oligos sit in one fixed context, so they cannot report on promoter&ndash;gene distance, chromatin or real transcripts. Sequence carried on yeast artificial chromosomes behaves like an extra chromosome and has never been under selection in the organism reading it. We annotated a single YAC in Luthra et al., then increased the data tenfold to train models on it, which became Yorzoi, built with Timon Schneider and Tom Ellis at Imperial College London. We are now scaling the data tenfold again for Yakformer.",
-     [("Yorzoi preprint", "https://www.biorxiv.org/content/10.1101/2025.09.20.677345v1.abstract")]),
+     [("Yorzoi preprint", "https://www.biorxiv.org/content/10.1101/2025.09.20.677345v1.abstract"),
+      ("Yorzoi code", "https://github.com/Tom-Ellis-Lab/yorzoi")]),
     ("High-information-content libraries", "In progress", "pill--live",
      "Designing sequence synthesis approaches that create high-information-content sequence libraries.",
      []),
     ("nextFrag (active learning)", "Preprint", "pill--green",
      "If every sequence has to be paid for, each one should be chosen to be informative. We benchmarked six selection strategies across architectures, datasets and configurations, simulated on pools that had already been measured, so the benchmark itself needed no new experiment. All beat random sampling, uncertainty-based methods did best while being cheapest to compute, and most of the gain from many small acquisition rounds survives with fewer, larger ones &mdash; which is what makes lab-in-the-loop practical. Selected sequences look distinctive, but selecting directly on those properties never matched active learning: informativeness is a property of the model&rsquo;s ignorance, not of the sequence. Building on this, we are extending the work to large-scale experimental data, to report how active learning is best done in genomics.",
-     [("Preprint", "https://doi.org/10.1101/2026.05.21.727038")]),
+     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1"), ("Code", "https://github.com/de-Boer-Lab/nextFrag")]),
     ("gRely &mdash; reliability of individual predictions", "Preprint", "pill--green",
      "A meta-model that estimates the probability an individual variant-effect prediction is correct, from features of the variant, gene, tissue and model. Its top-scoring fifth reaches 97% sign concordance against 54% in the bottom fifth, and it stays discriminative among the low-magnitude variants that effect-size filtering discards, which is where most GWAS signal is expected to act. It transfers zero-shot to other architectures, so reliability looks like a property of the locus rather than of the model. Begun during an internship at Genentech.",
-     [("Preprint", "https://doi.org/10.1101/2026.05.23.727431")]),
+     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1")]),
 ]
 
 
@@ -856,7 +860,7 @@ def teaching():
         record('<a href="https://bsri-bd.github.io/" target="_blank" rel="noopener">Bangladeshi Student Research Initiative</a>',
                where="Founder", when="2024 &ndash; present",
                note="A non-profit connecting undergraduate and postgraduate students in Bangladesh with Bangladeshi researchers in academia and industry abroad, through free mentorship programmes. Mentees are matched across a volunteer network, so the students I mentor through it are separate from those I supervise in the lab."),
-        record("de Boer Lab",
+        record('<a href="%s" target="_blank" rel="noopener">de Boer Lab</a>' % LAB,
                where="School of Biomedical Engineering, UBC", when="2023 &ndash; present",
                note="Sole supervisor for five co-op students on self-designed research projects; one of them went on to receive SBME Synergy funding. I also mentor PhD students in the lab."),
     ])
