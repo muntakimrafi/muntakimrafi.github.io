@@ -217,7 +217,7 @@ JOURNALS = [
     ("2024",
      "Regulatory activity is the default DNA state in eukaryotes",
      "https://www.nature.com/articles/s41594-024-01235-4",
-     "Ishika Luthra, Xinyi E Chen, Cassandra Jensen, Asfar Lathif Salaudeen, Abdul Muntakim Rafi, Carl G de Boer",
+     "Ishika Luthra, Cassandra Jensen, Xinyi E Chen, Asfar Lathif Salaudeen, Abdul Muntakim Rafi, Carl G de Boer",
      "Nature Structural &amp; Molecular Biology",
      [("Journal", "https://www.nature.com/articles/s41594-024-01235-4"), ("Code", "https://github.com/de-Boer-Lab/RGP")]),
     ("2023",
@@ -264,7 +264,7 @@ CONFERENCES = [
      "https://openaccess.thecvf.com/content_CVPRW_2019/papers/Media%20Forensics/Rafi_Application_of_DenseNet_in_Camera_Model_Identification_and_Post-processing_Detection_CVPRW_2019_paper.pdf",
      "Abdul Muntakim Rafi, Uday Kamal, Rakibul Hoque, Abid Abrar, Sowmitra Das, Robert Laganiere, Md. Kamrul Hasan",
      "CVPR 2019 Workshops, Long Beach, United States",
-     [("PDF", "https://openaccess.thecvf.com/content_CVPRW_2019/papers/Media%20Forensics/Rafi_Application_of_DenseNet_in_Camera_Model_Identification_and_Post-processing_Detection_CVPRW_2019_paper.pdf"), ("Code", "https://github.com/muntakimrafi/Application-of-DenseNet-in-Camera-Model-Identification-and-Post-processing-Detection")]),
+     [("Paper", "https://openaccess.thecvf.com/content_CVPRW_2019/papers/Media%20Forensics/Rafi_Application_of_DenseNet_in_Camera_Model_Identification_and_Post-processing_Detection_CVPRW_2019_paper.pdf"), ("Code", "https://github.com/muntakimrafi/Application-of-DenseNet-in-Camera-Model-Identification-and-Post-processing-Detection")]),
     ("2019",
      "Image-based Bengali sign language alphabet recognition for the deaf community",
      "https://ieeexplore.ieee.org/abstract/document/9033031",
@@ -301,7 +301,6 @@ def render_pubs(items):
 _HOMOLOGY = "Characterizing homology-induced data leakage and memorization in genome-trained sequence models"
 _TRUST = "From inflated benchmarks to trustworthy predictions: addressing reliability in genomic models"
 _LEAKAGE = "Detecting and avoiding homology-based data leakage in genome-trained sequence models"
-_SYNTH = "Beyond the genome: engineering and modeling synthetic DNA to uncover cis-regulatory logic"
 _DREAM = "A community effort to optimize sequence-based deep learning models of gene regulation"
 _EVAL = "Evaluation and optimization of sequence-based gene regulatory deep learning models"
 _CHALLENGE = "Predicting gene expression using random promoter sequences &mdash; challenge overview"
@@ -316,9 +315,9 @@ INVITED = [
     ("IBM", "Biomedical Horizons Seminar Series", "IBM Thomas J. Watson Research Center, New York, United States", "2025", _TRUST, None),
     ("LSN", "London SynBio Network Meeting", "Imperial College London, London, United Kingdom", "2025", _DREAM, None),
     ("GNE", "Genentech internal seminar", "South San Francisco, United States", "2025", _DREAM, "Online"),
-    ("JHU", "Deep Learning in Genomics Journal Club", "Johns Hopkins University", "2024&ndash;2025", _LEAKAGE, "Online"),
-    ("IGVF", "IGVF Consortium, Machine Learning Focus Group Journal Club", "IGVF Consortium", "2024&ndash;2025", _LEAKAGE, "Online"),
-    ("KIP", "Kipoi Seminar", "Kipoi community", "2024&ndash;2025", _LEAKAGE, "Online"),
+    ("JHU", "Deep Learning in Genomics Journal Club", "Johns Hopkins University", "2025", _LEAKAGE, "Online"),
+    ("IGVF", "IGVF Consortium, Machine Learning Focus Group Journal Club", "IGVF Consortium", "2025", _LEAKAGE, "Online"),
+    ("KIP", "Kipoi Seminar", "Kipoi community", "2024", _LEAKAGE, "Online"),
     ("UW", "Guest lecture, ELEC 8280: Image Processing", "University of Windsor, Windsor, Canada", "2021", _TUMOR, None),
 ]
 
@@ -326,16 +325,15 @@ TALKS = [
     ("MSV", "MASSIV 1.0 &mdash; Advanced Synthetic Biology and Systems Bioengineering", "Vancouver, Canada", "2026", _HOMOLOGY, None),
     ("UBC", "UBC Life Sciences Symposium", "Vancouver, Canada", "2026", _HOMOLOGY, None),
     ("ISMB", "ISMB/ECCB 2025", "Liverpool, United Kingdom", "2025", _LEAKAGE, None),
-    ("ICL", "Tom Ellis Lab, Imperial College London", "London, United Kingdom", "2025", _SYNTH, None),
     ("CSHL", "Biological Data Science", "Cold Spring Harbor Laboratory, New York, United States", "2025", _DREAM, None),
-    ("KEY", "AI in Molecular Biology, Keystone Symposia", "Santa Fe, United States", "2024&ndash;2025", _LEAKAGE, None),
-    ("SU", "Kundaje Lab Journal Club", "Stanford University, Stanford, United States", "2024&ndash;2025", _LEAKAGE, None),
-    ("CAL", "Kelley Group Journal Club", "Calico Life Sciences, South San Francisco, United States", "2024&ndash;2025", _LEAKAGE, None),
+    ("KEY", "AI in Molecular Biology, Keystone Symposia", "Santa Fe, United States", "2025", _LEAKAGE, None),
+    ("SU", "Kundaje Lab Journal Club", "Stanford University, Stanford, United States", "2025", _LEAKAGE, None),
+    ("CAL", "Kelley Group Journal Club", "Calico Life Sciences, South San Francisco, United States", "2025", _LEAKAGE, None),
     ("FH", "Pacific Northwest Yeast Club Meeting", "Fred Hutchinson Cancer Center, Seattle, United States", "2024", _EVAL, None),
     ("RSG", "14th RECOMB/ISCB Conference on Regulatory &amp; Systems Genomics with DREAM Challenges", "Las Vegas, United States", "2022", _CHALLENGE, None),
     ("ECCV", "Advances in Image Manipulation Workshop, ECCV 2020", "ECCV 2020", "2020", _REMNET, "Online"),
     ("MIC", "Second International Workshop on Thoracic Image Analysis, MICCAI 2020", "MICCAI 2020", "2020", _LUNG, "Online"),
-    ("ICIP", "IEEE International Conference on Image Processing", "Athens, Greece", "2018", _VIPCUP, None),
+    ("IEEE", "IEEE International Conference on Image Processing", "Athens, Greece", "2018", _VIPCUP, None),
     ("WIE", "4th IEEE WIECON-ECE Conference", "Thailand", "2018", _SHONGKET, "Online"),
 ]
 
@@ -354,13 +352,14 @@ POSTERS = [
      "Application of DenseNet in camera model identification and post-processing detection", None),
 ]
 
+# Same shape as the talks: (mark, venue, place, when, what, note)
 WORKSHOPS = [
-    ("Oct 2023", "IEEE EMBS Region 9 Conference", "Guadalajara, Mexico",
-     "Invited three-hour workshop on designing sequence-based gene regulatory deep learning models."),
-    ("Sep 2023", "Advanced Genomics &amp; Genome Engineering Workshop", "Michael Smith Laboratories, UBC",
-     "Invited 30-minute lecture on designing sequence-based gene regulatory deep learning models."),
-    ("Jun 2023", "Machine Learning for Genome Editing", "Stem Cell Network, Canada <em>(online)</em>",
-     "Invited 90-minute workshop: using publicly available ML models for genome editing experiments, training networks on sequence-to-expression data from massively parallel reporter assays, and showing when simpler models outperform complex neural networks."),
+    ("IEEE", "IEEE EMBS Region 9 Conference", "Guadalajara, Mexico", "Oct 2023",
+     "Invited three-hour workshop on designing sequence-based gene regulatory deep learning models.", None),
+    ("UBC", "Advanced Genomics &amp; Genome Engineering Workshop", "Michael Smith Laboratories, UBC", "Sep 2023",
+     "Invited 30-minute lecture on designing sequence-based gene regulatory deep learning models.", None),
+    ("SCN", "Machine Learning for Genome Editing", "Stem Cell Network, Canada", "Jun 2023",
+     "Invited 90-minute workshop: using publicly available ML models for genome editing experiments, training networks on sequence-to-expression data from massively parallel reporter assays, and showing when simpler models outperform complex neural networks.", "Online"),
 ]
 
 
@@ -400,8 +399,12 @@ def render_talks(items):
     return "\n".join(out)
 
 
-def record(name, where=None, when=None, note=None, links=None, items=None):
-    """One row of a labelled record: what it was, where, and when."""
+def record(name, where=None, when=None, note=None, links=None, items=None, mark=None):
+    """One row of a labelled record: what it was, where, and when.
+
+    mark, if given, puts the same logo-or-initials tile as the talk cards in
+    front of the row.
+    """
     parts = ['        <h3 class="record__name">%s</h3>' % name]
     if where:
         parts.append('        <p class="record__where">%s</p>' % where)
@@ -414,11 +417,17 @@ def record(name, where=None, when=None, note=None, links=None, items=None):
         parts.append('        <p class="record__links">%s</p>' % "".join(
             '<a class="pub__link" href="%s" target="_blank" rel="noopener">%s</a>' % (u, l) for l, u in links))
     when_html = '\n      <p class="record__when">%s</p>' % when if when else ""
-    return """    <article class="record">
+    mark_html, cls = "", "record"
+    if mark:
+        kind, inner = venue_mark(mark)
+        mark_html = ('\n      <span class="talkcard__mark talkcard__mark--%s record__mark" aria-hidden="true">%s</span>'
+                     % (kind, inner))
+        cls = "record record--marked"
+    return """    <article class="{cls}">{mark}
       <div class="record__main">
 {body}
       </div>{when}
-    </article>""".format(body="\n".join(parts), when=when_html)
+    </article>""".format(cls=cls, mark=mark_html, body="\n".join(parts), when=when_html)
 
 
 TOPICS = [
@@ -761,8 +770,6 @@ def publications():
 
 
 def talks():
-    workshops = "\n".join(
-        record(title, where=where, when=when, note=note) for when, title, where, note in WORKSHOPS)
     return """
 <section class="section section--plain">
     <div class="wrap">
@@ -816,13 +823,13 @@ def talks():
         <h2>Workshops I have run.</h2>
         <p class="lede">Hands-on sessions on building and using sequence-based gene regulatory models.</p>
       </div>
-      <div class="records">
+      <div class="talks">
 {workshops}
       </div>
     </div>
   </section>
 """.format(invited=render_talks(INVITED), talks=render_talks(TALKS),
-           posters=render_talks(POSTERS), workshops=workshops)
+           posters=render_talks(POSTERS), workshops=render_talks(WORKSHOPS))
 
 
 MDS = "https://ubc-mds.github.io/course-descriptions/"
@@ -845,23 +852,23 @@ def teaching():
     mds_items = ['<li><a href="%s" target="_blank" rel="noopener">%s</a></li>' % (u, n) for n, u in MDS_COURSES]
     courses = "\n".join([
         record('Graduate Teaching Assistant &mdash; <a href="https://masterdatascience.ubc.ca/" target="_blank" rel="noopener">Master of Data Science</a>',
-               where="University of British Columbia", when="Sep 2021 &ndash; Dec 2024",
+               where="University of British Columbia", when="Sep 2021 &ndash; Dec 2024", mark="UBC",
                note="Eleven courses across the MDS curriculum, from supervised learning and regression through workflows, visualisation and cloud computing.",
                items=[i[4:-5] for i in mds_items]),
         record('Graduate Teaching Assistant &mdash; <a href="https://www.biology.ubc.ca/" target="_blank" rel="noopener">Biology Program</a>',
-               where="University of British Columbia", when="May &ndash; Jun 2022",
+               where="University of British Columbia", when="May &ndash; Jun 2022", mark="UBC",
                items=["BIOL 234: Fundamentals of Genetics"]),
         record('Graduate Teaching Assistant &mdash; <a href="https://www.uwindsor.ca/engineering/electrical/" target="_blank" rel="noopener">Electrical and Computer Engineering</a>',
-               where="University of Windsor", when="Jan &ndash; Dec 2020",
+               where="University of Windsor", when="Jan &ndash; Dec 2020", mark="UW",
                items=["ELEC 8330: Computational Intelligence", "GENG 2320: Engineering Software Fundamentals"]),
     ])
 
     mentorship = "\n".join([
         record('<a href="https://bsri-bd.github.io/" target="_blank" rel="noopener">Bangladeshi Student Research Initiative</a>',
-               where="Founder", when="2024 &ndash; present",
+               where="Founder", when="2024 &ndash; present", mark="BSRI",
                note="A non-profit connecting undergraduate and postgraduate students in Bangladesh with Bangladeshi researchers in academia and industry abroad, through free mentorship programmes. Mentees are matched across a volunteer network, so the students I mentor through it are separate from those I supervise in the lab."),
         record('<a href="%s" target="_blank" rel="noopener">de Boer Lab</a>' % LAB,
-               where="School of Biomedical Engineering, UBC", when="2023 &ndash; present",
+               where="School of Biomedical Engineering, UBC", when="2023 &ndash; present", mark="DBL",
                note="Sole supervisor for five co-op students on self-designed research projects; one of them went on to receive SBME Synergy funding. I also mentor PhD students in the lab."),
     ])
 

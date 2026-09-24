@@ -718,6 +718,14 @@ a:hover { color: var(--ink); }
 }
 @media (max-width: 46rem) { .record { grid-template-columns: 1fr; gap: .3rem; } }
 
+/* A record with a logo tile in front, as on the talk cards */
+.record--marked { grid-template-columns: 3.4rem minmax(0, 1fr) 9rem; column-gap: 1.15rem; align-items: start; }
+.record--marked .record__when { padding-top: .35rem; }
+@media (max-width: 46rem) {
+  .record--marked { grid-template-columns: 2.8rem minmax(0, 1fr); }
+  .record--marked .record__when { grid-column: 1 / -1; padding-top: 0; }
+}
+
 .record__main { display: flex; flex-direction: column; gap: .3rem; min-width: 0; }
 .record__name {
   font-family: var(--font-display);
