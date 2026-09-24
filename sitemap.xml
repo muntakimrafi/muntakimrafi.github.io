@@ -1,20 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<urlset
-      xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
-      xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-      xsi:schemaLocation="http://www.sitemaps.org/schemas/sitemap/0.9
-            http://www.sitemaps.org/schemas/sitemap/0.9/sitemap.xsd">
-<!-- created with Free Online Sitemap Generator www.xml-sitemaps.com -->
-
-
-<url>
-  <loc>https://muntakimrafi.github.io/</loc>
-  <lastmod>2021-08-30T04:39:15+00:00</lastmod>
-  <priority>1.00</priority>
-</url>
-<url>
-  <loc>https://muntakimrafi.github.io/data/RAFI_CV.pdf</loc>
-  <lastmod>2021-08-30T04:39:15+00:00</lastmod>
-  <priority>0.80</priority>
-</url>
-
+<urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
+  <url><loc>https://muntakimrafi.github.io/</loc><priority>1.00</priority></url>
+  <url><loc>https://muntakimrafi.github.io/research.html</loc><priority>0.90</priority></url>
+  <url><loc>https://muntakimrafi.github.io/publications.html</loc><priority>0.90</priority></url>
+  <url><loc>https://muntakimrafi.github.io/talks.html</loc><priority>0.80</priority></url>
+  <url><loc>https://muntakimrafi.github.io/teaching.html</loc><priority>0.70</priority></url>
+  <url><loc>https://muntakimrafi.github.io/service.html</loc><priority>0.70</priority></url>
+  <url><loc>https://muntakimrafi.github.io/cv.html</loc><priority>0.60</priority></url>
+</urlset>

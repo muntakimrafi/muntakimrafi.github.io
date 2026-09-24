@@ -1,452 +1,226 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Abdul Muntakim Rafi</title>
-  <meta name="author" content="Abdul Muntakim Rafi">
-  <link rel="stylesheet" type="text/css" href="stylesheet.css">
-  <link rel="icon" type="image/png" href="images/icon.png">
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Abdul Muntakim Rafi</title>
+<meta name="author" content="Abdul Muntakim Rafi">
+<meta name="description" content="Abdul Muntakim Rafi is a PhD candidate in Biomedical Engineering at the University of British Columbia, working on informative sequence libraries at scale and on machine learning models of gene regulation built from them.">
+<meta property="og:title" content="Abdul Muntakim Rafi">
+<meta property="og:description" content="Abdul Muntakim Rafi is a PhD candidate in Biomedical Engineering at the University of British Columbia, working on informative sequence libraries at scale and on machine learning models of gene regulation built from them.">
+<meta property="og:type" content="website">
+<link rel="icon" href="favicon.ico" sizes="any">
+<link rel="icon" type="image/png" href="assets/img/favicon-32.png" sizes="32x32">
+<link rel="apple-touch-icon" href="assets/img/apple-touch-icon.png">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
+<link rel="stylesheet" href="assets/css/styles.css">
 </head>
-
 <body>
-<div class="container">
+<a class="skip" href="#main">Skip to content</a>
 
-  <!-- ==================== BIO / HEADER ==================== -->
-  <header class="bio-section">
-    <div class="bio-text">
-      <h1>Abdul Muntakim Rafi</h1>
-      <p>
-        I am a Ph.D. candidate in Biomedical Engineering at the University of British Columbia. My current research focuses on decoding cis-regulatory logic using machine learning: building sequence-to-expression models, developing methods to interpret and rigorously evaluate their reliability, and continually improving these models through large-scale synthesis of informative DNA sequences and lab-in-the-loop experiments. <strong>I have supervised multiple Co-op students in the de Boer lab and am always on the lookout for motivated undergrads/high schoolers to join my research endeavors.</strong>
-      </p>
-      <div class="bio-links">
-        <a href="mailto:rafi11@student.ubc.ca">Email</a> &nbsp;|&nbsp;
-        <a href="data/CV_updated.pdf" target="_blank">CV</a> &nbsp;|&nbsp;
-        <a href="https://scholar.google.com/citations?user=fyNavPkAAAAJ&hl=en">Google Scholar</a> &nbsp;|&nbsp;
-        <a href="https://www.linkedin.com/in/abdul-muntakim-rafi-205002154/">LinkedIn</a> &nbsp;|&nbsp;
-        <a href="https://www.researchgate.net/profile/Abdul-Muntakim-Rafi/publications">ResearchGate</a> &nbsp;|&nbsp;
-        <a href="https://github.com/muntakimrafi">Github</a> &nbsp;|&nbsp;
-        <a href="data/CV_of_Failure.pdf" target="_blank">CV of Failures</a>
+<header class="masthead">
+  <div class="wrap masthead__inner">
+    <a class="brand" href="index.html">
+      <span class="brand__name">Abdul Muntakim Rafi</span>
+    </a>
+    <nav class="nav" id="primary-nav" aria-label="Primary">
+      <a href="index.html" aria-current="page" class="is-current">Home</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="service.html">Service</a>
+      <a href="cv.html">CV</a>
+    </nav>
+    <div class="masthead__end">
+      <div class="masthead__social">
+        <a href="mailto:rafi11@student.ubc.ca" aria-label="Email" title="Email"><svg class="masthead__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M3 6h18v12H3zM3 6l9 7 9-7"/></svg></a>
+        <a href="https://scholar.google.com/citations?user=fyNavPkAAAAJ&hl=en" target="_blank" rel="noopener" aria-label="Google Scholar" title="Google Scholar"><svg class="masthead__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg></a>
+        <a href="https://github.com/muntakimrafi" target="_blank" rel="noopener" aria-label="GitHub" title="GitHub"><svg class="masthead__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"/></svg></a>
+        <a href="https://www.linkedin.com/in/abdul-muntakim-rafi-205002154/" target="_blank" rel="noopener" aria-label="LinkedIn" title="LinkedIn"><svg class="masthead__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.76-2.06 4.02 0 4.76 2.65 4.76 6.09V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.91V21h-4V9z"/></svg></a>
       </div>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme"><svg class="theme-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="currentColor" d="M12 3a9 9 0 0 0 0 18z"/></svg><span class="theme-toggle__label">Theme</span></button>
+      <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><svg class="nav-toggle__bars" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="nav-toggle__x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
-    <div class="bio-photo">
-      <a href="images/rafi.jpg"><img src="images/rafi_circle.png" alt="Abdul Muntakim Rafi"></a>
-    </div>
-  </header>
+  </div>
+</header>
 
-  <!-- ==================== EDUCATION ==================== -->
-  <section id="education">
-    <h2>Education</h2>
-
-    <div class="education-item">
-      <span class="year">2021 &ndash; Present</span>
-      <div>
-        <div class="degree">Ph.D. in Biomedical Engineering</div>
-        <div class="school">University of British Columbia, Vancouver, Canada</div>
+<main id="main">
+<section class="hero wrap" id="top">
+    <div class="hero__grid">
+      <div class="hero__thesis">
+        <p class="eyebrow">PhD Candidate, University of British Columbia</p>
+        <h1>To benefit from scaling laws in biology, <em>we need to synthesize the right data with the goal of training models.</em></h1>
+        <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the de Boer Lab. Almost every model of gene regulation is trained on data that was generated for some other reason: an atlas, a consortium characterisation, whatever happened to get measured. The field has built remarkable models on top of leftovers, and has rarely built the experiment for the model.</p>
+        <p class="hero__mission">I am working on addressing that gap. I design experiments whose purpose is to synthesize the most suitable data for training models, at a throughput worth training on.</p>
+        <p class="hero__mission">Better data is only half of it. Every experiment and dataset carries its own bias, and a model will fit that bias as readily as the biology, so the rest of my work is on ensuring the models learn causal structure rather than the correlations an assay left behind, on a faithful reporting of the model&rsquo;s performance, and on knowing when to trust a prediction and the interpretation we draw from it. Trust is what makes them worth using.</p>
+        <div class="hero__actions">
+          <a class="btn btn--primary" href="data/CV_updated.pdf" target="_blank" rel="noopener">Curriculum vitae (PDF)</a>
+          <a class="btn btn--ghost" href="publications.html">Publications</a>
+        </div>
+        <p class="status">
+          <span class="status__dot" aria-hidden="true"></span>
+          <span><strong>I am always looking for students to work with.</strong> I have supervised six co-op and PhD students in the de Boer Lab, and motivated undergraduates and high-school students are welcome to <a href="mailto:rafi11@student.ubc.ca">get in touch</a>.</span>
+        </p>
+        <p class="hero__note">Vancouver, Canada</p>
       </div>
-    </div>
 
-    <div class="education-item">
-      <span class="year">2019 &ndash; 2021</span>
-      <div>
-        <div class="degree">MASc in Electrical Engineering</div>
-        <div class="school">University of Windsor, Windsor, Canada</div>
-      </div>
-    </div>
-
-    <div class="education-item">
-      <span class="year">2014 &ndash; 2018</span>
-      <div>
-        <div class="degree">BSc in Electrical and Electronic Engineering</div>
-        <div class="school">Bangladesh University of Engineering &amp; Technology (BUET), Dhaka, Bangladesh</div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ==================== PUBLICATIONS ==================== -->
-  <section id="publications">
-    <h2>Publications</h2>
-
-    <p class="pub-legend"><sup>*</sup>Equal contribution &nbsp;&nbsp; <sup>†</sup>Corresponding author</p>
-
-    <!-- Preprints / In Preparation -->
-    <h3>Preprints / In Preparation</h3>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="#">gRely: Reliability estimation of variant effect predictions for genome trained sequence-to-expression models</a>
-      <div class="pub-authors">
-        <strong>Abdul Muntakim Rafi</strong><sup>†</sup>, Gökçen Eraslan, Kipper Fletez-Brant<sup>†</sup>
-      </div>
-      <div class="pub-venue">In preparation, 2026</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="#">Evaluation of active learning selection strategies and characterization of informative sequences for sequence-to-expression models</a>
-      <div class="pub-authors">
-        Justin Qian<sup>*</sup>, <strong>Abdul Muntakim Rafi</strong><sup>*†</sup>, Emmanuel Cazottes<sup>*</sup>, Carl de Boer<sup>†</sup>
-      </div>
-      <div class="pub-venue">In preparation, 2026</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://www.biorxiv.org/content/10.1101/2025.09.20.677345v1.abstract">Yorzoi: Predicting RNA-seq coverage from DNA sequence in yeast</a>
-      <div class="pub-authors">
-        Timon Schneider, <strong>Abdul Muntakim Rafi</strong>, Cassandra Jensen, Daniella Liao, Yiren Zhao, Carl de Boer, Tom Ellis
-      </div>
-      <div class="pub-venue">bioRxiv, 2025</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://www.biorxiv.org/content/10.1101/2025.01.22.634321v1.abstract">Detecting and avoiding homology-based data leakage in genome-trained sequence models</a>
-      <div class="pub-authors">
-        <strong>Abdul Muntakim Rafi</strong><sup>†</sup>, Brett Kiyota, Nozomu Yachie, Carl de Boer<sup>†</sup>
-      </div>
-      <div class="pub-venue">bioRxiv, 2025</div>
-    </div>
-
-    <!-- Journal Articles -->
-    <h3>Journal Articles</h3>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://academic.oup.com/nar/article/53/11/gkaf511/8160809">Unraveling the regulatory dynamics of bidirectional promoters for modulating gene co-expression and metabolic flux in Saccharomyces cerevisiae</a>
-      <div class="pub-authors">
-        Zimo Jin, Yueming Dong, <strong>Abdul Muntakim Rafi</strong>, Mohsin MD Patwary, Catherine Xu, Morten H. Raadam, Carl de Boer, Codruta Ignea
-      </div>
-      <div class="pub-venue">Nucleic Acids Research, 2025</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://www.nature.com/articles/s41587-024-02414-w">A community effort to optimize sequence-based deep learning models of gene regulation</a>
-      <div class="pub-authors">
-        <strong>Abdul Muntakim Rafi</strong><sup>†</sup>, Daria Nogina, Dmitry Penzar, Dohoon Lee, Danyeong Lee, Nayeon Kim, Sangyeup Kim, Dohyeon Kim, Yeojin Shin, Il-Youp Kwak, Georgy Meshcheryakov, Andrey Lando, Arsenii Zinkevich, Byeong-Chan Kim, Juhyun Lee, Taein Kang, Eeshit Dhaval Vaishnav, Payman Yadollahpour, <strong>Random Promoter DREAM Challenge Consortium</strong>, Sun Kim, Jake Albrecht, Aviv Regev, Wuming Gong, Ivan V. Kulakovskiy, Pablo Meyer, Carl de Boer<sup>†</sup>
-      </div>
-      <div class="pub-venue">Nature Biotechnology, 2024</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://www.nature.com/articles/s41594-024-01235-4">Biochemical activity is the default DNA state in eukaryotes</a>
-      <div class="pub-authors">
-        Ishika Luthra, Xinyi E Chen, Cassandra Jensen, Asfar Lathif Salaudeen, <strong>Abdul Muntakim Rafi</strong>, Carl G de Boer
-      </div>
-      <div class="pub-venue">Nature Structural &amp; Molecular Biology, 2024</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://academic.oup.com/bioinformatics/article/39/8/btad457/7230784">LegNet: a best-in-class deep learning model for short DNA regulatory regions</a>
-      <div class="pub-authors">
-        Dmitry Penzar, Daria Nogina, Elizaveta Noskova, Arsenii Zinkevich, Georgy Meshcheryakov, Andrey Lando, <strong>Abdul Muntakim Rafi</strong>, Carl de Boer, Ivan V. Kulakovskiy
-      </div>
-      <div class="pub-venue">Bioinformatics, 2023</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://academic.oup.com/bioinformatics/article/39/6/btad328/7174142">GIL: A Python package for designing custom indexing primers</a>
-      <div class="pub-authors">
-        Nicholas Mateyko, Omar Tariq, Xinyi E Chen, Will Cheney, Asfar Lathif Salaudeen, Ishika Luthra, Najmeh Nikpour, <strong>Abdul Muntakim Rafi</strong>, Hadis Kamali Deghan, Cassandra Jensen, Carl de Boer
-      </div>
-      <div class="pub-venue">Bioinformatics, 2023</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://link.springer.com/article/10.1007/s00521-020-05220-y">RemNet: remnant convolutional neural network for camera model identification</a>
-      <div class="pub-authors">
-        <strong>Abdul Muntakim Rafi</strong>, Thamidul Islam Tonmoy, Uday Kamal, Jonathan Wu, Md Kamrul Hasan
-      </div>
-      <div class="pub-venue">Neural Computing and Applications, 2021</div>
-    </div>
-
-    <!-- Conference Papers -->
-    <h3>Conference Papers</h3>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://link.springer.com/chapter/10.1007/978-3-030-62469-9_4">Lung cancer tumor region segmentation using recurrent 3D-DenseUNet</a>
-      <div class="pub-authors">
-        Uday Kamal, <strong>Abdul Muntakim Rafi</strong>, Rakibul Hoque, Jonathan Wu, Md Kamrul Hasan
-      </div>
-      <div class="pub-venue">MICCAI 2020</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://dl.acm.org/doi/10.1109/SMC42975.2020.9283376">Understanding Global Reaction to the Recent Outbreaks of COVID-19: Insights from Instagram Data Analysis</a>
-      <div class="pub-authors">
-        <strong>Abdul Muntakim Rafi</strong><sup>*</sup>, Shivang Rana<sup>*</sup>, Rajwinder Kaur<sup>*</sup>, Jonathan Wu, Pooya Moradian Zadeh
-      </div>
-      <div class="pub-venue">IEEE International Conference on Systems, Man, and Cybernetics, 2020</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://link.springer.com/chapter/10.1007/978-3-030-66823-5_16">L2-Constrained RemNet for Camera Model Identification and Image Manipulation Detection</a>
-      <div class="pub-authors">
-        <strong>Abdul Muntakim Rafi</strong>, Jonathan Wu, Md. Kamrul Hasan
-      </div>
-      <div class="pub-venue">Advances in Image Manipulation Workshop, ECCV 2020</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://openaccess.thecvf.com/content_CVPRW_2019/papers/Media%20Forensics/Rafi_Application_of_DenseNet_in_Camera_Model_Identification_and_Post-processing_Detection_CVPRW_2019_paper.pdf">Application of DenseNet in Camera Model Identification and Post-processing Detection</a>
-      <div class="pub-authors">
-        <strong>Abdul Muntakim Rafi</strong>, Uday Kamal, Rakibul Hoque, Abid Abrar, Sowmitra Das, Robert Laganiere, Md Kamrul Hasan
-      </div>
-      <div class="pub-venue">CVPR 2019</div>
-    </div>
-
-    <div class="pub-text-item">
-      <a class="pub-title" href="https://ieeexplore.ieee.org/abstract/document/9033031">Image-based Bengali Sign Language Alphabet Recognition for Deaf and Dumb Community</a>
-      <div class="pub-authors">
-        <strong>Abdul Muntakim Rafi</strong>, Nowshin Nawal, Nur Sultan Nazar Bayev, Lusain Nima, Celia Shahnaz, Shaikh Anowarul Fattah
-      </div>
-      <div class="pub-venue">IEEE GHTC 2019</div>
-    </div>
-
-  </section>
-
-  <!-- ==================== SELECTED TALKS ==================== -->
-  <section id="talks">
-    <h2>Selected Talks</h2>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">Characterizing homology-induced data leakage and memorization in genome-trained sequence models</span>
-        <span class="talk-date">2026</span>
-      </div>
-      <ul class="talk-venues">
-        <li>Models, Inference &amp; Algorithms (MIA) Seminar, Broad Institute of MIT and Harvard, Cambridge, United States</li>
-        <li>MASSIV 1.0: The Meeting for Advanced Synthetic Biology and Systems Bioengineering, Vancouver, Canada</li>
-        <li>UBC Life Sciences Symposium 2026, Vancouver, Canada <em>(upcoming)</em></li>
-      </ul>
-    </div>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">From inflated benchmarks to trustworthy predictions: addressing reliability in genomic models</span>
-        <span class="talk-date">2025</span>
-      </div>
-      <ul class="talk-venues">
-        <li>Biomedical Horizons Seminar Series, IBM Thomas J. Watson Research Center, New York, United States</li>
-      </ul>
-    </div>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">Detecting and avoiding homology-based data leakage in genome-trained sequence models</span>
-        <span class="talk-date">2024&ndash;2025</span>
-      </div>
-      <ul class="talk-venues">
-        <li>AI in Molecular Biology, Keystone Symposia, Santa Fe, United States</li>
-        <li>ISMB/ECCB 2025, Liverpool, United Kingdom</li>
-        <li>Kipoi Seminar <em>(online)</em></li>
-        <li>IGVF Consortium, Machine Learning Focus Group Journal Club <em>(online)</em></li>
-        <li>Deep Learning in Genomics Journal Club, Johns Hopkins University <em>(online)</em></li>
-        <li>Kundaje Lab Journal Club, Stanford University, Stanford, United States</li>
-        <li>Kelley group Journal Club, Calico Life Sciences, South San Francisco, United States</li>
-      </ul>
-    </div>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">Beyond the genome: engineering and modeling synthetic DNA to uncover cis-regulatory logic</span>
-        <span class="talk-date">2025</span>
-      </div>
-      <ul class="talk-venues">
-        <li>Tom Ellis Lab, Imperial College London, London, United Kingdom</li>
-      </ul>
-    </div>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">A community effort to optimize sequence-based deep learning models of gene regulation</span>
-        <span class="talk-date">2025</span>
-      </div>
-      <ul class="talk-venues">
-        <li>Genentech, internal seminar <em>(online)</em></li>
-        <li>Biological Data Science, Cold Spring Harbor Laboratory, New York, United States</li>
-        <li>London SynBio Network Meeting, Imperial College London, London, United Kingdom</li>
-      </ul>
-    </div>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">Evaluation and optimization of sequence-based gene regulatory deep learning models</span>
-        <span class="talk-date">2024</span>
-      </div>
-      <ul class="talk-venues">
-        <li>Pacific Northwest Yeast Club Meeting, Fred Hutchinson Cancer Center, Seattle, United States</li>
-      </ul>
-    </div>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">Predicting gene expression using random promoter sequences &ndash; Challenge Overview</span>
-        <span class="talk-date">2022</span>
-      </div>
-      <ul class="talk-venues">
-        <li>14th RECOMB/ISCB Conf. on Regulatory &amp; Systems Genomics with DREAM Challenges, Las Vegas, United States</li>
-      </ul>
-    </div>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">Tumor segmentation from CT scans using deep learning</span>
-        <span class="talk-date">2021</span>
-      </div>
-      <ul class="talk-venues">
-        <li>Guest lecture, ELEC 8280: Image Processing, University of Windsor, Windsor, Canada</li>
-      </ul>
-    </div>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">L2-constrained RemNet for camera model identification and image manipulation detection</span>
-        <span class="talk-date">2020</span>
-      </div>
-      <ul class="talk-venues">
-        <li>Advances in Image Manipulation Workshop, ECCV 2020 <em>(online)</em></li>
-      </ul>
-    </div>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">Lung cancer tumor region segmentation using recurrent 3D-DenseUNet</span>
-        <span class="talk-date">2020</span>
-      </div>
-      <ul class="talk-venues">
-        <li>Second International Workshop on Thoracic Image Analysis, MICCAI 2020 <em>(online)</em></li>
-      </ul>
-    </div>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">IEEE SPS Video and Image Processing Cup 2018 &ndash; Final Round</span>
-        <span class="talk-date">2018</span>
-      </div>
-      <ul class="talk-venues">
-        <li>IEEE International Conference on Image Processing (ICIP), Athens, Greece</li>
-      </ul>
-    </div>
-
-    <div class="talk-item">
-      <div class="talk-header">
-        <span class="talk-title">Shongket: Bengali sign language alphabet interpreter for the deaf community in Bangladesh</span>
-        <span class="talk-date">2018</span>
-      </div>
-      <ul class="talk-venues">
-        <li>4th IEEE WIECON-ECE Conference, Thailand <em>(online)</em></li>
-      </ul>
-    </div>
-
-  </section>
-
-  <!-- ==================== WORK EXPERIENCE ==================== -->
-  <section id="experience">
-    <h2>Work Experience</h2>
-
-    <div class="experience-item">
-      <div class="experience-details">
-        <div class="exp-title"><a href="https://www.gene.com/">Intern &ndash; Human Genetics, Genentech Inc.</a></div>
-        <div class="exp-desc">Developed reliability estimation methods for sequence-to-expression model predictions.</div>
-      </div>
-    </div>
-
-    <div class="experience-item">
-      <div class="experience-details">
-        <div class="exp-title"><a href="https://www.lannerinc.com/">Mitacs Accelerate Intern, Lanner Electronics Inc.</a></div>
-        <div class="exp-desc">Joined Lanner through the Mitacs Accelerate, which is Canada's premiere research internship program. Here, I worked on efficient inference of different AI-driven applications in edge devices.</div>
-      </div>
-    </div>
-
-    <div class="experience-item">
-      <div class="experience-details">
-        <div class="exp-title"><a href="https://www.i-5o.ai/">Mitacs Accelerate Intern, IFIVEO</a></div>
-        <div class="exp-desc">Joined IFIVEO through the Mitacs Accelerate. Here, my task has been to perform activity recognition in order to measure and improve manufacturing floor production processes using deep learning based vision systems. I have collected data from manufacturing floors, supervised the annotation process, and deployed deep learning models using Amazon Sagemaker.</div>
-      </div>
-    </div>
-
-    <div class="experience-item">
-      <div class="experience-details">
-        <div class="exp-title"><a href="https://www.revesoft.com/">Machine Learning Engineer, REVE Systems Ltd.</a></div>
-        <div class="exp-desc">Worked on designing a real-time Sign2Text translator for Bangla Sign Language.</div>
+      <div class="hero__aside">
+        <div class="portrait">
+          <img src="assets/img/portrait.jpg" alt="Abdul Muntakim Rafi" width="720" height="720">
+        </div>
+        <dl class="facts">
+          <div class="fact"><dt>Position</dt><dd>PhD candidate, Biomedical Engineering</dd></div>
+          <div class="fact"><dt>Lab</dt><dd>de Boer Lab, School of Biomedical Engineering, UBC</dd></div>
+          <div class="fact"><dt>Since</dt><dd>2021</dd></div>
+          <div class="fact"><dt>Before</dt><dd>MASc, University of Windsor &middot; BSc, BUET</dd></div>
+        </dl>
       </div>
     </div>
   </section>
 
-  <!-- ==================== TEACHING EXPERIENCE ==================== -->
-  <section id="teaching">
-    <h2>Teaching Experience</h2>
-
-    <div class="teaching-block">
-      <div class="teaching-details">
-        <div class="teach-title"><a href="https://masterdatascience.ubc.ca/">Master of Data Science, University of British Columbia</a></div>
-        <ul>
-          <li><a href="https://ubc-mds.github.io/course-descriptions/DSCI_571_sup-learn-1/">DSCI 571: Supervised Learning I</a></li>
-          <li><a href="https://ubc-mds.github.io/course-descriptions/DSCI_572_sup-learn-2/">DSCI 572: Supervised Learning II</a></li>
-          <li><a href="https://ubc-mds.github.io/course-descriptions/DSCI_554_experi-catic/">DSCI 554: Experimentation and Causal Inference</a></li>
-          <li><a href="https://ubc-mds.github.io/course-descriptions/DSCI_531_viz-1/">DSCI 531: Data Visualization I</a></li>
-          <li><a href="https://ubc-mds.github.io/course-descriptions/DSCI_573_feat-model-tic/">DSCI 573: Feature and Model Selection</a></li>
-          <li><a href="https://ubc-mds.github.io/course-descriptions/DSCI_525_web-cloud-comp/">DSCI 525: Web and Cloud Computing</a></li>
-          <li><a href="https://github.com/UBC-MDS/DSCI_553_stat-inf-2">DSCI 553: Statistical Inference and Computation II</a></li>
-          <li><a href="https://ubc-mds.github.io/DSCI_562_regr-2/">DSCI 562: Regression II</a></li>
-          <li><a href="https://ubc-mds.github.io/course-descriptions/DSCI_522_dsci-workflows/">DSCI 522: Data Science Workflows</a></li>
-          <li><a href="https://ubc-mds.github.io/course-descriptions/DSCI_512_alg-data-struct/">DSCI 512: Algorithms and Data Structures</a></li>
-          <li><a href="https://ubc-mds.github.io/course-descriptions/DSCI_521_platforms-dsci/">DSCI 521: Computing Platforms for Data Science</a></li>
-        </ul>
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Current work</p>
+        <h2>What I work on.</h2>
+        <p class="lede">A model is bounded by its data. Our ability to report how much it has learned is bounded by how honestly it was tested. What we can conclude from it is bounded by the tools we read it with. And clinical deployment is bounded by how far we can trust an individual prediction.</p>
       </div>
-    </div>
-
-    <div class="teaching-block">
-      <div class="teaching-details">
-        <div class="teach-title"><a href="https://www.biology.ubc.ca/">Biology, University of British Columbia</a></div>
-        <ul>
-          <li>BIOL 234: Fundamentals of Genetics</li>
-        </ul>
+      <div class="themes">
+        <article class="theme">
+          <h3>How do we generate the data?</h3>
+          <p>Which experiment would teach a model the most? In biology the question is barely asked, because the people generating data and the people modelling it are usually solving different problems. Answering it turns library design into an inference problem rather than a cataloguing exercise.</p>
+        </article>
+        <article class="theme">
+          <h3>How do we train the best models?</h3>
+          <p>Architecture, objective, augmentation, and the dozens of small decisions in between. A published model arrives with all of them bundled together, so comparing two models rarely reveals which choice actually carried the result.</p>
+        </article>
+        <article class="theme">
+          <h3>What have the models learned?</h3>
+          <p>A split holds nothing out when related sequences sit on both sides of it, and a model that recalls its neighbours scores like one that understands them. Telling recall apart from reasoning is a prerequisite for every claim anyone makes from a model&rsquo;s internals.</p>
+        </article>
+        <article class="theme">
+          <h3>Can we trust a single prediction?</h3>
+          <p>An aggregate benchmark number says nothing about the case in front of you, and that is the one that matters wherever a model is actually deployed. I work on per-prediction reliability estimates, so that a model can say when it does not know.</p>
+        </article>
+        <article class="theme">
+          <h3>Can we trust how we read them?</h3>
+          <p>Attribution and perturbation methods are instruments in their own right, and largely untested ones. A confident, accurate model read through a broken lens is worse than no model at all.</p>
+        </article>
       </div>
-    </div>
 
-    <div class="teaching-block">
-      <div class="teaching-details">
-        <div class="teach-title"><a href="https://www.uwindsor.ca/engineering/electrical/">Electrical and Computer Engineering, University of Windsor</a></div>
-        <ul>
-          <li>ELEC 8330: Computational Intelligence</li>
-          <li>GENG 2320: Engineering Software Fundamentals</li>
+      <div class="fieldindex" style="margin-top: clamp(2.5rem, 5vw, 3.5rem);">
+        <div class="fieldindex__head">
+          <p class="eyebrow">Topics I am interested in</p>
+          <p class="fieldindex__count">17 entries</p>
+        </div>
+        <ul class="fieldindex__list">
+          <li>Applied machine learning</li>
+          <li>Computational biology</li>
+          <li>Sequence-to-expression models</li>
+          <li>Regulatory genomics</li>
+          <li>Large-scale DNA synthesis</li>
+          <li>Massively parallel reporter assays</li>
+          <li>Active learning</li>
+          <li>Lab-in-the-loop experiments</li>
+          <li>Experimental automation</li>
+          <li>Sequence design</li>
+          <li>Deep learning</li>
+          <li>Model interpretation</li>
+          <li>Simulation of cis-regulation</li>
+          <li>Model reliability</li>
+          <li>Variant effect prediction</li>
+          <li>Data leakage</li>
+          <li>Benchmark design</li>
         </ul>
       </div>
     </div>
   </section>
 
-  <!-- ==================== AWARDS & SCHOLARSHIPS ==================== -->
-  <section id="awards">
-    <h2>Selected Awards</h2>
-
-    <div class="award-item">
-      <span class="award-name">Four Year Doctoral Fellowship (4YF)</span><br>
-      <span class="award-details">University of British Columbia</span>
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Output</p>
+        <h2>Publications, talks and supervision.</h2>
+      </div>
+      <dl class="figures">
+        <div class="figure"><dt>Peer-reviewed papers</dt><dd>11</dd></div>
+        <div class="figure"><dt>Preprints</dt><dd>4</dd></div>
+        <div class="figure"><dt>Talks given</dt><dd>22</dd></div>
+        <div class="figure"><dt>Co-op and PhD students supervised</dt><dd>6</dd></div>
+      </dl>
+      <p class="hero__actions"><a class="btn btn--ghost" href="publications.html">All publications</a></p>
     </div>
-
-    <div class="award-item">
-      <span class="award-name">SBME Graduate Support Initiative Entrance Award</span><br>
-      <span class="award-details">School of Biomedical Engineering, UBC</span>
-    </div>
-
-    <div class="award-item">
-      <span class="award-name">Stem Cell Network International Travel Award</span><br>
-      <span class="award-details">Stem Cell Network, Canada</span>
-    </div>
-
-    <div class="award-item">
-      <span class="award-name">JXTX + CSHL Biological Data Science Scholarship</span><br>
-      <span class="award-details">Cold Spring Harbor Laboratory</span>
-    </div>
-
-
   </section>
 
-  <!-- ==================== FOOTER ==================== -->
-  <footer>
-    <p>Based on <a href="https://jonbarron.info/">Jon Barron's</a> site. Last updated March 2026.</p>
-    <div class="clustrmaps">
-      <a href="https://clustrmaps.com/site/1bjpz" title="Visit tracker for Muntakimrafi.github.io"><img src="//www.clustrmaps.com/map_v2.png?d=HQV-4JuQvmOm3EvitfLO6HDD9bb7wA9SR_0RpufiNcA" alt="ClustrMaps"></a>
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Elsewhere on this site</p>
+        <h2>The other pages on this site.</h2>
+      </div>
+      <div>
+        <a class="cardlink" href="research.html">
+          <span class="cardlink__label">Research</span>
+          <span class="cardlink__text">The five questions, the projects behind them, and the funding.</span>
+          <span class="cardlink__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="cardlink" href="publications.html">
+          <span class="cardlink__label">Publications</span>
+          <span class="cardlink__text">Journal articles, conference papers and preprints.</span>
+          <span class="cardlink__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="cardlink" href="talks.html">
+          <span class="cardlink__label">Talks</span>
+          <span class="cardlink__text">Talks, posters and workshops I have run.</span>
+          <span class="cardlink__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="cardlink" href="teaching.html">
+          <span class="cardlink__label">Teaching</span>
+          <span class="cardlink__text">Courses I have taught and the students I have supervised.</span>
+          <span class="cardlink__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="cardlink" href="service.html">
+          <span class="cardlink__label">Service</span>
+          <span class="cardlink__text">Peer review, programme committees and community work.</span>
+          <span class="cardlink__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+        <a class="cardlink" href="cv.html">
+          <span class="cardlink__label">CV</span>
+          <span class="cardlink__text">The full curriculum vitae, as a PDF.</span>
+          <span class="cardlink__arrow" aria-hidden="true">&rarr;</span>
+        </a>
+      </div>
     </div>
-  </footer>
+  </section>
+</main>
 
-</div>
+<footer class="footer">
+  <div class="wrap footer__inner">
+    <div>
+      <p class="footer__name">Abdul Muntakim Rafi</p>
+      <p>Vancouver, Canada</p>
+      <div class="social">
+        <a class="social__link" href="mailto:rafi11@student.ubc.ca"><svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.7" d="M3 6h18v12H3zM3 6l9 7 9-7"/></svg><span>Email</span></a>
+        <a class="social__link" href="https://scholar.google.com/citations?user=fyNavPkAAAAJ&hl=en" target="_blank" rel="noopener"><svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 3 1 9l11 6 9-4.91V17h2V9L12 3zM5 13.18v4L12 21l7-3.82v-4L12 17l-7-3.82z"/></svg><span>Google Scholar</span></a>
+        <a class="social__link" href="https://github.com/muntakimrafi" target="_blank" rel="noopener"><svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M12 .5a11.5 11.5 0 0 0-3.64 22.41c.58.11.79-.25.79-.56v-2c-3.2.7-3.88-1.54-3.88-1.54-.53-1.34-1.29-1.7-1.29-1.7-1.05-.72.08-.7.08-.7 1.16.08 1.77 1.19 1.77 1.19 1.03 1.77 2.71 1.26 3.37.96.1-.75.4-1.26.73-1.55-2.56-.29-5.25-1.28-5.25-5.7 0-1.26.45-2.29 1.19-3.1-.12-.29-.52-1.47.11-3.05 0 0 .97-.31 3.18 1.18a11 11 0 0 1 5.8 0c2.2-1.49 3.17-1.18 3.17-1.18.63 1.58.23 2.76.12 3.05.74.81 1.18 1.84 1.18 3.1 0 4.43-2.69 5.4-5.26 5.69.41.36.78 1.06.78 2.14v3.17c0 .31.21.68.8.56A11.5 11.5 0 0 0 12 .5z"/></svg><span>GitHub</span></a>
+        <a class="social__link" href="https://www.linkedin.com/in/abdul-muntakim-rafi-205002154/" target="_blank" rel="noopener"><svg class="social__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="currentColor" d="M4.98 3.5a2.5 2.5 0 1 1 0 5 2.5 2.5 0 0 1 0-5zM3 9h4v12H3V9zm7 0h3.8v1.64h.05c.53-1 1.83-2.06 3.76-2.06 4.02 0 4.76 2.65 4.76 6.09V21h-4v-5.5c0-1.31-.02-3-1.83-3-1.83 0-2.11 1.43-2.11 2.91V21h-4V9z"/></svg><span>LinkedIn</span></a>
+      </div>
+    </div>
+    <nav class="footer__links" aria-label="Footer">
+      <a href="index.html">Home</a>
+      <a href="research.html">Research</a>
+      <a href="publications.html">Publications</a>
+      <a href="talks.html">Talks</a>
+      <a href="teaching.html">Teaching</a>
+      <a href="service.html">Service</a>
+      <a href="cv.html">CV</a>
+    </nav>
+  </div>
+</footer>
+
+<script src="assets/js/main.js"></script>
 </body>
 </html>
