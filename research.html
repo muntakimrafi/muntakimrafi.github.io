@@ -56,7 +56,7 @@
         <p class="lede">Sequence-to-function models of gene regulation are limited less by their architecture than by their training data, most of which was generated for purposes other than training models.</p>
       </div>
       <div class="prose prose--wide">
-        <p>My work addresses this from two directions: designing experiments that generate data for training models, and developing methods to evaluate these models and to establish when their predictions and interpretations can be trusted.</p>
+        <p>I work on developing technologies that generate data for the purpose of training models, and on methods to evaluate these models and to establish when their predictions and interpretations can be trusted.</p>
       </div>
     </div>
   </section>
@@ -71,31 +71,31 @@
     <article class="record">
       <div class="record__main">
         <h3 class="record__name">How do we generate the data?</h3>
-        <p class="record__note">I design sequence libraries and experiments for the purpose of training models, selecting sequences by their information content rather than their number.</p>
+        <p class="record__note">Most data used to train models of gene regulation were generated to characterise biology, not to train models. I work on developing technologies to synthesize sequence libraries and to design experiments whose purpose is to train models.</p>
       </div>
     </article>
     <article class="record">
       <div class="record__main">
         <h3 class="record__name">How do we train the best models?</h3>
-        <p class="record__note">I separate the contributions of architecture, training strategy and the other design choices that published models bundle together, to identify which ones improve performance.</p>
+        <p class="record__note">Model performance depends on the architecture, the training strategy and how the training data are handled. I work on all three, focusing primarily on the data.</p>
       </div>
     </article>
     <article class="record">
       <div class="record__main">
         <h3 class="record__name">What have the models learned?</h3>
-        <p class="record__note">I develop methods that detect homology between training and test sequences, so that evaluation distinguishes learned regulatory logic from memorization of similar sequences.</p>
+        <p class="record__note">Standard evaluations overstate what a model has learned when related sequences appear in both the training and test sets. I work on detecting this homology and accounting for it, so that evaluation separates learned regulatory logic from memorization.</p>
       </div>
     </article>
     <article class="record">
       <div class="record__main">
         <h3 class="record__name">Can we trust a single prediction?</h3>
-        <p class="record__note">I estimate the reliability of individual predictions, such as a single variant effect, which aggregate benchmark scores cannot provide.</p>
+        <p class="record__note">Aggregate benchmark scores say little about whether an individual prediction, such as a single variant effect, is correct. I work on estimating the reliability of individual predictions.</p>
       </div>
     </article>
     <article class="record">
       <div class="record__main">
         <h3 class="record__name">Can we trust how we read them?</h3>
-        <p class="record__note">I examine how faithfully attribution and perturbation methods report what a model has learned, since most biological conclusions are drawn through them.</p>
+        <p class="record__note">Most biological conclusions from these models are drawn through interpretation methods such as attribution and perturbation, which are themselves rarely tested. I work on assessing how faithfully they report what a model has learned.</p>
       </div>
     </article>
       </div>
@@ -160,7 +160,7 @@
             <h3 class="project__title">gRely &mdash; reliability of individual predictions</h3>
             <span class="pill pill--green">Preprint</span>
           </div>
-          <p class="project__text">I built a meta-model that estimates the probability an individual variant-effect prediction is correct, from features of the variant, gene, tissue and model. Its top-scoring fifth reaches 97% sign concordance against 54% in the bottom fifth, and it stays discriminative among the low-magnitude variants that effect-size filtering discards, which is where most GWAS signal is expected to act. It transfers zero-shot to other architectures, so reliability looks like a property of the locus rather than of the model. Begun during an internship at Genentech.</p>
+          <p class="project__text">Aggregate benchmark scores cannot tell a user whether a single variant-effect prediction is correct. I built a meta-model that estimates the probability that it is, from features of the variant, gene, tissue and model. Its top-scoring fifth reaches 97% sign concordance against 54% in the bottom fifth, and it stays discriminative among the low-magnitude variants that effect-size filtering discards, which is where most GWAS signal is expected to act. It transfers zero-shot to other architectures, so reliability looks like a property of the locus rather than of the model. Begun during an internship at Genentech.</p>
           <p class="project__links"><a class="pub__link" href="https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1" target="_blank" rel="noopener">Preprint</a></p>
         </article>
       </div>

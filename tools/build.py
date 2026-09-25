@@ -450,18 +450,19 @@ TOPICS = [
     "Benchmark design",
 ]
 
-# The five questions, with one sentence each. Home and Research both use these.
+# The five questions: one sentence on the problem, then what I work on.
+# Home and Research both use these.
 THEMES = [
     ("How do we generate the data?",
-     "I design sequence libraries and experiments for the purpose of training models, selecting sequences by their information content rather than their number."),
+     "Most data used to train models of gene regulation were generated to characterise biology, not to train models. I work on developing technologies to synthesize sequence libraries and to design experiments whose purpose is to train models."),
     ("How do we train the best models?",
-     "I separate the contributions of architecture, training strategy and the other design choices that published models bundle together, to identify which ones improve performance."),
+     "Model performance depends on the architecture, the training strategy and how the training data are handled. I work on all three, focusing primarily on the data."),
     ("What have the models learned?",
-     "I develop methods that detect homology between training and test sequences, so that evaluation distinguishes learned regulatory logic from memorization of similar sequences."),
+     "Standard evaluations overstate what a model has learned when related sequences appear in both the training and test sets. I work on detecting this homology and accounting for it, so that evaluation separates learned regulatory logic from memorization."),
     ("Can we trust a single prediction?",
-     "I estimate the reliability of individual predictions, such as a single variant effect, which aggregate benchmark scores cannot provide."),
+     "Aggregate benchmark scores say little about whether an individual prediction, such as a single variant effect, is correct. I work on estimating the reliability of individual predictions."),
     ("Can we trust how we read them?",
-     "I examine how faithfully attribution and perturbation methods report what a model has learned, since most biological conclusions are drawn through them."),
+     "Most biological conclusions from these models are drawn through interpretation methods such as attribution and perturbation, which are themselves rarely tested. I work on assessing how faithfully they report what a model has learned."),
 ]
 
 TABS = [
@@ -598,7 +599,7 @@ WORK = [
      "If every sequence has to be paid for, each one should be chosen to be informative. We benchmarked six selection strategies across architectures, datasets and configurations, simulated on pools that had already been measured, so the benchmark itself needed no new experiment. All beat random sampling, uncertainty-based methods did best while being cheapest to compute, and most of the gain from many small acquisition rounds survives with fewer, larger ones &mdash; which is what makes lab-in-the-loop practical. Selected sequences look distinctive, but selecting directly on those properties never matched active learning: informativeness is a property of the model&rsquo;s ignorance, not of the sequence. Building on this, we are extending the work to large-scale experimental data, to report how active learning is best done in genomics.",
      [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1"), ("Code", "https://github.com/de-Boer-Lab/nextFrag")]),
     ("gRely &mdash; reliability of individual predictions", "Preprint", "pill--green",
-     "I built a meta-model that estimates the probability an individual variant-effect prediction is correct, from features of the variant, gene, tissue and model. Its top-scoring fifth reaches 97% sign concordance against 54% in the bottom fifth, and it stays discriminative among the low-magnitude variants that effect-size filtering discards, which is where most GWAS signal is expected to act. It transfers zero-shot to other architectures, so reliability looks like a property of the locus rather than of the model. Begun during an internship at Genentech.",
+     "Aggregate benchmark scores cannot tell a user whether a single variant-effect prediction is correct. I built a meta-model that estimates the probability that it is, from features of the variant, gene, tissue and model. Its top-scoring fifth reaches 97% sign concordance against 54% in the bottom fifth, and it stays discriminative among the low-magnitude variants that effect-size filtering discards, which is where most GWAS signal is expected to act. It transfers zero-shot to other architectures, so reliability looks like a property of the locus rather than of the model. Begun during an internship at Genentech.",
      [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1")]),
 ]
 
@@ -668,7 +669,7 @@ def research():
         <p class="lede">Sequence-to-function models of gene regulation are limited less by their architecture than by their training data, most of which was generated for purposes other than training models.</p>
       </div>
       <div class="prose prose--wide">
-        <p>My work addresses this from two directions: designing experiments that generate data for training models, and developing methods to evaluate these models and to establish when their predictions and interpretations can be trusted.</p>
+        <p>I work on developing technologies that generate data for the purpose of training models, and on methods to evaluate these models and to establish when their predictions and interpretations can be trusted.</p>
       </div>
     </div>
   </section>
@@ -908,25 +909,23 @@ REVIEW_CO = [
     ("Bioinformatics", "1 paper"),
 ]
 
-# The peer-review collage: every venue above, sized by its standing.
-# (name, size, logo in assets/img/journals/ or None for a typeset name, note)
-# Sizes: xl spans three columns and two rows, l three columns, m two, s one;
-# "wide" also spans both columns on a phone, for a long name.
+# The peer-review collage: every venue above, as tiles of one size.
+# (name, logo in assets/img/journals/ or None for a typeset name, note)
 REVIEW_COLLAGE = [
-    ("Nature", "xl", "nature.svg", None),
-    ("Nature Genetics", "l", "ng.svg", None),
-    ("Nature Communications", "l", "ncomms.svg", None),
-    ("PNAS", "m", "pnas.svg", None),
-    ("Genome Biology", "m", None, None),
-    ("Bioinformatics", "m", None, None),
-    ("ISMB 2026", "m", None, None),
-    ("ICLR 2026", "m", "iclr.svg", "Gen<sup>2</sup> workshop"),
-    ("Neurocomputing", "m", None, None),
-    ("Machine Learning in Computational Biology", "m wide", None, None),
-    ("Computational and Structural Biotechnology Journal", "s", None, None),
-    ("Data in Brief", "s", None, None),
-    ("Journal of Real-Time Image Processing", "s", None, None),
-    ("Cyber-systems and Robotics", "s", None, None),
+    ("Nature", "nature.svg", None),
+    ("Nature Genetics", "ng.svg", None),
+    ("Nature Communications", "ncomms.svg", None),
+    ("PNAS", "pnas.svg", None),
+    ("Genome Biology", None, None),
+    ("Bioinformatics", None, None),
+    ("ISMB 2026", None, None),
+    ("ICLR 2026", "iclr.svg", "Gen<sup>2</sup> workshop"),
+    ("Neurocomputing", None, None),
+    ("Machine Learning in Computational Biology", None, None),
+    ("Computational and Structural Biotechnology Journal", None, None),
+    ("Data in Brief", None, None),
+    ("Journal of Real-Time Image Processing", None, None),
+    ("Cyber-systems and Robotics", None, None),
 ]
 
 
@@ -937,7 +936,7 @@ def review_total(rows):
 
 def collage():
     tiles = []
-    for name, size, logo, note in REVIEW_COLLAGE:
+    for name, logo, note in REVIEW_COLLAGE:
         if logo:
             inner = '<img class="collage__logo" src="assets/img/journals/%s" alt="%s">' % (logo, name)
         else:
@@ -945,8 +944,7 @@ def collage():
         if note:
             inner += '<span class="collage__note">%s</span>' % note
         label = ' title="%s"' % name if logo else ""
-        classes = " ".join("collage__tile--%s" % part for part in size.split())
-        tiles.append('        <li class="collage__tile %s"%s>%s</li>' % (classes, label, inner))
+        tiles.append('        <li class="collage__tile"%s>%s</li>' % (label, inner))
     return "\n".join(tiles)
 
 
