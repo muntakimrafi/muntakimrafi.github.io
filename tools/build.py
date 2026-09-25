@@ -117,7 +117,7 @@ def masthead(current):
       <div class="masthead__social">
 {social}
       </div>
-      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme"><svg class="theme-toggle__icon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="9" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="currentColor" d="M12 3a9 9 0 0 0 0 18z"/></svg><span class="theme-toggle__label">Theme</span></button>
+      <button class="theme-toggle" id="theme-toggle" type="button" aria-label="Switch colour theme" title="Switch colour theme"><svg class="theme-toggle__icon theme-toggle__icon--moon" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linejoin="round" d="M20.5 14.2A8.5 8.5 0 1 1 9.8 3.5a6.8 6.8 0 0 0 10.7 10.7z"/></svg><svg class="theme-toggle__icon theme-toggle__icon--sun" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><circle cx="12" cy="12" r="4.2" fill="none" stroke="currentColor" stroke-width="1.7"/><path fill="none" stroke="currentColor" stroke-width="1.7" stroke-linecap="round" d="M12 2.5v2.2M12 19.3v2.2M2.5 12h2.2M19.3 12h2.2M5.3 5.3l1.55 1.55M17.15 17.15l1.55 1.55M5.3 18.7l1.55-1.55M17.15 6.85l1.55-1.55"/></svg></button>
       <button class="nav-toggle" id="nav-toggle" type="button" aria-expanded="false" aria-controls="primary-nav" aria-label="Menu"><svg class="nav-toggle__bars" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M4 7h16M4 12h16M4 17h16"/></svg><svg class="nav-toggle__x" viewBox="0 0 24 24" aria-hidden="true" focusable="false"><path fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" d="M6 6l12 12M18 6L6 18"/></svg></button>
     </div>
   </div>
@@ -783,7 +783,6 @@ def talks():
   <section class="section">
     <div class="wrap">
       <div class="section__head">
-        <p class="eyebrow">Invited</p>
         <h2>Invited talks.</h2>
       </div>
       <div class="talks">
@@ -795,8 +794,7 @@ def talks():
   <section class="section">
     <div class="wrap">
       <div class="section__head">
-        <p class="eyebrow">Contributed</p>
-        <h2>Conference and meeting talks.</h2>
+        <h2>Selected conference and meeting talks.</h2>
       </div>
       <div class="talks">
 {talks}
@@ -807,7 +805,6 @@ def talks():
   <section class="section">
     <div class="wrap">
       <div class="section__head">
-        <p class="eyebrow">Posters</p>
         <h2>Selected posters.</h2>
       </div>
       <div class="talks">
@@ -819,7 +816,6 @@ def talks():
   <section class="section">
     <div class="wrap">
       <div class="section__head">
-        <p class="eyebrow">Workshops</p>
         <h2>Workshops I have run.</h2>
         <p class="lede">Hands-on sessions on building and using sequence-based gene regulatory models.</p>
       </div>
@@ -832,33 +828,31 @@ def talks():
            posters=render_talks(POSTERS), workshops=render_talks(WORKSHOPS))
 
 
-MDS = "https://ubc-mds.github.io/course-descriptions/"
 MDS_COURSES = [
-    ("DSCI 571: Supervised Learning I", MDS + "DSCI_571_sup-learn-1/"),
-    ("DSCI 572: Supervised Learning II", MDS + "DSCI_572_sup-learn-2/"),
-    ("DSCI 562: Regression II", "https://ubc-mds.github.io/DSCI_562_regr-2/"),
-    ("DSCI 553: Statistical Inference and Computation II", "https://github.com/UBC-MDS/DSCI_553_stat-inf-2"),
-    ("DSCI 554: Experimentation and Causal Inference", MDS + "DSCI_554_experi-catic/"),
-    ("DSCI 573: Feature and Model Selection", MDS + "DSCI_573_feat-model-tic/"),
-    ("DSCI 512: Algorithms and Data Structures", MDS + "DSCI_512_alg-data-struct/"),
-    ("DSCI 531: Data Visualization I", MDS + "DSCI_531_viz-1/"),
-    ("DSCI 522: Data Science Workflows", MDS + "DSCI_522_dsci-workflows/"),
-    ("DSCI 525: Web and Cloud Computing", MDS + "DSCI_525_web-cloud-comp/"),
-    ("DSCI 521: Computing Platforms for Data Science", MDS + "DSCI_521_platforms-dsci/"),
+    "DSCI 571: Supervised Learning I",
+    "DSCI 572: Supervised Learning II",
+    "DSCI 562: Regression II",
+    "DSCI 553: Statistical Inference and Computation II",
+    "DSCI 554: Experimentation and Causal Inference",
+    "DSCI 573: Feature and Model Selection",
+    "DSCI 512: Algorithms and Data Structures",
+    "DSCI 531: Data Visualization I",
+    "DSCI 522: Data Science Workflows",
+    "DSCI 525: Web and Cloud Computing",
+    "DSCI 521: Computing Platforms for Data Science",
 ]
 
 
 def teaching():
-    mds_items = ['<li><a href="%s" target="_blank" rel="noopener">%s</a></li>' % (u, n) for n, u in MDS_COURSES]
     courses = "\n".join([
-        record('Graduate Teaching Assistant &mdash; <a href="https://masterdatascience.ubc.ca/" target="_blank" rel="noopener">Master of Data Science</a>',
+        record("Graduate Teaching Assistant &mdash; Master of Data Science",
                where="University of British Columbia", when="Sep 2021 &ndash; Dec 2024", mark="UBC",
                note="Eleven courses across the MDS curriculum, from supervised learning and regression through workflows, visualisation and cloud computing.",
-               items=[i[4:-5] for i in mds_items]),
-        record('Graduate Teaching Assistant &mdash; <a href="https://www.biology.ubc.ca/" target="_blank" rel="noopener">Biology Program</a>',
+               items=MDS_COURSES),
+        record("Graduate Teaching Assistant &mdash; Biology Program",
                where="University of British Columbia", when="May &ndash; Jun 2022", mark="UBC",
                items=["BIOL 234: Fundamentals of Genetics"]),
-        record('Graduate Teaching Assistant &mdash; <a href="https://www.uwindsor.ca/engineering/electrical/" target="_blank" rel="noopener">Electrical and Computer Engineering</a>',
+        record("Graduate Teaching Assistant &mdash; Electrical and Computer Engineering",
                where="University of Windsor", when="Jan &ndash; Dec 2020", mark="UW",
                items=["ELEC 8330: Computational Intelligence", "GENG 2320: Engineering Software Fundamentals"]),
     ])
@@ -934,6 +928,48 @@ REVIEW_CO = [
     ("Bioinformatics", "1 paper"),
 ]
 
+# The peer-review collage: every venue above, sized by its standing.
+# (name, size, logo in assets/img/journals/ or None for a typeset name, note)
+# Sizes: xl spans three columns and two rows, l three columns, m two, s one;
+# "wide" also spans both columns on a phone, for a long name.
+REVIEW_COLLAGE = [
+    ("Nature", "xl", "nature.svg", None),
+    ("Nature Genetics", "l", "ng.svg", None),
+    ("Nature Communications", "l", "ncomms.svg", None),
+    ("PNAS", "m", "pnas.svg", None),
+    ("Genome Biology", "m", None, None),
+    ("Bioinformatics", "m", None, None),
+    ("ISMB 2026", "m", None, None),
+    ("ICLR 2026", "m", "iclr.svg", "Gen<sup>2</sup> workshop"),
+    ("Neurocomputing", "m", None, None),
+    ("Machine Learning in Computational Biology", "m wide", None, None),
+    ("Computational and Structural Biotechnology Journal", "s", None, None),
+    ("Data in Brief", "s", None, None),
+    ("Journal of Real-Time Image Processing", "s", None, None),
+    ("Cyber-systems and Robotics", "s", None, None),
+]
+
+
+def review_total(rows):
+    """Sum the leading counts ("4 papers", "3 extended abstracts")."""
+    return sum(int(count.split()[0]) for _, count in rows)
+
+
+def collage():
+    tiles = []
+    for name, size, logo, note in REVIEW_COLLAGE:
+        if logo:
+            inner = '<img class="collage__logo" src="assets/img/journals/%s" alt="%s">' % (logo, name)
+        else:
+            inner = '<span class="collage__name">%s</span>' % name
+        if note:
+            inner += '<span class="collage__note">%s</span>' % note
+        label = ' title="%s"' % name if logo else ""
+        classes = " ".join("collage__tile--%s" % part for part in size.split())
+        tiles.append('        <li class="collage__tile %s"%s>%s</li>' % (classes, label, inner))
+    return "\n".join(tiles)
+
+
 SERVICE_ROLES = [
     ("BSc thesis committee member",
      "Faculty of Science, University of British Columbia", "2025", None),
@@ -977,6 +1013,17 @@ def service():
         <p class="eyebrow">Peer review</p>
         <h2>Journals and conferences.</h2>
       </div>
+      <dl class="figures">
+        <div class="figure"><dt>Independent reviews</dt><dd>{nindependent}</dd></div>
+        <div class="figure"><dt>Co-reviews with my PI</dt><dd>{nco}</dd></div>
+        <div class="figure"><dt>Journals and conferences</dt><dd>{nvenues}</dd></div>
+      </dl>
+      <figure class="collage">
+        <ul class="collage__grid">
+{collage}
+        </ul>
+        <figcaption class="collage__caption">Journals and conferences I have reviewed for, independently or with my PI.</figcaption>
+      </figure>
       <div class="cols">
         <div>
           <p class="subhead">As independent reviewer</p>
@@ -1019,7 +1066,8 @@ def service():
   </section>
 
 """.format(independent=reflist(REVIEW_INDEPENDENT), co=reflist(REVIEW_CO),
-           roles=roles, community=community)
+           nindependent=review_total(REVIEW_INDEPENDENT), nco=review_total(REVIEW_CO),
+           nvenues=len(REVIEW_COLLAGE), collage=collage(), roles=roles, community=community)
 
 
 def cv():
