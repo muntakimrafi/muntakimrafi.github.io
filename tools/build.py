@@ -450,21 +450,22 @@ TOPICS = [
     "Benchmark design",
 ]
 
+# The five questions, with one sentence each. Home and Research both use these.
 THEMES = [
     ("How do we generate the data?",
-     "Which experiment would teach a model the most? In biology the question is barely asked, because the people generating data and the people modelling it are usually solving different problems. Answering it turns library design into an inference problem rather than a cataloguing exercise."),
+     "I design sequence libraries and experiments for the purpose of training models, selecting sequences by their information content rather than their number."),
     ("How do we train the best models?",
-     "Architecture, objective, augmentation, and the dozens of small decisions in between. A published model arrives with all of them bundled together, so comparing two models rarely reveals which choice actually carried the result."),
+     "I separate the contributions of architecture, training strategy and the other design choices that published models bundle together, to identify which ones improve performance."),
     ("What have the models learned?",
-     "A split holds nothing out when related sequences sit on both sides of it, and a model that recalls its neighbours scores like one that understands them. Telling recall apart from reasoning is a prerequisite for every claim anyone makes from a model&rsquo;s internals."),
+     "I develop methods that detect homology between training and test sequences, so that evaluation distinguishes learned regulatory logic from memorization of similar sequences."),
     ("Can we trust a single prediction?",
-     "An aggregate benchmark number says nothing about the case in front of you, and that is the one that matters wherever a model is actually deployed. I work on per-prediction reliability estimates, so that a model can say when it does not know."),
+     "I estimate the reliability of individual predictions, such as a single variant effect, which aggregate benchmark scores cannot provide."),
     ("Can we trust how we read them?",
-     "Attribution and perturbation methods are instruments in their own right, and largely untested ones. A confident, accurate model read through a broken lens is worse than no model at all."),
+     "I examine how faithfully attribution and perturbation methods report what a model has learned, since most biological conclusions are drawn through them."),
 ]
 
 TABS = [
-    ("research.html", "Research", "The five questions, the projects behind them, and the funding."),
+    ("research.html", "Research", "The questions my work addresses, my projects, and their funding."),
     ("publications.html", "Publications", "Journal articles, conference papers and preprints."),
     ("talks.html", "Talks", "Talks, posters and workshops I have run."),
     ("teaching.html", "Teaching", "Courses I have taught and the students I have supervised."),
@@ -523,7 +524,7 @@ def home():
       <div class="section__head">
         <p class="eyebrow">Current work</p>
         <h2>What I work on.</h2>
-        <p class="lede">A model is bounded by its data. Our ability to report how much it has learned is bounded by how honestly it was tested. What we can conclude from it is bounded by the tools we read it with. And clinical deployment is bounded by how far we can trust an individual prediction.</p>
+        <p class="lede">My work spans the path from data to application: how training data is generated, how models are trained and evaluated, and when their predictions and interpretations can be trusted.</p>
       </div>
       <div class="themes">
 {themes}
@@ -573,30 +574,11 @@ def home():
            ntalks=len(INVITED) + len(TALKS), tabs=tabs)
 
 
-RESEARCH_THEMES = [
-    ("How do we generate the data?",
-     "Experiments built for the model, not inherited from someone else&rsquo;s",
-     "A model of regulation is bounded by the sequences it was trained on. The genome supplies too few of them and they are too correlated, and synthetic libraries that lift that ceiling saturate in turn, because most of a dataset&rsquo;s value arrives early and volume alone stops buying accuracy. I have worked on random libraries that remove the homology and sample-size limits, on chromosome-scale sequence that removes fixed context, and now on designing libraries around information content rather than count."),
-    ("How do we train the best models?",
-     "Which design decisions actually matter",
-     "A trained model is the product of dozens of choices made at once. Architecture, objective, augmentation and data handling all move the result, and a paper comparing two models cannot say which of them was responsible. Holding the data fixed and letting training vary across many independent attempts separated the factors for one setting, where it was the trainer rather than the architecture that carried the gain."),
-    ("What have the models learned?",
-     "Causal structure, or the shape of the training set",
-     "A model that predicts well is only informative if what it learned was regulation. Homologous sequences land on both sides of a standard split, so a model that recalls its neighbours scores like one that understands them, and every assay leaves biases a model will fit as readily as the biology. I built tools that detect that homology and partition data around it, and am mapping it across the genome so the correction does not have to be recomputed each time."),
-    ("Can we trust a single prediction?",
-     "Reliability per prediction, not per benchmark",
-     "Anyone applying these models cares about one variant, not an average. Aggregate correlations say nothing about that case, and the usual workaround of thresholding on predicted effect size discards the low-magnitude variants where most GWAS signal is expected to act. I built a meta-model that scores how far an individual prediction can be trusted, and that says which features drive the score."),
-    ("Can we trust how we read them?",
-     "The interpretation tools are instruments too",
-     "Most biological claims from these models arrive through an interpretation method rather than from the model itself. Attribution and perturbation methods are models in their own right, far less tested than the networks they are pointed at, and a distorted lens turns an accurate model into a wrong conclusion without any benchmark catching it."),
-]
-
-
 # (title, status, pill class, description, [(label, url), ...])
 # Unpublished entries are described by their goal only.
 WORK = [
     ("hashFrag &mdash; homology, leakage and memorization", "Preprint", "pill--green",
-     "Neither chromosomal nor random train/test splits account for homology within a species, so standard evaluations of genome-trained models are inflated. We measured how far, showed that the dependence on training-set similarity is not monotonic, and released hashFrag, which detects homology and partitions data at roughly a hundredth of the compute of exhaustive alignment. Its recommendation is to stratify a test set rather than build a fully orthogonal one, because an orthogonal split hides the bias instead of exposing it.",
+     "Neither chromosomal nor random train/test splits account for homology within a species, so standard evaluations of genome-trained models are inflated. I measured how far, showed that the dependence on training-set similarity is not monotonic, and released hashFrag, which detects homology and partitions data at roughly a hundredth of the compute of exhaustive alignment. Its recommendation is to stratify a test set rather than build a fully orthogonal one, because an orthogonal split hides the bias instead of exposing it.",
      [("Preprint", "https://www.biorxiv.org/content/10.1101/2025.01.22.634321v2"), ("Code", "https://github.com/de-Boer-Lab/hashFrag")]),
     ("pairFrag &mdash; genome-wide homology mapping", "In preparation", "pill--live",
      "Making homology-aware evaluation something any group can do without repeating the computation.",
@@ -616,7 +598,7 @@ WORK = [
      "If every sequence has to be paid for, each one should be chosen to be informative. We benchmarked six selection strategies across architectures, datasets and configurations, simulated on pools that had already been measured, so the benchmark itself needed no new experiment. All beat random sampling, uncertainty-based methods did best while being cheapest to compute, and most of the gain from many small acquisition rounds survives with fewer, larger ones &mdash; which is what makes lab-in-the-loop practical. Selected sequences look distinctive, but selecting directly on those properties never matched active learning: informativeness is a property of the model&rsquo;s ignorance, not of the sequence. Building on this, we are extending the work to large-scale experimental data, to report how active learning is best done in genomics.",
      [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1"), ("Code", "https://github.com/de-Boer-Lab/nextFrag")]),
     ("gRely &mdash; reliability of individual predictions", "Preprint", "pill--green",
-     "A meta-model that estimates the probability an individual variant-effect prediction is correct, from features of the variant, gene, tissue and model. Its top-scoring fifth reaches 97% sign concordance against 54% in the bottom fifth, and it stays discriminative among the low-magnitude variants that effect-size filtering discards, which is where most GWAS signal is expected to act. It transfers zero-shot to other architectures, so reliability looks like a property of the locus rather than of the model. Begun during an internship at Genentech.",
+     "I built a meta-model that estimates the probability an individual variant-effect prediction is correct, from features of the variant, gene, tissue and model. Its top-scoring fifth reaches 97% sign concordance against 54% in the bottom fifth, and it stays discriminative among the low-magnitude variants that effect-size filtering discards, which is where most GWAS signal is expected to act. It transfers zero-shot to other architectures, so reliability looks like a property of the locus rather than of the model. Begun during an internship at Genentech.",
      [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1")]),
 ]
 
@@ -671,8 +653,7 @@ def render_work(items):
 
 
 def research():
-    themes = "\n".join(
-        record(title, where=sub, note=body) for title, sub, body in RESEARCH_THEMES)
+    themes = "\n".join(record(title, note=text) for title, text in THEMES)
     projects = "\n".join(
         record(t, where=("%s &middot; PI: %s" % (s, p)) if p else s,
                when=w, note="%s. %s." % (f, r))
@@ -684,11 +665,10 @@ def research():
       <div class="section__head">
         <p class="eyebrow">Research</p>
         <h1>Learning the cis-regulatory code from sequence.</h1>
-        <p class="lede">How do we learn the cis-regulatory code from sequence, and how do we know when to trust what a model has learned?</p>
+        <p class="lede">Sequence-to-function models of gene regulation are limited less by their architecture than by their training data, most of which was generated for purposes other than training models.</p>
       </div>
       <div class="prose prose--wide">
-        <p>Progress on cis-regulation is limited by <strong>data rather than architecture</strong>. The genome offers too few examples, they are too correlated with one another, and its homology structure makes standard evaluations dishonest. Almost all of that data was also generated for a different purpose: characterising a system and training a model on it are different objectives, and technology built deliberately to produce training data is rare.</p>
-        <p>So the work runs in two directions at once. One builds the data, using synthetic sequence to escape the genome&rsquo;s ceilings and designing it for information content rather than count. The other keeps the resulting models honest: evaluated without leakage, reported faithfully, and able to say how far an individual prediction can be trusted.</p>
+        <p>My work addresses this from two directions: designing experiments that generate data for training models, and developing methods to evaluate these models and to establish when their predictions and interpretations can be trusted.</p>
       </div>
     </div>
   </section>
@@ -697,7 +677,7 @@ def research():
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">Themes</p>
-        <h2>The questions the work is organised around.</h2>
+        <h2>The questions my work addresses.</h2>
       </div>
       <div class="records">
 {themes}
