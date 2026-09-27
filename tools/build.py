@@ -909,22 +909,24 @@ REVIEW_CO = [
 ]
 
 # The peer-review collage: every venue above, as tiles of one size.
-# (name, logo in assets/img/journals/ or None for a typeset name, note)
+# (name, logo in assets/img/journals/ or None for a typeset name, shape, note)
+# shape sizes the logo: None for a one-line wordmark, "stack" for a title set
+# on two or three lines, "badge" for an emblem with the name inside it.
 REVIEW_COLLAGE = [
-    ("Nature", "nature.svg", None),
-    ("Nature Genetics", "ng.svg", None),
-    ("Nature Communications", "ncomms.svg", None),
-    ("PNAS", "pnas.svg", None),
-    ("Genome Biology", None, None),
-    ("Bioinformatics", None, None),
-    ("ISMB 2026", None, None),
-    ("ICLR 2026", "iclr.svg", "Gen<sup>2</sup> workshop"),
-    ("Neurocomputing", None, None),
-    ("Machine Learning in Computational Biology", None, None),
-    ("Computational and Structural Biotechnology Journal", None, None),
-    ("Data in Brief", None, None),
-    ("Journal of Real-Time Image Processing", None, None),
-    ("Cyber-systems and Robotics", None, None),
+    ("Nature", "nature.svg", None, None),
+    ("Nature Genetics", "ng.svg", None, None),
+    ("Nature Communications", "ncomms.svg", None, None),
+    ("PNAS", "pnas.svg", None, None),
+    ("Genome Biology", "gb.svg", "stack", None),
+    ("Bioinformatics", "bioinformatics.svg", None, None),
+    ("ISMB 2026", "ismb.svg", "badge", None),
+    ("ICLR 2026", "iclr.svg", None, "Gen<sup>2</sup> workshop"),
+    ("Neurocomputing", "neurocomputing.svg", None, None),
+    ("Machine Learning in Computational Biology", "mlcb.svg", "badge", None),
+    ("Computational and Structural Biotechnology Journal", "csbj.svg", "stack", None),
+    ("Data in Brief", "dib.svg", "stack", None),
+    ("Journal of Real-Time Image Processing", "jrtip.svg", "stack", None),
+    ("Cyber-systems and Robotics", "csr.svg", "stack", None),
 ]
 
 
@@ -935,9 +937,10 @@ def review_total(rows):
 
 def collage():
     tiles = []
-    for name, logo, note in REVIEW_COLLAGE:
+    for name, logo, shape, note in REVIEW_COLLAGE:
         if logo:
-            inner = '<img class="collage__logo" src="assets/img/journals/%s" alt="%s">' % (logo, name)
+            cls = "collage__logo collage__logo--%s" % shape if shape else "collage__logo"
+            inner = '<img class="%s" src="assets/img/journals/%s" alt="%s">' % (cls, logo, name)
         else:
             inner = '<span class="collage__name">%s</span>' % name
         if note:
