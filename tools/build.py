@@ -1053,8 +1053,6 @@ def cv():
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">Curriculum vitae</p>
-        <h1>The full CV, as a PDF.</h1>
-        <p class="lede">Education, positions, funding and awards are all in the document below. Publications, talks, teaching and service each have their own page on this site.</p>
       </div>
       <div class="downloads">
         <a class="download" href="{cv}" target="_blank" rel="noopener">
@@ -1064,7 +1062,6 @@ def cv():
         </a>
         <a class="download" href="{failure}" target="_blank" rel="noopener">
           <span class="download__name">CV of failures</span>
-          <span class="download__text">The rejections, the missed fellowships and the papers that did not land. Most CVs are a survivorship-biased record; this is the other half of mine.</span>
           <span class="download__meta">PDF</span>
         </a>
       </div>
