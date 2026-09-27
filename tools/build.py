@@ -563,7 +563,6 @@ def home():
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">Elsewhere on this site</p>
-        <h2>The other pages on this site.</h2>
       </div>
       <div>
 {tabs}
