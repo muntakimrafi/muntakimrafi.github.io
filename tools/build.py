@@ -1057,7 +1057,6 @@ def cv():
       <div class="downloads">
         <a class="download" href="{cv}" target="_blank" rel="noopener">
           <span class="download__name">Curriculum vitae</span>
-          <span class="download__text">Education, research and work experience, publications, talks, posters, funding, service and awards.</span>
           <span class="download__meta">PDF &middot; 6 pages</span>
         </a>
         <a class="download" href="{failure}" target="_blank" rel="noopener">
