@@ -832,8 +832,9 @@ a:hover { color: var(--ink); }
 
 /* --- Peer-review collage ----------------------------------------------------
    Every venue as a tile of the same size, the last row centred. Logos are
-   drawn in the ink colour so they sit with the typeset names and follow the
-   theme. */
+   drawn in the ink colour so they read as one set and follow the theme. A
+   title set on several lines, or an emblem, needs more height than a one-line
+   wordmark to be read at the same size. */
 .collage { margin: 0 0 clamp(2.5rem, 5vw, 3.5rem); }
 .collage__grid {
   --per-row: 5;
@@ -863,6 +864,8 @@ a:hover { color: var(--ink); }
 }
 
 .collage__logo { display: block; max-width: 86%; height: 1.45rem; object-fit: contain; filter: brightness(0); opacity: .86; }
+.collage__logo--stack { height: 2.5rem; }
+.collage__logo--badge { height: 3.3rem; }
 :root[data-theme="dark"] .collage__logo { filter: brightness(0) invert(1); opacity: .88; }
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .collage__logo { filter: brightness(0) invert(1); opacity: .88; }
@@ -897,6 +900,8 @@ a:hover { color: var(--ink); }
   .collage__tile { height: 4.8rem; padding: .6rem .7rem; }
   .collage__name { font-size: .88rem; }
   .collage__logo { height: 1.2rem; }
+  .collage__logo--stack { height: 2.1rem; }
+  .collage__logo--badge { height: 2.8rem; }
 }
 
 /* --- A plain two-column reference list (reviewing, memberships) ---------- */
