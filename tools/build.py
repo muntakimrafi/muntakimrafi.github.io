@@ -706,7 +706,6 @@ def research():
       <div class="section__head">
         <p class="eyebrow">Funding</p>
         <h2>Grants and compute.</h2>
-        <p class="lede">Fellowships, grants and compute awards, with the role I held on each.</p>
       </div>
       <div class="records">
 {projects}
@@ -732,6 +731,7 @@ def publications():
         <div class="figure"><dt>Preprints</dt><dd>{npre}</dd></div>
       </dl>
 
+      <p class="legend"><sup>*</sup> Equal contribution &nbsp;&middot;&nbsp; <sup>&dagger;</sup> Corresponding author</p>
       <div class="pubs">
         <div class="grouplabel"><p class="eyebrow">Preprints</p><span class="fieldindex__count">{npre} entries</span></div>
 {preprints}
@@ -740,7 +740,6 @@ def publications():
         <div class="grouplabel"><p class="eyebrow">Conference papers</p><span class="fieldindex__count">{nconf} entries</span></div>
 {conferences}
       </div>
-      <p class="legend"><sup>*</sup> Equal contribution &nbsp;&middot;&nbsp; <sup>&dagger;</sup> Corresponding author</p>
     </div>
   </section>
 """.format(scholar=SCHOLAR,
