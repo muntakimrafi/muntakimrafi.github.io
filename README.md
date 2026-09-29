@@ -139,8 +139,10 @@ from. Three pieces feed it:
 4. Run the workflow once by hand from the **Actions** tab. Until it does, the
    page says no visits have been counted yet.
 
-Until both secrets exist the workflow fails and `data/visitors.json` keeps its
-last good contents, so a bad night never blanks the map.
+The workflow fails only when something is actually wrong — missing secrets, a
+rejected token, GoatCounter unreachable. Having nothing to report yet is normal
+on a new site: it passes, says so, and leaves `data/visitors.json` alone, so a
+quiet day never blanks a map that was already right.
 
 ### The country outlines
 
