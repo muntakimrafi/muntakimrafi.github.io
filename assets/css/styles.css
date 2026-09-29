@@ -1072,7 +1072,7 @@ a:hover { color: var(--ink); }
 }
 
 /* The two treatments, as one segmented control */
-.vmodes { display: flex; border: 1px solid var(--rule-strong); border-radius: 3px; overflow: hidden; }
+.vmodes { display: flex; flex-wrap: wrap; border: 1px solid var(--rule-strong); border-radius: 3px; overflow: hidden; }
 .vmodes input { position: absolute; opacity: 0; pointer-events: none; }
 .vmodes label {
   font-family: var(--font-mono);
@@ -1176,4 +1176,80 @@ a:hover { color: var(--ink); }
 @media (max-width: 34rem) {
   .vranks li { grid-template-columns: 1fr auto; }
   .vranks__bar { display: none; }
+}
+
+/* --- Places map ----------------------------------------------------------
+   The same plate, tooltip and key as the visitors map, with a dot at each
+   city instead of a shaded country. The four kinds of appearance are told
+   apart by the filter above the map, not by colour, so the map keeps to one
+   hue and vermilion stays on actions. */
+.vmap__hit { fill: transparent; cursor: pointer; }
+.vmap__dot.is-on { stroke: var(--flame); stroke-width: 2; }
+@media (prefers-reduced-motion: no-preference) {
+  .vmap__dot { transition: r .2s ease, fill-opacity .15s ease; }
+}
+
+/* the tooltip lists what happened at a place, so it carries more than a value */
+.vtip { max-width: 19rem; }
+.vtip em {
+  font-style: normal;
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .04em;
+  color: var(--ink-3);
+}
+.vtip u { text-decoration: none; display: block; margin-top: .3rem; font-size: .78rem; color: var(--ink-2); }
+.vtip u i {
+  font-style: normal;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  color: var(--ink-3);
+  margin-right: .35rem;
+  font-variant-numeric: tabular-nums;
+}
+
+.plist { list-style: none; margin: 0; padding: 0; max-width: 52rem; }
+.plist > li { padding-block: .7rem; border-bottom: 1px solid var(--rule); }
+.plist > li:hover { background: var(--green-soft); }
+.plist > li:focus-visible { background: var(--green-soft); outline: none; box-shadow: inset 2px 0 0 var(--focus); }
+
+.plist__head {
+  display: grid;
+  grid-template-columns: minmax(7rem, 1fr) auto auto;
+  align-items: baseline;
+  gap: .6rem 1rem;
+}
+.plist__name { font-weight: 500; min-width: 0; overflow-wrap: anywhere; }
+.plist__country {
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .04em;
+  color: var(--ink-3);
+  text-align: right;
+}
+.plist__n {
+  font-family: var(--font-mono);
+  font-size: .78rem;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+  min-width: 1.4rem;
+  text-align: right;
+}
+
+.plist__events { list-style: none; margin: .3rem 0 0; padding: 0; display: flex; flex-direction: column; gap: .1rem; }
+.plist__events li { display: flex; gap: .55rem; font-size: .86rem; color: var(--ink-2); }
+.plist__events span {
+  flex: 0 0 auto;
+  padding-top: .12rem;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  color: var(--ink-3);
+  font-variant-numeric: tabular-nums;
+}
+.plist__events b { font-weight: 400; min-width: 0; overflow-wrap: anywhere; }
+
+@media (max-width: 34rem) {
+  .plist__head { grid-template-columns: 1fr auto; }
+  .plist__country { grid-column: 1; text-align: left; }
 }

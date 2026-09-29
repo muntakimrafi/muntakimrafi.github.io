@@ -27,6 +27,7 @@ NAV = [
     ("teaching.html", "Teaching"),
     ("service.html", "Service"),
     ("cv.html", "CV"),
+    ("places.html", "Places"),
     ("visitors.html", "Visitors"),
 ]
 
@@ -170,6 +171,7 @@ def footer(scripts=()):
 
 # Scripts a single page needs, on top of the shared assets/js/main.js.
 EXTRA_SCRIPTS = {
+    "places.html": ["assets/js/places.js"],
     "visitors.html": ["assets/js/visitors.js"],
 }
 
@@ -494,6 +496,7 @@ TABS = [
     ("teaching.html", "Teaching", "Courses I have taught and the students I have supervised."),
     ("service.html", "Service", "Peer review, programme committees and community work."),
     ("cv.html", "CV", "The full curriculum vitae, as a PDF."),
+    ("places.html", "Places", "A map of everywhere I have given a talk, poster or workshop in person."),
     ("visitors.html", "Visitors", "A map of the countries this site is read from."),
 ]
 
@@ -1094,6 +1097,57 @@ def cv():
 """.format(cv=CV_PDF, failure=FAILURE_PDF)
 
 
+def places():
+    """The talks map. Everything inside #p-body is drawn by assets/js/places.js
+    from assets/data/talks-map.json, so the markup here is only the frame."""
+    return """
+<section class="section section--plain" id="places">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Places</p>
+        <h1>Where I have presented.</h1>
+      </div>
+
+      <p class="vtext" id="p-note" hidden></p>
+      <noscript><p class="vtext">The map is drawn in the browser, so it needs JavaScript. Every talk, poster and workshop is listed on the <a href="talks.html">talks page</a>.</p></noscript>
+
+      <div id="p-body" hidden>
+        <dl class="figures">
+          <div class="figure"><dt>Appearances</dt><dd id="p-events">&mdash;</dd></div>
+          <div class="figure"><dt>Places</dt><dd id="p-places">&mdash;</dd></div>
+          <div class="figure"><dt>Countries</dt><dd id="p-countries">&mdash;</dd></div>
+        </dl>
+
+        <figure class="vmapfig">
+          <div class="vmap__head">
+            <p class="eyebrow">Equal-area projection</p>
+            <div class="vmodes" id="p-filters"></div>
+          </div>
+
+          <div class="vmap__plate" id="p-plate">
+            <svg class="vmap" id="p-map" role="img" aria-labelledby="p-map-title"><title id="p-map-title">A world map with a dot at each city where a talk, poster or workshop was given in person. Every one is also listed under Every place, below the map.</title></svg>
+            <div class="vtip" id="p-tip" hidden></div>
+          </div>
+
+          <div class="vkey">
+            <span class="vkey__label">Appearances here</span>
+            <div class="vkey__bubbles" id="p-key"></div>
+          </div>
+
+          <figcaption class="vcap" id="p-cap"></figcaption>
+        </figure>
+
+        <div class="grouplabel">
+          <p class="eyebrow">Every place</p>
+          <span class="fieldindex__count" id="p-count"></span>
+        </div>
+        <ol class="plist" id="p-list"></ol>
+      </div>
+    </div>
+  </section>
+"""
+
+
 def visitors():
     """The map page. Everything inside #v-body is drawn by assets/js/visitors.js
     from two files in this repository, so the markup here is only the frame."""
@@ -1170,6 +1224,10 @@ PAGES = [
     ("cv.html", "CV",
      "The full curriculum vitae of Abdul Muntakim Rafi, as a downloadable PDF.",
      cv),
+    ("places.html", "Places",
+     "A map of every talk, poster and workshop Abdul Muntakim Rafi has given "
+     "in person, by city.",
+     places),
     ("visitors.html", "Visitors",
      "A map of the countries this site is read from, counted by country and "
      "refreshed daily.",

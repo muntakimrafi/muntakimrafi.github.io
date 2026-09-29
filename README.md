@@ -18,6 +18,7 @@ a light and a dark theme driven off one set of tokens.
 | `teaching.html`     | Teaching assistantships with course lists, mentorship                |
 | `service.html`      | Peer review, committee service, events and organisations             |
 | `cv.html`           | The CV and CV of failures, as PDFs                                   |
+| `places.html`       | A map of every in-person talk, poster and workshop                   |
 | `visitors.html`     | A map of the countries the site is read from                         |
 
 ## Previewing it
@@ -29,7 +30,7 @@ python3 -m http.server 8000
 
 ### preview.html — the whole site as one file
 
-`preview.html` is a generated, self-contained copy of all eight pages: the
+`preview.html` is a generated, self-contained copy of all nine pages: the
 stylesheet and script inlined, the portrait as a data URI, and the tabs
 switched client-side through the URL hash (`#research`, `#cv`, …).
 
@@ -42,9 +43,9 @@ preview frame. Flattening the site into one document sidesteps both.
 python3 tools/build_preview.py
 ```
 
-It is a preview artefact only and is gitignored: the real site is the eight
-separate pages. Regenerate it whenever you need one. The visitors map is left
-out of it, because that page draws itself from files it fetches at runtime.
+It is a preview artefact only and is gitignored: the real site is the nine
+separate pages. Regenerate it whenever you need one. Both maps are left out of
+it, because those pages draw themselves from files they fetch at runtime.
 
 ## Editing content
 
@@ -77,6 +78,31 @@ assets/img/venues/<mark>.svg     # .png, .webp, .jpg also work
 `TALKS` and `POSTERS` — `bi`, `ismb`, `cshl`, `cvpr` and so on. Add the file,
 re-run `tools/build.py`, and that card switches over. Square or near-square
 artwork renders best; the tile is 3.4rem with `object-fit: contain`.
+
+## The places map
+
+`places.html` puts a dot on every city where a talk, poster or workshop was
+given in person — that is, every entry in `INVITED`, `TALKS`, `POSTERS` and
+`WORKSHOPS` whose note is not `"Online"`.
+
+Nothing about it is typed twice. `tools/build_talks_map.py` reads those lists
+out of `build.py`, looks each entry's place string up in its own `CITIES`
+table, projects the result onto the same map the visitors page uses, and
+writes `assets/data/talks-map.json`:
+
+```sh
+python3 tools/build_talks_map.py
+```
+
+So adding a talk is a change to `build.py` alone — unless it is somewhere new,
+in which case add its place string to `CITIES` as well. A place string with no
+entry there stops the script rather than quietly dropping the talk from the
+map.
+
+Two cities closer together than the dots drawn on them are eased apart by up
+to about 300 km, which is the only way Stanford and South San Francisco can be
+told apart at this scale. The four kinds of appearance are separated by the
+filter above the map rather than by colour, so the map keeps to one hue.
 
 ## The visitors map
 

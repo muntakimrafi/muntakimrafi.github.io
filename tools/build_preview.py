@@ -3,7 +3,7 @@
 
 The artifact viewer injects a published page into its own document body, so a
 multi-page site loses its <head>, its <body> and any navigation that leaves the
-frame. This flattens all eight pages into one document: stylesheet and script
+frame. This flattens all nine pages into one document: stylesheet and script
 inlined, the portrait as a data URI, and the tabs switched client-side through
 the URL hash. Nothing is fetched relative to the page except the CV PDFs.
 
@@ -43,16 +43,22 @@ def nav(cls):
         '      <a href="%s">%s</a>' % (HASH[slug], label) for slug, label in build.NAV)
 
 
-def without_map(body):
-    """The visitors map draws itself from two files it fetches at runtime, which
-    a single flattened document cannot do. Say so in place of an empty frame."""
-    start = body.index('<p class="vtext" id="v-note"')
-    end = body.index("</div>", body.index('<div id="v-body"'))
+# slug -> (the id its frame hangs on, what the flattened preview says instead)
+NO_FETCH = {
+    "visitors.html": ("v", "<code>data/visitors.json</code> and the country outlines"),
+    "places.html": ("p", "<code>assets/data/talks-map.json</code> and the country outlines"),
+}
+
+
+def without_map(body, prefix, reads):
+    """Both maps draw themselves from files they fetch at runtime, which a
+    single flattened document cannot do. Say so in place of an empty frame."""
+    start = body.index('<p class="vtext" id="%s-note"' % prefix)
+    end = body.index("</div>", body.index('<div id="%s-body"' % prefix))
     return body[:start] + (
-        '<p class="vtext">The map is drawn in the browser from '
-        '<code>data/visitors.json</code> and the country outlines beside it. '
+        '<p class="vtext">The map is drawn in the browser from %s beside it. '
         'This flattened preview fetches nothing, so the map only appears on the '
-        'real page.</p>\n      ') + body[end + len("</div>"):]
+        'real page.</p>\n      ' % reads) + body[end + len("</div>"):]
 
 
 def main():
@@ -64,8 +70,8 @@ def main():
     for slug, title, _desc, builder in build.PAGES:
         frag = HASH[slug][1:]
         body = link_rewrite(builder().strip())
-        if slug == "visitors.html":
-            body = without_map(body)
+        if slug in NO_FETCH:
+            body = without_map(body, *NO_FETCH[slug])
         panels.append('<div class="page" id="%s" data-page data-title="%s"%s>\n%s\n</div>'
                       % (frag, title, "" if slug == "index.html" else " hidden", body))
 
