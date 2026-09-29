@@ -349,7 +349,7 @@ TALKS = [
     ("MSV", "MASSIV 1.0 &mdash; Advanced Synthetic Biology and Systems Bioengineering", "Vancouver, Canada", "2026", _HOMOLOGY, None),
     ("UBC", "UBC Life Sciences Symposium", "Vancouver, Canada", "2026", _HOMOLOGY, None),
     ("ISMB", "ISMB/ECCB 2025", "Liverpool, United Kingdom", "2025", _LEAKAGE, None),
-    ("CSHL", "Biological Data Science", "Cold Spring Harbor Laboratory, New York, United States", "2025", _DREAM, None),
+    ("CSHL", "Biological Data Science", "Cold Spring Harbor Laboratory, New York, United States", "2024", _DREAM, None),
     ("KEY", "AI in Molecular Biology, Keystone Symposia", "Santa Fe, United States", "2025", _LEAKAGE, None),
     ("SU", "Kundaje Lab Journal Club", "Stanford University, Stanford, United States", "2025", _LEAKAGE, None),
     ("CAL", "Kelley Group Journal Club", "Calico Life Sciences, South San Francisco, United States", "2025", _LEAKAGE, None),
@@ -367,7 +367,7 @@ _AL_P = "Evaluation of active learning selection strategies and characterization
 POSTERS = [
     ("CSHL", "90th Cold Spring Harbor Symposium on Quantitative Biology (AI in Biology)", "New York, United States", "2026", _GRELY_P, None),
     ("CSHL", "90th Cold Spring Harbor Symposium on Quantitative Biology (AI in Biology)", "New York, United States", "2026", _AL_P, None),
-    ("CSHL", "Biological Data Science", "Cold Spring Harbor Laboratory, New York, United States", "2025", _LEAKAGE, None),
+    ("CSHL", "Biological Data Science", "Cold Spring Harbor Laboratory, New York, United States", "2024", _LEAKAGE, None),
     ("ECCB", "23rd European Conference on Computational Biology", "Turku, Finland", "2024", _LEAKAGE, None),
     ("MLCB", "Machine Learning in Computational Biology", "Seattle, United States", "2024", _LEAKAGE, None),
     ("MLCB", "Machine Learning in Computational Biology", "Seattle, United States", "2023", _EVAL, None),
