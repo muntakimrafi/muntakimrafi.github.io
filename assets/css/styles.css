@@ -908,7 +908,7 @@ a:hover { color: var(--ink); }
   color: var(--ink-3);
 }
 
-.collage__caption, .vcap {
+.collage__caption {
   margin-top: .8rem;
   font-family: var(--font-mono);
   font-size: .66rem;
@@ -1127,26 +1127,6 @@ a:hover { color: var(--ink); }
   font-size: .68rem;
   letter-spacing: .04em;
   color: var(--ink-3);
-}
-
-.vkey { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.4rem; margin-top: .9rem; }
-.vkey__label, .vkey small {
-  font-family: var(--font-mono);
-  letter-spacing: .1em;
-  color: var(--ink-3);
-}
-.vkey__label { font-size: .66rem; text-transform: uppercase; }
-.vkey small { font-size: .62rem; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
-.vkey__ramp { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .35rem 2px; }
-.vkey__ramp div, .vkey__bubbles div { display: flex; flex-direction: column; align-items: center; gap: .25rem; }
-.vkey__ramp i { display: block; width: 2.6rem; height: .5rem; border-radius: 1px; }
-.vkey__bubbles { display: flex; align-items: flex-end; gap: .9rem; }
-.vkey__bubbles i {
-  display: block;
-  border-radius: 50%;
-  background: var(--vmap-3);
-  opacity: .72;
-  border: 1px solid var(--surface);
 }
 
 .vranks { list-style: none; margin: 0; padding: 0; max-width: 52rem; }

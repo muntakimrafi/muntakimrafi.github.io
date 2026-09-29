@@ -30,8 +30,6 @@
     plate: document.getElementById("p-plate"),
     map: document.getElementById("p-map"),
     tip: document.getElementById("p-tip"),
-    key: document.getElementById("p-key"),
-    cap: document.getElementById("p-cap"),
     list: document.getElementById("p-list"),
     count: document.getElementById("p-count"),
     filters: document.getElementById("p-filters"),
@@ -106,26 +104,7 @@
     el.countries.textContent = Object.keys(countries).length;
     el.count.textContent = places + (places === 1 ? " place" : " places");
 
-    drawKey(per);
     drawList(per, rows);
-
-    el.cap.textContent = (filter === "all"
-      ? "All " + rows.length + " appearances given in person."
-      : rows.length + " of " + data.events.length + " appearances given in person.")
-      + " Talks given online are left off. Where two cities are too close to"
-      + " separate at this scale, the dots are eased apart by up to about 300 km.";
-  }
-
-  function drawKey(per) {
-    var counts = Object.keys(per).map(function (k) { return per[k]; });
-    var steps = [1, 2, Math.max.apply(null, counts)].filter(function (v, i, a) {
-      return v >= 1 && a.indexOf(v) === i;
-    });
-    el.key.innerHTML = steps.map(function (v) {
-      var d = Math.round(radius(v) * 2.2);
-      return "<div><i style=\"width:" + d + "px;height:" + d + "px\"></i>"
-           + "<small>" + v + "</small></div>";
-    }).join("");
   }
 
   /* ---- the list, which carries every appearance without a hover --------- */
