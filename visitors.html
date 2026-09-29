@@ -3,11 +3,11 @@
 <head>
 <meta charset="utf-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>CV &middot; Abdul Muntakim Rafi</title>
+<title>Visitors &middot; Abdul Muntakim Rafi</title>
 <meta name="author" content="Abdul Muntakim Rafi">
-<meta name="description" content="The full curriculum vitae of Abdul Muntakim Rafi, as a downloadable PDF.">
-<meta property="og:title" content="CV &middot; Abdul Muntakim Rafi">
-<meta property="og:description" content="The full curriculum vitae of Abdul Muntakim Rafi, as a downloadable PDF.">
+<meta name="description" content="A map of the countries this site is read from, counted by country and refreshed daily.">
+<meta property="og:title" content="Visitors &middot; Abdul Muntakim Rafi">
+<meta property="og:description" content="A map of the countries this site is read from, counted by country and refreshed daily.">
 <meta property="og:type" content="website">
 <link rel="icon" href="favicon.ico" sizes="any">
 <link rel="icon" type="image/png" href="assets/img/favicon-32.png" sizes="32x32">
@@ -34,8 +34,8 @@
       <a href="talks.html">Talks</a>
       <a href="teaching.html">Teaching</a>
       <a href="service.html">Service</a>
-      <a href="cv.html" aria-current="page" class="is-current">CV</a>
-      <a href="visitors.html">Visitors</a>
+      <a href="cv.html">CV</a>
+      <a href="visitors.html" aria-current="page" class="is-current">Visitors</a>
     </nav>
     <div class="masthead__end">
       <div class="masthead__social">
@@ -51,21 +51,63 @@
 </header>
 
 <main id="main">
-<section class="section section--plain">
+<section class="section section--plain" id="visitors">
     <div class="wrap">
       <div class="section__head">
-        <p class="eyebrow">Curriculum vitae</p>
+        <p class="eyebrow">Visitors</p>
+        <h1>Where this site is read.</h1>
+        <p class="lede">Countries a page was opened from, shaded by how many visits came from each.</p>
       </div>
-      <div class="downloads">
-        <a class="download" href="data/CV_updated.pdf" target="_blank" rel="noopener">
-          <span class="download__name">Curriculum vitae</span>
-          <span class="download__meta">PDF &middot; 6 pages</span>
-        </a>
-        <a class="download" href="data/CV_of_Failure.pdf" target="_blank" rel="noopener">
-          <span class="download__name">CV of failures</span>
-          <span class="download__meta">PDF</span>
-        </a>
+
+      <p class="vtext" id="v-note" hidden></p>
+      <noscript><p class="vtext">The map is drawn in the browser, so it needs JavaScript. The counts behind it are a plain file: <a href="data/visitors.json">data/visitors.json</a>.</p></noscript>
+
+      <div id="v-body" hidden>
+        <dl class="figures">
+          <div class="figure"><dt>Visits</dt><dd id="v-visits">&mdash;</dd></div>
+          <div class="figure"><dt>Countries</dt><dd id="v-countries">&mdash;</dd></div>
+          <div class="figure"><dt>From the top five</dt><dd id="v-share">&mdash;</dd></div>
+        </dl>
+
+        <figure class="vmapfig">
+          <div class="vmap__head">
+            <p class="eyebrow">Equal-area projection</p>
+            <div class="vmodes">
+              <input type="radio" name="vmode" id="vmode-shade" value="shade" checked>
+              <label for="vmode-shade">Shaded</label>
+              <input type="radio" name="vmode" id="vmode-dots" value="dots">
+              <label for="vmode-dots">Dots</label>
+            </div>
+          </div>
+
+          <div class="vmap__plate" id="v-plate">
+            <svg class="vmap" id="v-map" role="img" aria-labelledby="v-map-title"><title id="v-map-title">A world map of the countries this site has been read from. Every count is also listed under Most visits, below the map.</title></svg>
+            <div class="vtip" id="v-tip" hidden></div>
+          </div>
+
+          <div class="vkey" id="v-key"></div>
+          <figcaption class="vcap" id="v-updated"></figcaption>
+        </figure>
+
+        <div class="grouplabel">
+          <p class="eyebrow">Most visits</p>
+          <span class="fieldindex__count" id="v-count"></span>
+        </div>
+        <ol class="vranks" id="v-ranks"></ol>
+        <p class="vranks__rest" id="v-rest"></p>
       </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Method</p>
+        <h2>How this is counted.</h2>
+      </div>
+      <p class="vtext">A visit is counted by <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a>, which records the page and the country it came from. It sets no cookie, keeps no IP address and builds no profile of anyone.</p>
+      <p class="vtext">Once a day a scheduled job asks GoatCounter for the totals by country and commits them here as a small JSON file. The map reads that file and the outlines beside it, both served from this site, so the page fetches nothing from anyone else while you are reading it.</p>
+      <p class="vtext">The outlines are Natural Earth’s, drawn on an equal-area projection so that a country’s share of the ink is its share of the world’s land. A few small countries and city-states have no outline at this resolution: their visits are in the totals and in the list, but no shape lights up for them.</p>
     </div>
   </section>
 </main>
@@ -96,5 +138,6 @@
 </footer>
 
 <script src="assets/js/main.js"></script>
+<script src="assets/js/visitors.js"></script>
 </body>
 </html>

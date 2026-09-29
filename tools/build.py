@@ -27,7 +27,13 @@ NAV = [
     ("teaching.html", "Teaching"),
     ("service.html", "Service"),
     ("cv.html", "CV"),
+    ("visitors.html", "Visitors"),
 ]
+
+# The GoatCounter site code, i.e. <code>.goatcounter.com. It counts a pageview
+# and the country it came from; it sets no cookie and stores no IP address.
+# Set it to "" to serve the site with no counting at all.
+GOATCOUNTER = "muntakimrafi"
 
 EMAIL = "rafi11@student.ubc.ca"
 SCHOLAR = "https://scholar.google.com/citations?user=fyNavPkAAAAJ&hl=en"
@@ -65,6 +71,14 @@ def icon(key, cls):
             % (cls, ICONS[key]))
 
 
+def counter():
+    """GoatCounter's one-line snippet, or nothing when no site code is set."""
+    if not GOATCOUNTER:
+        return ""
+    return ('<script data-goatcounter="https://%s.goatcounter.com/count"\n'
+            '        async src="https://gc.zgo.at/count.js"></script>\n' % GOATCOUNTER)
+
+
 def head(title, description):
     full = title if title == NAME else "%s &middot; %s" % (title, NAME)
     return """<!DOCTYPE html>
@@ -85,10 +99,10 @@ def head(title, description):
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
 <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Newsreader:ital,opsz,wght@0,6..72,400;0,6..72,500;0,6..72,600;1,6..72,400;1,6..72,500&family=Public+Sans:wght@300;400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap">
 <link rel="stylesheet" href="assets/css/styles.css">
-</head>
+{count}</head>
 <body>
 <a class="skip" href="#main">Skip to content</a>
-""".format(full=full, name=NAME, desc=description)
+""".format(full=full, name=NAME, desc=description, count=counter())
 
 
 def masthead(current):
@@ -125,7 +139,7 @@ def masthead(current):
 """.format(name=NAME, links="\n".join(links), social="\n".join(social))
 
 
-def footer():
+def footer(scripts=()):
     links = "\n".join('      <a href="%s">%s</a>' % (h, l) for h, l in NAV)
     social = "\n".join(
         '        <a class="social__link" href="%s"%s>%s<span>%s</span></a>'
@@ -148,13 +162,21 @@ def footer():
 </footer>
 
 <script src="assets/js/main.js"></script>
-</body>
+{scripts}</body>
 </html>
-""".format(name=NAME, social=social, links=links)
+""".format(name=NAME, social=social, links=links,
+           scripts="".join('<script src="%s"></script>\n' % src for src in scripts))
+
+
+# Scripts a single page needs, on top of the shared assets/js/main.js.
+EXTRA_SCRIPTS = {
+    "visitors.html": ["assets/js/visitors.js"],
+}
 
 
 def write(slug, title, description, main):
-    html = head(title, description) + masthead(slug) + "\n<main id=\"main\">\n" + main.strip() + "\n</main>\n" + footer()
+    html = (head(title, description) + masthead(slug) + "\n<main id=\"main\">\n"
+            + main.strip() + "\n</main>\n" + footer(EXTRA_SCRIPTS.get(slug, [])))
     path = os.path.join(ROOT, slug)
     with open(path, "w", encoding="utf-8") as fh:
         fh.write(html)
@@ -472,6 +494,7 @@ TABS = [
     ("teaching.html", "Teaching", "Courses I have taught and the students I have supervised."),
     ("service.html", "Service", "Peer review, programme committees and community work."),
     ("cv.html", "CV", "The full curriculum vitae, as a PDF."),
+    ("visitors.html", "Visitors", "A map of the countries this site is read from."),
 ]
 
 def home():
@@ -1071,6 +1094,72 @@ def cv():
 """.format(cv=CV_PDF, failure=FAILURE_PDF)
 
 
+def visitors():
+    """The map page. Everything inside #v-body is drawn by assets/js/visitors.js
+    from two files in this repository, so the markup here is only the frame."""
+    return """
+<section class="section section--plain" id="visitors">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Visitors</p>
+        <h1>Where this site is read.</h1>
+        <p class="lede">Countries a page was opened from, shaded by how many visits came from each.</p>
+      </div>
+
+      <p class="vtext" id="v-note" hidden></p>
+      <noscript><p class="vtext">The map is drawn in the browser, so it needs JavaScript. The counts behind it are a plain file: <a href="data/visitors.json">data/visitors.json</a>.</p></noscript>
+
+      <div id="v-body" hidden>
+        <dl class="figures">
+          <div class="figure"><dt>Visits</dt><dd id="v-visits">&mdash;</dd></div>
+          <div class="figure"><dt>Countries</dt><dd id="v-countries">&mdash;</dd></div>
+          <div class="figure"><dt>From the top five</dt><dd id="v-share">&mdash;</dd></div>
+        </dl>
+
+        <figure class="vmapfig">
+          <div class="vmap__head">
+            <p class="eyebrow">Equal-area projection</p>
+            <div class="vmodes">
+              <input type="radio" name="vmode" id="vmode-shade" value="shade" checked>
+              <label for="vmode-shade">Shaded</label>
+              <input type="radio" name="vmode" id="vmode-dots" value="dots">
+              <label for="vmode-dots">Dots</label>
+            </div>
+          </div>
+
+          <div class="vmap__plate" id="v-plate">
+            <svg class="vmap" id="v-map" role="img" aria-labelledby="v-map-title"><title id="v-map-title">A world map of the countries this site has been read from. Every count is also listed under Most visits, below the map.</title></svg>
+            <div class="vtip" id="v-tip" hidden></div>
+          </div>
+
+          <div class="vkey" id="v-key"></div>
+          <figcaption class="vcap" id="v-updated"></figcaption>
+        </figure>
+
+        <div class="grouplabel">
+          <p class="eyebrow">Most visits</p>
+          <span class="fieldindex__count" id="v-count"></span>
+        </div>
+        <ol class="vranks" id="v-ranks"></ol>
+        <p class="vranks__rest" id="v-rest"></p>
+      </div>
+    </div>
+  </section>
+
+  <section class="section">
+    <div class="wrap">
+      <div class="section__head">
+        <p class="eyebrow">Method</p>
+        <h2>How this is counted.</h2>
+      </div>
+      <p class="vtext">A visit is counted by <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a>, which records the page and the country it came from. It sets no cookie, keeps no IP address and builds no profile of anyone.</p>
+      <p class="vtext">Once a day a scheduled job asks GoatCounter for the totals by country and commits them here as a small JSON file. The map reads that file and the outlines beside it, both served from this site, so the page fetches nothing from anyone else while you are reading it.</p>
+      <p class="vtext">The outlines are Natural Earth\u2019s, drawn on an equal-area projection so that a country\u2019s share of the ink is its share of the world\u2019s land. A few small countries and city-states have no outline at this resolution: their visits are in the totals and in the list, but no shape lights up for them.</p>
+    </div>
+  </section>
+"""
+
+
 PAGES = [
     ("index.html", NAME,
      "Abdul Muntakim Rafi is a PhD candidate in Biomedical Engineering at the University of British Columbia, working on informative sequence libraries at scale and on machine learning models of gene regulation built from them.",
@@ -1093,6 +1182,10 @@ PAGES = [
     ("cv.html", "CV",
      "The full curriculum vitae of Abdul Muntakim Rafi, as a downloadable PDF.",
      cv),
+    ("visitors.html", "Visitors",
+     "A map of the countries this site is read from, counted by country and "
+     "refreshed daily.",
+     visitors),
 ]
 
 

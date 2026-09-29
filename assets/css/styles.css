@@ -24,6 +24,16 @@
   --focus:        #0A5C43;
   --logo-tile:    #FFFFFF;
 
+  /* Visitors map: one hue, light to dark, plus a neutral for "no visits"
+     that is never a step of the ramp. Both ends were checked for contrast
+     against the surface they sit on. */
+  --vmap-0:       #E7ECE8;
+  --vmap-1:       #82BEA3;
+  --vmap-2:       #58A487;
+  --vmap-3:       #30886A;
+  --vmap-4:       #13694E;
+  --vmap-5:       #064B38;
+
   --font-display: "Newsreader", ui-serif, Georgia, "Times New Roman", serif;
   --font-body:    "Public Sans", ui-sans-serif, system-ui, -apple-system, "Segoe UI", Helvetica, Arial, sans-serif;
   --font-mono:    "IBM Plex Mono", ui-monospace, SFMono-Regular, Menlo, Consolas, monospace;
@@ -61,6 +71,12 @@
     --flame-soft:  #291611;
     --focus:       #4FB08A;
     --logo-tile:   #E4EBE6;
+    --vmap-0:      #1B241F;
+    --vmap-1:      #2E5440;
+    --vmap-2:      #3C7659;
+    --vmap-3:      #4E9B76;
+    --vmap-4:      #64C097;
+    --vmap-5:      #86DCB6;
   }
 }
 
@@ -82,6 +98,12 @@
   --flame-soft:  #291611;
   --focus:       #4FB08A;
   --logo-tile:   #E4EBE6;
+  --vmap-0:       #1B241F;
+  --vmap-1:       #2E5440;
+  --vmap-2:       #3C7659;
+  --vmap-3:       #4E9B76;
+  --vmap-4:       #64C097;
+  --vmap-5:       #86DCB6;
 }
 
 /* --- Base --------------------------------------------------------------- */
@@ -886,7 +908,7 @@ a:hover { color: var(--ink); }
   color: var(--ink-3);
 }
 
-.collage__caption {
+.collage__caption, .vcap {
   margin-top: .8rem;
   font-family: var(--font-mono);
   font-size: .66rem;
@@ -1029,4 +1051,129 @@ a:hover { color: var(--ink); }
 
 @media (max-width: 34rem) {
   .masthead__social { display: none; }
+}
+
+/* --- Visitors map --------------------------------------------------------
+   A choropleth of the countries the site was read from, or the same counts as
+   proportional dots. The outlines come from assets/data/world-110m.json and
+   the counts from data/visitors.json; the list underneath repeats every
+   figure, so nothing here can only be read by hovering. */
+.vtext { margin: 0 0 1.1rem; color: var(--ink-2); max-width: var(--measure); }
+.vtext:last-child { margin-bottom: 0; }
+.vmapfig { margin: 0 0 clamp(2.5rem, 5vw, 3.5rem); }
+
+.vmap__head {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: .75rem 1.5rem;
+  margin-bottom: .9rem;
+}
+
+/* The two treatments, as one segmented control */
+.vmodes { display: flex; border: 1px solid var(--rule-strong); border-radius: 3px; overflow: hidden; }
+.vmodes input { position: absolute; opacity: 0; pointer-events: none; }
+.vmodes label {
+  font-family: var(--font-mono);
+  font-size: .66rem;
+  letter-spacing: .1em;
+  text-transform: uppercase;
+  color: var(--ink-3);
+  background: var(--surface);
+  padding: .4rem .85rem;
+  cursor: pointer;
+}
+.vmodes label + label { border-left: 1px solid var(--rule-strong); }
+.vmodes input:checked + label { background: var(--green); color: var(--surface); }
+.vmodes input:focus-visible + label { outline: 2px solid var(--focus); outline-offset: -2px; }
+
+.vmap__plate {
+  position: relative;
+  background: var(--surface);
+  border: 1px solid var(--rule);
+  border-radius: 4px;
+  padding: clamp(.5rem, 2vw, 1.1rem);
+}
+.vmap { display: block; width: 100%; height: auto; }
+
+/* The gap between countries is the surface showing through, not a border. */
+.vmap__land path { fill: var(--vmap-0); stroke: var(--surface); stroke-width: .7; stroke-linejoin: round; }
+.vmap__dot { fill: var(--vmap-3); fill-opacity: .72; stroke: var(--surface); stroke-width: 1.4; }
+.vmap__halo { fill: none; stroke: var(--flame); stroke-width: 2.4; stroke-linejoin: round; pointer-events: none; }
+@media (prefers-reduced-motion: no-preference) {
+  .vmap__land path, .vmap__dot { transition: fill .15s ease; }
+}
+
+.vtip {
+  position: absolute;
+  z-index: 5;
+  pointer-events: none;
+  transform: translate(-50%, -115%);
+  min-width: 8.5rem;
+  padding: .4rem .6rem;
+  background: var(--surface);
+  color: var(--ink);
+  border: 1px solid var(--rule-strong);
+  border-radius: 3px;
+  box-shadow: 0 2px 10px rgb(0 0 0 / .10);
+  font-size: .82rem;
+  line-height: 1.35;
+}
+.vtip b { font-weight: 600; }
+.vtip span {
+  display: block;
+  font-family: var(--font-mono);
+  font-size: .68rem;
+  letter-spacing: .04em;
+  color: var(--ink-3);
+}
+
+.vkey { display: flex; flex-wrap: wrap; align-items: center; gap: .5rem 1.4rem; margin-top: .9rem; }
+.vkey__label, .vkey small {
+  font-family: var(--font-mono);
+  letter-spacing: .1em;
+  color: var(--ink-3);
+}
+.vkey__label { font-size: .66rem; text-transform: uppercase; }
+.vkey small { font-size: .62rem; letter-spacing: .04em; font-variant-numeric: tabular-nums; }
+.vkey__ramp { display: flex; flex-wrap: wrap; align-items: flex-end; gap: .35rem 2px; }
+.vkey__ramp div, .vkey__bubbles div { display: flex; flex-direction: column; align-items: center; gap: .25rem; }
+.vkey__ramp i { display: block; width: 2.6rem; height: .5rem; border-radius: 1px; }
+.vkey__bubbles { display: flex; align-items: flex-end; gap: .9rem; }
+.vkey__bubbles i {
+  display: block;
+  border-radius: 50%;
+  background: var(--vmap-3);
+  opacity: .72;
+  border: 1px solid var(--surface);
+}
+
+.vranks { list-style: none; margin: 0; padding: 0; max-width: 52rem; }
+.vranks li {
+  display: grid;
+  grid-template-columns: minmax(8rem, 13rem) 1fr auto;
+  align-items: center;
+  gap: .9rem;
+  padding-block: .55rem;
+  border-bottom: 1px solid var(--rule);
+  font-size: .92rem;
+}
+.vranks li:hover { background: var(--green-soft); }
+.vranks li:focus-visible { background: var(--green-soft); outline: none; box-shadow: inset 2px 0 0 var(--focus); }
+.vranks__name { min-width: 0; overflow-wrap: anywhere; }
+.vranks__bar { height: .45rem; background: var(--sunk); border-radius: 1px; overflow: hidden; }
+.vranks__bar i { display: block; height: 100%; background: var(--vmap-3); }
+.vranks__value {
+  font-family: var(--font-mono);
+  font-size: .8rem;
+  color: var(--ink-2);
+  font-variant-numeric: tabular-nums;
+  text-align: right;
+}
+.vranks__rest { margin: .8rem 0 0; font-size: .88rem; color: var(--ink-3); }
+
+@media (max-width: 34rem) {
+  .vranks li { grid-template-columns: 1fr auto; }
+  .vranks__bar { display: none; }
 }
