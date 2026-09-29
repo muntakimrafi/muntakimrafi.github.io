@@ -98,8 +98,10 @@ from. Three pieces feed it:
 1. Create a site at [goatcounter.com](https://www.goatcounter.com/). The code
    you pick becomes `<code>.goatcounter.com`; set `GOATCOUNTER` in
    `tools/build.py` to match it and re-run the build.
-2. In GoatCounter, under **Settings → API tokens**, create a token with
-   *Read statistics* permission.
+2. In GoatCounter, open your username in the top-right menu and choose
+   **API** (`https://<code>.goatcounter.com/user/api`) — it sits under your
+   account, not under the site's Settings page. Add a token and tick
+   *Read statistics*.
 3. In this repository, under **Settings → Secrets and variables → Actions**,
    add two secrets:
 
