@@ -67,6 +67,8 @@ CITIES = {
         ("Seattle", "United States", -122.3321, 47.6062),
     "Seattle, United States":
         ("Seattle", "United States", -122.3321, 47.6062),
+    "Allen Institute, Seattle, United States":
+        ("Seattle", "United States", -122.3321, 47.6062),
     "Las Vegas, United States":
         ("Las Vegas", "United States", -115.1398, 36.1699),
     "Athens, Greece":
@@ -79,6 +81,13 @@ CITIES = {
         ("Long Beach", "United States", -118.1937, 33.7701),
     "Guadalajara, Mexico":
         ("Guadalajara", "Mexico", -103.3496, 20.6597),
+}
+
+# Listed on the talks page but not presented in the room, so no dot belongs on
+# this map. Keyed by (venue, year), because the note on the talks page stays
+# empty: these are not remote talks.
+NOT_IN_PERSON = {
+    ("Media Forensics Workshop, CVPR 2019", "2019"),
 }
 
 SOURCES = [
@@ -150,10 +159,12 @@ def main():
         for _mark, venue, where, when, _what, note in rows:
             if note == "Online":
                 continue
+            year = re.findall(r"\b(\d{4})\b", when)[-1]
+            if (venue, year) in NOT_IN_PERSON:
+                continue
             if where not in CITIES:
                 unknown.add(where)
                 continue
-            year = re.findall(r"\b(\d{4})\b", when)[-1]
             events.append({"kind": kind, "label": label, "year": year,
                            "venue": venue, "place": CITIES[where][0]})
 
