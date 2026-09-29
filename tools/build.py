@@ -351,6 +351,7 @@ TALKS = [
     ("MSV", "MASSIV 1.0 &mdash; Advanced Synthetic Biology and Systems Bioengineering", "Vancouver, Canada", "2026", _HOMOLOGY, None),
     ("UBC", "UBC Life Sciences Symposium", "Vancouver, Canada", "2026", _HOMOLOGY, None),
     ("CAGT", "Cascadia Advanced Genomic Technologies Meeting", "Allen Institute, Seattle, United States", "2026", _ACTIVE, None),
+    ("UBC", "SBME Symposium", "Vancouver, Canada", "2026", _ACTIVE, None),
     ("ISMB", "ISMB/ECCB 2025", "Liverpool, United Kingdom", "2025", _LEAKAGE, None),
     ("CSHL", "Biological Data Science", "Cold Spring Harbor Laboratory, New York, United States", "2024", _DREAM, None),
     ("KEY", "AI in Molecular Biology, Keystone Symposia", "Santa Fe, United States", "2025", _LEAKAGE, None),
