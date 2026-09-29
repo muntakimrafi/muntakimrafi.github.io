@@ -1103,7 +1103,6 @@ def visitors():
       <div class="section__head">
         <p class="eyebrow">Visitors</p>
         <h1>Where this site is read.</h1>
-        <p class="lede">Countries a page was opened from, shaded by how many visits came from each.</p>
       </div>
 
       <p class="vtext" id="v-note" hidden></p>
@@ -1146,17 +1145,6 @@ def visitors():
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">Method</p>
-        <h2>How this is counted.</h2>
-      </div>
-      <p class="vtext">A visit is counted by <a href="https://www.goatcounter.com/" target="_blank" rel="noopener">GoatCounter</a>, which records the page and the country it came from. It sets no cookie, keeps no IP address and builds no profile of anyone.</p>
-      <p class="vtext">Once a day a scheduled job asks GoatCounter for the totals by country and commits them here as a small JSON file. The map reads that file and the outlines beside it, both served from this site, so the page fetches nothing from anyone else while you are reading it.</p>
-      <p class="vtext">The outlines are Natural Earth\u2019s, drawn on an equal-area projection so that a country\u2019s share of the ink is its share of the world\u2019s land. A few small countries and city-states have no outline at this resolution: their visits are in the totals and in the list, but no shape lights up for them.</p>
-    </div>
-  </section>
 """
 
 

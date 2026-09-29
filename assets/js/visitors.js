@@ -206,8 +206,8 @@
     rows = (data.countries || []).filter(function (r) { return r.v > 0; });
 
     if (!rows.length) {
-      say("No visits have been counted yet. This map fills in once the site has "
-          + "been up for a day.");
+      // Nothing counted yet: show the heading alone rather than an apology.
+      el.note.hidden = true;
       return;
     }
 
