@@ -367,7 +367,7 @@ _AL_P = "Evaluation of active learning selection strategies and characterization
 POSTERS = [
     ("CSHL", "90th Cold Spring Harbor Symposium on Quantitative Biology (AI in Biology)", "New York, United States", "2026", _GRELY_P, None),
     ("CSHL", "90th Cold Spring Harbor Symposium on Quantitative Biology (AI in Biology)", "New York, United States", "2026", _AL_P, None),
-    ("CSHL", "Biological Data Science", "Cold Spring Harbor Laboratory, New York, United States", "2024", _LEAKAGE, None),
+    ("CSHL", "Biological Data Science", "Cold Spring Harbor Laboratory, New York, United States", "2025", _LEAKAGE, None),
     ("ECCB", "23rd European Conference on Computational Biology", "Turku, Finland", "2024", _LEAKAGE, None),
     ("MLCB", "Machine Learning in Computational Biology", "Seattle, United States", "2024", _LEAKAGE, None),
     ("MLCB", "Machine Learning in Computational Biology", "Seattle, United States", "2023", _EVAL, None),
@@ -1129,12 +1129,6 @@ def places():
             <div class="vtip" id="p-tip" hidden></div>
           </div>
 
-          <div class="vkey">
-            <span class="vkey__label">Appearances here</span>
-            <div class="vkey__bubbles" id="p-key"></div>
-          </div>
-
-          <figcaption class="vcap" id="p-cap"></figcaption>
         </figure>
 
         <div class="grouplabel">
@@ -1185,8 +1179,6 @@ def visitors():
             <div class="vtip" id="v-tip" hidden></div>
           </div>
 
-          <div class="vkey" id="v-key"></div>
-          <figcaption class="vcap" id="v-updated"></figcaption>
         </figure>
 
         <div class="grouplabel">

@@ -25,11 +25,9 @@
     plate: document.getElementById("v-plate"),
     map: document.getElementById("v-map"),
     tip: document.getElementById("v-tip"),
-    key: document.getElementById("v-key"),
     ranks: document.getElementById("v-ranks"),
     rest: document.getElementById("v-rest"),
     count: document.getElementById("v-count"),
-    updated: document.getElementById("v-updated"),
     note: document.getElementById("v-note"),
     figures: document.getElementById("v-figures"),
     body: document.getElementById("v-body"),
@@ -101,28 +99,6 @@
     }
     gDots.style.display = shaded ? "none" : "";
     gLand.style.pointerEvents = shaded ? "" : "none";
-    drawKey(shaded);
-  }
-
-  function drawKey(shaded) {
-    var parts = ['<span class="vkey__label">Visits</span>'], i;
-    if (shaded) {
-      parts.push('<div class="vkey__ramp">');
-      for (i = BINS.length - 1; i >= 0; i--) {
-        parts.push('<div><i style="background:var(--vmap-' + (BINS.length - i) + ')"></i>'
-                   + "<small>≥" + BINS[i] + "</small></div>");
-      }
-      parts.push('<div><i style="background:var(--vmap-0)"></i><small>none</small></div></div>');
-    } else {
-      parts.push('<div class="vkey__bubbles">');
-      [10, 100, 1000].forEach(function (v) {
-        var d = Math.round(radius(v) * 1.5);
-        parts.push('<div><i style="width:' + d + "px;height:" + d + 'px"></i>'
-                   + "<small>" + nf.format(v) + "</small></div>");
-      });
-      parts.push("</div>");
-    }
-    el.key.innerHTML = parts.join("");
   }
 
   /* ---- pointing at a country ------------------------------------------- */
@@ -213,11 +189,6 @@
 
     el.note.hidden = true;
     el.body.hidden = false;
-    if (data.updated) {
-      el.updated.textContent = "Counted over the last " + (data.days || 90)
-                             + " days, to " + data.updated + ".";
-    }
-
     fill();
     draw();
     paint();
