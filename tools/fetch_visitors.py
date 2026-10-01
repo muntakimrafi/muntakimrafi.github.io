@@ -22,6 +22,7 @@ import datetime as dt
 import json
 import os
 import sys
+import time
 import urllib.error
 import urllib.parse
 import urllib.request
@@ -33,6 +34,12 @@ OUT = os.path.join(ROOT, "data", "visitors.json")
 DAYS = 90            # the window the page describes
 PAGE = 100           # API maximum per request
 STAMP = "%Y-%m-%dT%H:%M:%SZ"
+
+# Codes worth a second try. A 404 is in here because GoatCounter has returned
+# one mid-deploy for a route that exists the rest of the time, and a daily job
+# that gives up on a two-second blip leaves the map a day stale.
+RETRY_ON = {404, 408, 425, 429, 500, 502, 503, 504}
+ATTEMPTS = 4
 
 
 def window():
@@ -50,14 +57,33 @@ def window():
 
 
 def api(code, token, path, params):
+    """One API call, retried through the transient failures.
+
+    A wrong site code or a rejected token is raised at once: those do not get
+    better by asking again.
+    """
     url = "https://%s.goatcounter.com/api/v0/%s?%s" % (
         code, path, urllib.parse.urlencode(params))
     req = urllib.request.Request(url, headers={
         "Authorization": "Bearer %s" % token,
         "Content-Type": "application/json",
     })
-    with urllib.request.urlopen(req, timeout=60) as r:
-        return json.load(r)
+    for attempt in range(1, ATTEMPTS + 1):
+        try:
+            with urllib.request.urlopen(req, timeout=60) as r:
+                return json.load(r)
+        except urllib.error.HTTPError as e:            # a subclass of URLError
+            if e.code not in RETRY_ON or attempt == ATTEMPTS:
+                raise
+            why = "%s %s" % (e.code, e.read().decode()[:120])
+        except urllib.error.URLError as e:
+            if attempt == ATTEMPTS:
+                raise
+            why = str(e.reason)
+        wait = 5 * attempt
+        print("  %s on attempt %d of %d; retrying in %ds"
+              % (why, attempt, ATTEMPTS, wait), flush=True)
+        time.sleep(wait)
 
 
 def locations(code, token, start, end):
@@ -86,7 +112,7 @@ def main():
         sys.exit("GOATCOUNTER_CODE and GOATCOUNTER_TOKEN must both be set")
 
     start, end = window()
-    print("asking %s.goatcounter.com for %s to %s" % (code, start, end))
+    print("asking %s.goatcounter.com for %s to %s" % (code, start, end), flush=True)
 
     try:
         counts, names = locations(code, token, start, end)
