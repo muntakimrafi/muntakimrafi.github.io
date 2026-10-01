@@ -604,30 +604,39 @@ def home():
            ntalks=len(INVITED) + len(TALKS), tabs=tabs)
 
 
-# (title, status, pill class, description, [(label, url), ...])
+# Shown least finished first, with the stage deciding the pill, so the order
+# and the colour cannot drift apart from the status.
+# (title, stage, description, [(label, url), ...])
 # Unpublished entries are described by their goal only.
+STAGES = {
+    "In progress":    "pill--live",
+    "In preparation": "pill--live",
+    "Preprint":       "pill--green",
+    "Published":      "pill--muted",
+}
+
 WORK = [
-    ("hashFrag &mdash; homology, leakage and memorization", "Preprint", "pill--green",
+    ("hashFrag &mdash; homology, leakage and memorization", "Preprint",
      "Neither chromosomal nor random train/test splits account for homology within a species, so standard evaluations of genome-trained models are inflated. I measured how far, showed that the dependence on training-set similarity is not monotonic, and released hashFrag, which detects homology and partitions data at roughly a hundredth of the compute of exhaustive alignment. Its recommendation is to stratify a test set rather than build a fully orthogonal one, because an orthogonal split hides the bias instead of exposing it.",
      [("Preprint", "https://www.biorxiv.org/content/10.1101/2025.01.22.634321v2"), ("Code", "https://github.com/de-Boer-Lab/hashFrag")]),
-    ("pairFrag &mdash; genome-wide homology mapping", "In preparation", "pill--live",
+    ("pairFrag &mdash; genome-wide homology mapping", "In preparation",
      "Making homology-aware evaluation something any group can do without repeating the computation.",
      []),
-    ("Random Promoter DREAM Challenge", "Published", "pill--muted",
+    ("Random Promoter DREAM Challenge", "Published",
      "Random sequence removes the homology and sample-size ceilings at once. I designed and ran an open challenge on 6.7 million random promoters measured in yeast, with more than 110 teams and 28 final models; nineteen beat the previous state of the art. The winner had the fewest parameters and three of the top five used no transformer, so I built a framework that recombines the entrants&rsquo; modules across architectures and trainers to find out which choice carried the gain. It was the trainer. Models tuned on random yeast sequence then transferred to other species and assays.",
      [("Nature Biotechnology", "https://www.nature.com/articles/s41587-024-02414-w"),
       ("Code", "https://github.com/de-Boer-Lab/random-promoter-dream-challenge-2022")]),
-    ("Chromosome-scale sequence from outside the host", "Ongoing", "pill--live",
+    ("Chromosome-scale sequence from outside the host", "In progress",
      "Short oligos sit in one fixed context, so they cannot report on promoter&ndash;gene distance, chromatin or real transcripts. Sequence carried on yeast artificial chromosomes behaves like an extra chromosome and has never been under selection in the organism reading it. We annotated a single YAC in Luthra et al., then increased the data tenfold to train models on it, which became Yorzoi, built with Timon Schneider and Tom Ellis at Imperial College London. We are now scaling the data tenfold again for Yakformer.",
      [("Yorzoi preprint", "https://www.biorxiv.org/content/10.1101/2025.09.20.677345v1.abstract"),
       ("Yorzoi code", "https://github.com/Tom-Ellis-Lab/yorzoi")]),
-    ("High-information-content libraries", "In progress", "pill--live",
+    ("High-information-content libraries", "In progress",
      "Designing sequence synthesis approaches that create high-information-content sequence libraries.",
      []),
-    ("nextFrag (active learning)", "Preprint", "pill--green",
+    ("nextFrag &mdash; benchmarking active learning", "Preprint",
      "If every sequence has to be paid for, each one should be chosen to be informative. We benchmarked six selection strategies across architectures, datasets and configurations, simulated on pools that had already been measured, so the benchmark itself needed no new experiment. All beat random sampling, uncertainty-based methods did best while being cheapest to compute, and most of the gain from many small acquisition rounds survives with fewer, larger ones &mdash; which is what makes lab-in-the-loop practical. Selected sequences look distinctive, but selecting directly on those properties never matched active learning: informativeness is a property of the model&rsquo;s ignorance, not of the sequence. Building on this, we are extending the work to large-scale experimental data, to report how active learning is best done in genomics.",
      [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1"), ("Code", "https://github.com/de-Boer-Lab/nextFrag")]),
-    ("gRely &mdash; reliability of individual predictions", "Preprint", "pill--green",
+    ("gRely &mdash; reliability of individual predictions", "Preprint",
      "Aggregate benchmark scores cannot tell a user whether a single variant-effect prediction is correct. I built a meta-model that estimates the probability that it is, from features of the variant, gene, tissue and model. Its top-scoring fifth reaches 97% sign concordance against 54% in the bottom fifth, and it stays discriminative among the low-magnitude variants that effect-size filtering discards, which is where most GWAS signal is expected to act. It transfers zero-shot to other architectures, so reliability looks like a property of the locus rather than of the model. Begun during an internship at Genentech.",
      [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1")]),
 ]
@@ -665,8 +674,16 @@ PROJECTS = [
 
 
 def render_work(items):
+    order = list(STAGES)
+    unknown = sorted({stage for _, stage, _, _ in items} - set(order))
+    if unknown:
+        raise SystemExit("unknown project stage(s): %s\nuse one of: %s"
+                         % (", ".join(unknown), ", ".join(order)))
+
     out = []
-    for title, status, pill, text, links in items:
+    # sorted() is stable, so projects keep their order within a stage
+    for title, status, text, links in sorted(items, key=lambda w: order.index(w[1])):
+        pill = STAGES[status]
         link_html = ""
         if links:
             link_html = '\n          <p class="project__links">%s</p>' % "".join(
