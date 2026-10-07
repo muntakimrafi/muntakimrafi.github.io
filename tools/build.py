@@ -712,10 +712,7 @@ def research():
       <div class="section__head">
         <p class="eyebrow">Research</p>
         <h1>Towards mapping the cis-regulatory landscape.</h1>
-        <p class="lede">We have gained substantial ability to predict how much a DNA sequence is expressed in different cell types. But we do not fully understand the cis-regulatory landscape, or how it varies as trans factors change. I believe it is possible to map the entire cis-regulatory landscape, in every cell type, by generating the right data.</p>
-      </div>
-      <div class="prose prose--wide">
-        <p>I work on developing technologies that generate that data for the purpose of training models, and on methods to train, evaluate, interpret, and reliably apply those models.</p>
+        <p class="lede">We have gained substantial ability to predict how much a DNA sequence is expressed in different cell types. But we do not fully understand the cis-regulatory landscape, or how it varies as trans factors change. I believe it is possible to map the entire cis-regulatory landscape, in every cell type, by generating the right data and using predictive modelling. I work on developing technologies that generate that data for the purpose of training models, and on methods to train, evaluate, interpret, and reliably apply those models.</p>
       </div>
     </div>
   </section>
