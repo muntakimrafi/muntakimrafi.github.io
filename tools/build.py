@@ -711,7 +711,7 @@ def research():
     <div class="wrap">
       <div class="section__head">
         <p class="eyebrow">Research</p>
-        <h1>Learning the cis-regulatory code from sequence.</h1>
+        <h1>Towards mapping the cis-regulatory landscape.</h1>
         <p class="lede">Sequence-to-function models of gene regulation are limited less by their architecture than by their training data, most of which was generated for purposes other than training models.</p>
       </div>
       <div class="prose prose--wide">
