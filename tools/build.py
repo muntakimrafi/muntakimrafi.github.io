@@ -484,13 +484,13 @@ THEMES = [
     ("How do we generate the data?",
      "Most data used to train models of gene regulation were generated to characterise biology, not to train models. I work on developing technologies to synthesize sequence libraries and to design experiments whose purpose is to train models."),
     ("How do we train the best models?",
-     "Model performance depends on the architecture, the training strategy and how the training data are handled. I work on all three, focusing primarily on the data."),
+     "Model performance depends on the architecture, the training strategy, and how the training data are processed and different data points are weighted."),
     ("What have the models learned?",
-     "Standard evaluations overstate what a model has learned when related sequences appear in both the training and test sets. I work on detecting this homology and accounting for it, so that evaluation separates learned regulatory logic from memorization."),
+     "Standard evaluations can overstate what a model has learned, and models can learn spurious correlations and dataset structure that are predictive without being causal. I work on detecting these and accounting for them, and on evaluations robust enough to probe the different aspects of the underlying problem. Separating learned regulatory logic from memorization is a step towards causal modelling."),
     ("Can we trust a single prediction?",
-     "Aggregate benchmark scores say little about whether an individual prediction, such as a single variant effect, is correct. I work on estimating the reliability of individual predictions."),
+     "Model performance is usually reported over a whole held-out test set, capturing different aspects of the underlying problem. That does not tell us how much to trust an individual prediction, such as a single variant effect. I work on estimating the reliability of individual predictions."),
     ("Can we trust how we read them?",
-     "Most biological conclusions from these models are drawn through interpretation methods such as attribution and perturbation, which are themselves rarely tested. I work on assessing how faithfully they report what a model has learned."),
+     "Most biological conclusions from these models are drawn through interpretation methods such as attribution and perturbation, which are themselves not extensively tested. I work on assessing how faithful different interpretation methods are."),
 ]
 
 TABS = [
@@ -522,9 +522,9 @@ def home():
       <div class="hero__thesis">
         <p class="eyebrow">{role}</p>
         <h1>To benefit from scaling laws in biology, <em>we need to synthesize the right data with the goal of training models.</em></h1>
-        <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the <a href="{lab}" target="_blank" rel="noopener">de Boer Lab</a>. Almost every model of gene regulation is trained on data that was generated for some other reason: an atlas, a consortium characterisation, whatever happened to get measured. The field has built remarkable models on top of leftovers, and has rarely built the experiment for the model.</p>
-        <p class="hero__mission">I am working on addressing that gap. I design experiments whose purpose is to synthesize the most suitable data for training models, at a throughput worth training on.</p>
-        <p class="hero__mission">Better data is only half of it. Every experiment and dataset carries its own bias, and a model will fit that bias as readily as the biology, so the rest of my work is on ensuring the models learn causal structure rather than the correlations an assay left behind, on a faithful reporting of the model&rsquo;s performance, and on knowing when to trust a prediction and the interpretation we draw from it. Trust is what makes them worth using.</p>
+        <p class="hero__mission">I am a PhD candidate in Biomedical Engineering at the University of British Columbia, in the <a href="{lab}" target="_blank" rel="noopener">de Boer Lab</a>. Almost every model of gene regulation is trained on data that was generated for some other reason: an atlas, a consortium characterisation, whatever happened to get measured.</p>
+        <p class="hero__mission">I am working on addressing that gap. I design experiments whose purpose is to synthesize the most suitable data for training models, at a throughput worth training on. The goal is to scale.</p>
+        <p class="hero__mission">Scaling informative data is not all of my research. Every experiment and dataset carries its own bias, and a model will fit that bias as readily as the biology, so the rest of my work is on ensuring the models learn causal features rather than the correlations an assay or dataset structure has. I focus heavily on a faithful reporting of the model&rsquo;s performance, and on knowing when to trust a prediction and even the interpretation we draw from it. If you can&rsquo;t trust, you can&rsquo;t use it.</p>
         <div class="hero__actions">
           <a class="btn btn--primary" href="{cv}" target="_blank" rel="noopener">Curriculum vitae (PDF)</a>
           <a class="btn btn--ghost" href="publications.html">Publications</a>
@@ -555,7 +555,7 @@ def home():
       <div class="section__head">
         <p class="eyebrow">Current work</p>
         <h2>What I work on.</h2>
-        <p class="lede">My work spans the path from data to application: how training data is generated, how models are trained and evaluated, and when their predictions and interpretations can be trusted.</p>
+        <p class="lede">My work spans from generating data for models to applying the models to understand biology: how training data is generated, how models are trained and evaluated, and when their predictions and interpretations can be trusted.</p>
       </div>
       <div class="themes">
 {themes}
