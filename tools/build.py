@@ -504,11 +504,15 @@ TABS = [
     ("visitors.html", "Visitors", "A map of the countries this site is read from."),
 ]
 
-def home():
-    topics = "\n".join("          <li>%s</li>" % t for t in TOPICS)
-    themes = "\n".join(
+def theme_cards():
+    return "\n".join(
         '        <article class="theme">\n          <h3>%s</h3>\n          <p>%s</p>\n        </article>' % (t, d)
         for t, d in THEMES)
+
+
+def home():
+    topics = "\n".join("          <li>%s</li>" % t for t in TOPICS)
+    themes = theme_cards()
     tabs = "\n".join(
         '        <a class="cardlink" href="%s">\n'
         '          <span class="cardlink__label">%s</span>\n'
@@ -700,7 +704,7 @@ def render_work(items):
 
 
 def research():
-    themes = "\n".join(record(title, note=text) for title, text in THEMES)
+    themes = theme_cards()
     projects = "\n".join(
         record(t, where=("%s &middot; PI: %s" % (s, p)) if p else s,
                when=w, note="%s. %s." % (f, r))
@@ -720,10 +724,9 @@ def research():
   <section class="section">
     <div class="wrap">
       <div class="section__head">
-        <p class="eyebrow">Themes</p>
-        <h2>The questions my work addresses.</h2>
+        <h2>The questions I try to address in my work.</h2>
       </div>
-      <div class="records">
+      <div class="themes">
 {themes}
       </div>
     </div>
