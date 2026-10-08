@@ -884,12 +884,12 @@ def teaching():
     ])
 
     mentorship = "\n".join([
-        record('<a href="https://bsri-bd.github.io/" target="_blank" rel="noopener">Bangladeshi Student Research Initiative</a>',
-               where="Founder", when="2024 &ndash; present", mark="BSRI",
-               note="A non-profit connecting undergraduate and postgraduate students in Bangladesh with Bangladeshi researchers in academia and industry abroad, through free mentorship programmes. Mentees are matched across a volunteer network, so the students I mentor through it are separate from those I supervise in the lab."),
         record('<a href="%s" target="_blank" rel="noopener">de Boer Lab</a>' % LAB,
                where="School of Biomedical Engineering, UBC", when="2023 &ndash; present", mark="DBL",
                note="Sole supervisor for five co-op students on self-designed research projects; one of them went on to receive SBME Synergy funding. I also mentor PhD students in the lab."),
+        record('<a href="https://bsri-bd.github.io/" target="_blank" rel="noopener">Bangladeshi Student Research Initiative</a>',
+               where="Founder", when="2024 &ndash; present", mark="BSRI",
+               note="A non-profit connecting undergraduate and postgraduate students in Bangladesh with Bangladeshi researchers in academia and industry abroad, through free mentorship programmes. Mentees are matched across a volunteer network, so the students I mentor through it are separate from those I supervise in the lab."),
     ])
 
     return """
