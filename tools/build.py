@@ -888,7 +888,7 @@ STUDENTS = [
      '<a href="https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1" target="_blank" rel="noopener">nextFrag</a>, '
      "benchmarking active learning strategies for sequence-to-expression models. Co-first author on the preprint."),
     ("Bj&ouml;rn Holst", "bjorn-holst", "Computer Science, UBC &middot; SBME Synergy studentship", "Summer 2023",
-     "Data-driven ways to improve cis-regulatory models. The work led us to realize what kinds of sequences are most informative for training sequence-to-expression models, and to invent a sequence synthesis method for creating high-information-content sequence libraries."),
+     "Figuring out which data composition would help us improve cis-regulatory models. The finding from this work led us to realize what kinds of sequences are most informative for training sequence-to-expression models, and to invent a sequence synthesis method for creating high-information-content sequence libraries."),
     ("Hudson Nock", "hudson-nock", "Engineering Physics, UBC", "Winter 2023",
      "Benchmarking tools for interpreting neural networks that predict expression from DNA. The paper will be submitted soon."),
 ]
