@@ -898,7 +898,7 @@ def teaching():
       <div class="section__head">
         <p class="eyebrow">Teaching</p>
         <h1>Teaching and supervision.</h1>
-        <p class="lede">Courses I have taught as a graduate teaching assistant, and the co-op and PhD students I have supervised.</p>
+        <p class="lede">For me, the best part of my job is training the next generation of scientists.</p>
       </div>
       <p class="status">
         <span class="status__dot" aria-hidden="true"></span>
@@ -910,11 +910,11 @@ def teaching():
   <section class="section">
     <div class="wrap">
       <div class="section__head">
-        <p class="eyebrow">Teaching assistantships</p>
-        <h2>Courses I have taught.</h2>
+        <p class="eyebrow">Mentorship</p>
+        <h2>Students I have supervised.</h2>
       </div>
       <div class="records">
-{courses}
+{mentorship}
       </div>
     </div>
   </section>
@@ -922,11 +922,11 @@ def teaching():
   <section class="section">
     <div class="wrap">
       <div class="section__head">
-        <p class="eyebrow">Mentorship</p>
-        <h2>Students I have supervised.</h2>
+        <p class="eyebrow">Teaching assistantships</p>
+        <h2>Courses I have taught.</h2>
       </div>
       <div class="records">
-{mentorship}
+{courses}
       </div>
     </div>
   </section>
