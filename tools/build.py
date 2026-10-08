@@ -883,12 +883,12 @@ STUDENTS = [
     ("Kevin Zhai", "kevin-zhai", "Computer Science and Statistics, UBC", "Winter 2025 &ndash; present",
      "pairFrag, genome-wide homology mapping. The paper is coming soon."),
     ("Samuel Lau", "samuel-lau", "Engineering Physics, UBC", "Winter 2026",
-     "Yakformer: integrating MPRA-based representations with genomic context models."),
+     "Yakformer: improving models with chromosome-scale naive DNA. The paper is coming soon."),
     ("Justin Qian", "justin-qian", "Engineering Physics, UBC", "Winter 2025 &ndash; Winter 2026",
      '<a href="https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1" target="_blank" rel="noopener">nextFrag</a>, '
      "benchmarking active learning strategies for sequence-to-expression models. Co-first author on the preprint."),
     ("Bj&ouml;rn Holst", "bjorn-holst", "Computer Science, UBC &middot; SBME Synergy studentship", "Summer 2023",
-     "Data-driven ways to improve cis-regulatory models. The work led us to invent a sequence synthesis method for high-information-content libraries."),
+     "Data-driven ways to improve cis-regulatory models. The work led us to realize what kinds of sequences are most informative for training sequence-to-expression models, and to invent a sequence synthesis method for creating high-information-content sequence libraries."),
     ("Hudson Nock", "hudson-nock", "Engineering Physics, UBC", "Winter 2023",
      "Benchmarking tools for interpreting neural networks that predict expression from DNA. The paper will be submitted soon."),
 ]
@@ -919,7 +919,7 @@ def teaching():
         '      <div class="records records--nested">\n%s\n      </div>' % students,
         record('<a href="https://bsri-bd.github.io/" target="_blank" rel="noopener">Bangladeshi Student Research Initiative</a>',
                where="Founder", when="2024 &ndash; present", mark="BSRI",
-               note="A non-profit connecting undergraduate and postgraduate students in Bangladesh with Bangladeshi researchers in academia and industry abroad, through free mentorship programmes. Mentees are matched across a volunteer network, so the students I mentor through it are separate from those I supervise in the lab."),
+               note="A non-profit connecting undergraduate and postgraduate students in Bangladesh with Bangladeshi researchers in academia and industry abroad, through free mentorship programmes. Mentees are matched across a volunteer network, so the students I mentor through it are separate from those I supervise in the lab. They do not work full time like my lab students, so I focus more on introducing them to good research habits than on finishing a project end-to-end."),
     ])
 
     return """
