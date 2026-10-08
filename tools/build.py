@@ -427,11 +427,12 @@ def render_talks(items):
     return "\n".join(out)
 
 
-def record(name, where=None, when=None, note=None, links=None, items=None, mark=None):
+def record(name, where=None, when=None, note=None, links=None, items=None, mark=None, photo=None):
     """One row of a labelled record: what it was, where, and when.
 
     mark, if given, puts the same logo-or-initials tile as the talk cards in
-    front of the row.
+    front of the row; photo, a path to a square image, puts a round portrait
+    there instead.
     """
     parts = ['        <h3 class="record__name">%s</h3>' % name]
     if where:
@@ -446,8 +447,12 @@ def record(name, where=None, when=None, note=None, links=None, items=None, mark=
             '<a class="pub__link" href="%s" target="_blank" rel="noopener">%s</a>' % (u, l) for l, u in links))
     when_html = '\n      <p class="record__when">%s</p>' % when if when else ""
     mark_html, cls = "", "record"
-    if mark:
+    if photo:
+        kind, inner = "photo", ('<img class="record__photo" src="%s" alt="" '
+                                'loading="lazy" decoding="async">' % photo)
+    elif mark:
         kind, inner = venue_mark(mark)
+    if photo or mark:
         mark_html = ('\n      <span class="talkcard__mark talkcard__mark--%s record__mark" aria-hidden="true">%s</span>'
                      % (kind, inner))
         cls = "record record--marked"
@@ -869,6 +874,26 @@ MDS_COURSES = [
 ]
 
 
+STUDENT_IMG_DIR = "assets/img/students"
+
+# Co-op students I supervised in the de Boer Lab, most recent first. Photos
+# are square crops of the ones on the lab's people and alumni pages.
+# (name, photo, affiliation, when, what they worked on)
+STUDENTS = [
+    ("Kevin Zhai", "kevin-zhai", "Computer Science and Statistics, UBC", "Winter 2025 &ndash; present",
+     "pairFrag, genome-wide homology mapping. The paper is coming soon."),
+    ("Samuel Lau", "samuel-lau", "Engineering Physics, UBC", "Winter 2026",
+     "Yakformer: integrating MPRA-based representations with genomic context models."),
+    ("Justin Qian", "justin-qian", "Engineering Physics, UBC", "Winter 2025 &ndash; Winter 2026",
+     '<a href="https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1" target="_blank" rel="noopener">nextFrag</a>, '
+     "benchmarking active learning strategies for sequence-to-expression models. Co-first author on the preprint."),
+    ("Bj&ouml;rn Holst", "bjorn-holst", "Computer Science, UBC &middot; SBME Synergy studentship", "Summer 2023",
+     "Data-driven ways to improve cis-regulatory models. The work led us to invent a sequence synthesis method for high-information-content libraries."),
+    ("Hudson Nock", "hudson-nock", "Engineering Physics, UBC", "Winter 2023",
+     "Benchmarking tools for interpreting neural networks that predict expression from DNA. The paper will be submitted soon."),
+]
+
+
 def teaching():
     courses = "\n".join([
         record("Graduate Teaching Assistant &mdash; Master of Data Science",
@@ -883,10 +908,15 @@ def teaching():
                items=["ELEC 8330: Computational Intelligence", "GENG 2320: Engineering Software Fundamentals"]),
     ])
 
+    students = "\n".join(
+        record(n, where=a, when=w, note=t, photo="%s/%s.jpg" % (STUDENT_IMG_DIR, p))
+        for n, p, a, w, t in STUDENTS)
+
     mentorship = "\n".join([
         record('<a href="%s" target="_blank" rel="noopener">de Boer Lab</a>' % LAB,
                where="School of Biomedical Engineering, UBC", when="2023 &ndash; present", mark="DBL",
-               note="Sole supervisor for five co-op students on self-designed research projects. Justin Qian benchmarked active learning strategies and is first author on the <a href=\"https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1\" target=\"_blank\" rel=\"noopener\">nextFrag preprint</a>. Kevin Zhai worked on pairFrag, genome-wide homology mapping, and is submitting it soon. Bj&ouml;rn Holst received SBME Synergy funding, and his work led us to invent a sequence synthesis method for high-information-content libraries. Hudson Nock benchmarked interpretation tools, with a paper soon to be submitted. Samuel Lau worked on Yakformer. I also mentor PhD students in the lab."),
+               note="Sole supervisor for five co-op students on self-designed research projects. I also mentor PhD students in the lab."),
+        '      <div class="records records--nested">\n%s\n      </div>' % students,
         record('<a href="https://bsri-bd.github.io/" target="_blank" rel="noopener">Bangladeshi Student Research Initiative</a>',
                where="Founder", when="2024 &ndash; present", mark="BSRI",
                note="A non-profit connecting undergraduate and postgraduate students in Bangladesh with Bangladeshi researchers in academia and industry abroad, through free mentorship programmes. Mentees are matched across a volunteer network, so the students I mentor through it are separate from those I supervise in the lab."),

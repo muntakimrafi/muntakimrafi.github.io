@@ -756,6 +756,21 @@ a:hover { color: var(--ink); }
   .record--marked .record__when { grid-column: 1 / -1; padding-top: 0; }
 }
 
+/* A person rather than an institution: a round portrait in the tile */
+.talkcard__mark--photo { padding: 0; overflow: hidden; border-radius: 50%; }
+.record__photo { width: 100%; height: 100%; object-fit: cover; display: block; }
+
+/* Rows that belong to the record above, hung from its text column */
+.records--nested { border-top: 0; border-bottom: 1px solid var(--rule); padding-left: 4.55rem; }
+.records--nested > .record:last-child { border-bottom: 0; }
+.record:has(+ .records--nested) { border-bottom: 0; }
+/* Terms such as "Winter 2025 – Winter 2026" outrun the 9rem date column */
+.records--nested .record--marked { grid-template-columns: 3.4rem minmax(0, 1fr) auto; }
+@media (max-width: 46rem) {
+  .records--nested { padding-left: 3.95rem; }
+  .records--nested .record--marked { grid-template-columns: 2.8rem minmax(0, 1fr); }
+}
+
 .record__main { display: flex; flex-direction: column; gap: .3rem; min-width: 0; }
 .record__name {
   font-family: var(--font-display);
