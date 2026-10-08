@@ -535,7 +535,7 @@ def home():
         </div>
         <p class="status">
           <span class="status__dot" aria-hidden="true"></span>
-          <span><strong>I am always looking for students to work with.</strong> I have supervised six co-op and PhD students in the de Boer Lab, and motivated undergraduates and high-school students are welcome to <a href="mailto:{email}">get in touch</a>.</span>
+          <span><strong>I am always looking for students to work with.</strong> I have supervised six co-op and PhD students in the de Boer Lab, and motivated graduate, undergraduate and high-school students are welcome to <a href="mailto:{email}">get in touch</a>.</span>
         </p>
         <p class="hero__note">Vancouver, Canada</p>
       </div>
@@ -902,7 +902,7 @@ def teaching():
       </div>
       <p class="status">
         <span class="status__dot" aria-hidden="true"></span>
-        <span><strong>I am always looking for students to work with.</strong> Motivated undergraduates and high-school students interested in machine learning for genomics are welcome to <a href="mailto:{email}">write to me</a>.</span>
+        <span><strong>I am always looking for students to work with.</strong> Motivated graduate, undergraduate and high-school students interested in machine learning for genomics are welcome to <a href="mailto:{email}">write to me</a>.</span>
       </p>
     </div>
   </section>
