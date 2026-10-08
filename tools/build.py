@@ -498,16 +498,6 @@ THEMES = [
      "Most biological conclusions from these models are drawn through interpretation methods such as attribution and perturbation, which are themselves not extensively tested. I work on assessing how faithful different interpretation methods are."),
 ]
 
-TABS = [
-    ("research.html", "Research", "The questions my work addresses, my projects, and their funding."),
-    ("publications.html", "Publications", "Journal articles, conference papers and preprints."),
-    ("talks.html", "Talks", "Talks, posters and workshops I have run."),
-    ("teaching.html", "Teaching", "Courses I have taught and the students I have supervised."),
-    ("service.html", "Service", "Peer review, programme committees and community work."),
-    ("cv.html", "CV", "The full curriculum vitae, as a PDF."),
-    ("places.html", "Places", "A map of everywhere I have given a talk, poster or workshop in person."),
-    ("visitors.html", "Visitors", "A map of the countries this site is read from."),
-]
 
 def theme_cards():
     return "\n".join(
@@ -518,12 +508,6 @@ def theme_cards():
 def home():
     topics = "\n".join("          <li>%s</li>" % t for t in TOPICS)
     themes = theme_cards()
-    tabs = "\n".join(
-        '        <a class="cardlink" href="%s">\n'
-        '          <span class="cardlink__label">%s</span>\n'
-        '          <span class="cardlink__text">%s</span>\n'
-        '          <span class="cardlink__arrow" aria-hidden="true">&rarr;</span>\n'
-        '        </a>' % (h, l, d) for h, l, d in TABS)
 
     return """
 <section class="hero wrap" id="top">
@@ -598,19 +582,9 @@ def home():
     </div>
   </section>
 
-  <section class="section">
-    <div class="wrap">
-      <div class="section__head">
-        <p class="eyebrow">Elsewhere on this site</p>
-      </div>
-      <div>
-{tabs}
-      </div>
-    </div>
-  </section>
 """.format(role=ROLE, cv=CV_PDF, email=EMAIL, name=NAME, lab=LAB, themes=themes, topics=topics,
            ntopics=len(TOPICS), npeer=len(JOURNALS) + len(CONFERENCES), npre=len(PREPRINTS),
-           ntalks=len(INVITED) + len(TALKS), tabs=tabs)
+           ntalks=len(INVITED) + len(TALKS))
 
 
 # Shown least finished first, with the stage deciding the pill, so the order
