@@ -915,7 +915,7 @@ def teaching():
     mentorship = "\n".join([
         record('<a href="%s" target="_blank" rel="noopener">de Boer Lab</a>' % LAB,
                where="School of Biomedical Engineering, UBC", when="2023 &ndash; present", mark="DBL",
-               note="Sole supervisor for five co-op students on self-designed research projects. I also mentor PhD students in the lab."),
+               note="Sole supervisor for five co-op students on research projects I designed. I also mentor PhD students in the lab."),
         '      <div class="records records--nested">\n%s\n      </div>' % students,
         record('<a href="https://bsri-bd.github.io/" target="_blank" rel="noopener">Bangladeshi Student Research Initiative</a>',
                where="Founder", when="2024 &ndash; present", mark="BSRI",
