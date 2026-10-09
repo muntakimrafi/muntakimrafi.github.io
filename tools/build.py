@@ -201,10 +201,10 @@ def authors(text):
 PREPRINTS = [
     ("2026",
      "gRely: Reliability for genome-trained sequence-to-function model predictions",
-     "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1",
+     "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v2.full.pdf",
      "Abdul Muntakim Rafi<sup>&dagger;</sup>, G&ouml;k&ccedil;en Eraslan, Kipper Fletez-Brant<sup>&dagger;</sup>",
      "bioRxiv &middot; under review",
-     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1")]),
+     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v2.full.pdf")]),
     ("2026",
      "Evaluation of active learning selection strategies and characterization of informative sequences for sequence-to-expression models",
      "https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1",
@@ -621,7 +621,7 @@ WORK = [
      [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1"), ("Code", "https://github.com/de-Boer-Lab/nextFrag")]),
     ("gRely &mdash; reliability of individual predictions", "Preprint",
      "Aggregate benchmark scores cannot tell a user whether a single variant-effect prediction is correct. I built a meta-model that estimates the probability that it is, from features of the variant, gene, tissue and model. Its top-scoring fifth reaches 97% sign concordance against 54% in the bottom fifth, and it stays discriminative among the low-magnitude variants that effect-size filtering discards, which is where most GWAS signal is expected to act. It transfers zero-shot to other architectures, so reliability looks like a property of the locus rather than of the model. Begun during an internship at Genentech.",
-     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1")]),
+     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v2.full.pdf")]),
 ]
 
 
