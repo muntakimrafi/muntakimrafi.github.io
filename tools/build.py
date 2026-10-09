@@ -201,10 +201,10 @@ def authors(text):
 PREPRINTS = [
     ("2026",
      "gRely: Reliability for genome-trained sequence-to-function model predictions",
-     "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1",
+     "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v2",
      "Abdul Muntakim Rafi<sup>&dagger;</sup>, G&ouml;k&ccedil;en Eraslan, Kipper Fletez-Brant<sup>&dagger;</sup>",
      "bioRxiv &middot; under review",
-     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1")]),
+     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v2")]),
     ("2026",
      "Evaluation of active learning selection strategies and characterization of informative sequences for sequence-to-expression models",
      "https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1",
@@ -471,7 +471,7 @@ TOPICS = [
     "Large-scale DNA synthesis",
     "Massively parallel reporter assays",
     "Active learning",
-    "Lab-in-the-loop experiments",
+    "Lab-in-the-loop",
     "Experimental automation",
     "Sequence design",
     "Deep learning",
@@ -536,8 +536,7 @@ def home():
         <dl class="facts">
           <div class="fact"><dt>Position</dt><dd>PhD candidate, Biomedical Engineering</dd></div>
           <div class="fact"><dt>Lab</dt><dd><a href="{lab}" target="_blank" rel="noopener">de Boer Lab</a>, School of Biomedical Engineering, UBC</dd></div>
-          <div class="fact"><dt>Since</dt><dd>2021</dd></div>
-          <div class="fact"><dt>Before</dt><dd>MASc, University of Windsor &middot; BSc, BUET</dd></div>
+          <div class="fact"><dt>Previously</dt><dd>Genentech &middot; Walmart &middot; University of Windsor &middot; BUET</dd></div>
         </dl>
       </div>
     </div>
@@ -621,7 +620,7 @@ WORK = [
      [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.21.727038v1"), ("Code", "https://github.com/de-Boer-Lab/nextFrag")]),
     ("gRely &mdash; reliability of individual predictions", "Preprint",
      "Aggregate benchmark scores cannot tell a user whether a single variant-effect prediction is correct. I built a meta-model that estimates the probability that it is, from features of the variant, gene, tissue and model. Its top-scoring fifth reaches 97% sign concordance against 54% in the bottom fifth, and it stays discriminative among the low-magnitude variants that effect-size filtering discards, which is where most GWAS signal is expected to act. It transfers zero-shot to other architectures, so reliability looks like a property of the locus rather than of the model. Begun during an internship at Genentech.",
-     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v1")]),
+     [("Preprint", "https://www.biorxiv.org/content/10.64898/2026.05.23.727431v2")]),
 ]
 
 
