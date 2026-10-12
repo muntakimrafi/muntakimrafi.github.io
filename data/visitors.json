@@ -1,7 +1,7 @@
 {
- "updated": "2026-10-11",
+ "updated": "2026-10-12",
  "days": 90,
- "total": 112,
+ "total": 113,
  "countries": [
   {
    "c": "CA",
@@ -31,6 +31,11 @@
   {
    "c": "AL",
    "n": "Albania",
+   "v": 1
+  },
+  {
+   "c": "IN",
+   "n": "India",
    "v": 1
   },
   {
