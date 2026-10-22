@@ -536,7 +536,7 @@ def home():
         <dl class="facts">
           <div class="fact"><dt>Position</dt><dd>PhD candidate, Biomedical Engineering</dd></div>
           <div class="fact"><dt>Lab</dt><dd><a href="{lab}" target="_blank" rel="noopener">de Boer Lab</a>, School of Biomedical Engineering, UBC</dd></div>
-          <div class="fact"><dt>Previously</dt><dd>Genentech &middot; Walmart &middot; University of Windsor &middot; BUET</dd></div>
+          <div class="fact"><dt>Previously</dt><dd>Genentech &middot; University of Windsor &middot; BUET</dd></div>
         </dl>
       </div>
     </div>
