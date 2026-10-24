@@ -1,17 +1,17 @@
 {
- "updated": "2026-10-23",
+ "updated": "2026-10-24",
  "days": 90,
- "total": 188,
+ "total": 191,
  "countries": [
   {
    "c": "CA",
    "n": "Canada",
-   "v": 150
+   "v": 151
   },
   {
    "c": "US",
    "n": "United States",
-   "v": 13
+   "v": 15
   },
   {
    "c": "DE",
