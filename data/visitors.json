@@ -1,17 +1,22 @@
 {
- "updated": "2026-11-17",
+ "updated": "2026-11-18",
  "days": 90,
- "total": 255,
+ "total": 267,
  "countries": [
   {
    "c": "CA",
    "n": "Canada",
-   "v": 201
+   "v": 203
   },
   {
    "c": "US",
    "n": "United States",
-   "v": 25
+   "v": 29
+  },
+  {
+   "c": "BD",
+   "n": "Bangladesh",
+   "v": 8
   },
   {
    "c": "DE",
@@ -31,11 +36,6 @@
   {
    "c": "AE",
    "n": "United Arab Emirates",
-   "v": 2
-  },
-  {
-   "c": "BD",
-   "n": "Bangladesh",
    "v": 2
   },
   {
