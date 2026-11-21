@@ -1,7 +1,7 @@
 {
- "updated": "2026-11-20",
+ "updated": "2026-11-21",
  "days": 90,
- "total": 269,
+ "total": 273,
  "countries": [
   {
    "c": "CA",
@@ -11,12 +11,12 @@
   {
    "c": "US",
    "n": "United States",
-   "v": 30
+   "v": 31
   },
   {
    "c": "BD",
    "n": "Bangladesh",
-   "v": 8
+   "v": 9
   },
   {
    "c": "DE",
@@ -59,8 +59,18 @@
    "v": 2
   },
   {
+   "c": "TR",
+   "n": "Turkey",
+   "v": 2
+  },
+  {
    "c": "AL",
    "n": "Albania",
+   "v": 1
+  },
+  {
+   "c": "CO",
+   "n": "Colombia",
    "v": 1
   },
   {
@@ -76,11 +86,6 @@
   {
    "c": "NG",
    "n": "Nigeria",
-   "v": 1
-  },
-  {
-   "c": "TR",
-   "n": "Turkey",
    "v": 1
   }
  ]
